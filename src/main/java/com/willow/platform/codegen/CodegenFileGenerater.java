@@ -56,8 +56,18 @@ public class CodegenFileGenerater {
                 pathFile.mkdirs();
             }
             String willowFileName = baseDir + dir + "\\" + fileName;
-            FileUtil.saveFile(willowFileName, contentMap.get(refTemplate), "UTF-8");
-            logger.info("生成" + willowFileName + "成功");
+            File willowFile = new File(willowFileName);
+            if (willowFile.exists()) {
+                if (outFileConfig.getOverride()) {
+                    FileUtil.saveFile(willowFileName, contentMap.get(refTemplate), "UTF-8");
+                    logger.info("生成" + willowFileName + "成功");
+                }
+            } else {
+                FileUtil.saveFile(willowFileName, contentMap.get(refTemplate), "UTF-8");
+                logger.info("生成" + willowFileName + "成功");
+            }
+
+
         }
     }
 

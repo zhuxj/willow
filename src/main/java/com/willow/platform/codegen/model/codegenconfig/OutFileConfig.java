@@ -16,6 +16,15 @@ public class OutFileConfig {
     private String refTemplate;
     private String fileName;
     private String dir;
+    private Boolean override;
+
+    public Boolean getOverride() {
+        return override;
+    }
+
+    public void setOverride(Boolean override) {
+        this.override = override;
+    }
 
     public String getRefTemplate() {
         return refTemplate;

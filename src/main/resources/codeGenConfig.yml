@@ -22,11 +22,11 @@ ftlConfig:
 codeGenFileConfig:
     baseDir: E:\05projectDev\willow
     outFileConfigs:
-          - {refTemplate: domain, fileName: $classVar$.java,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\domain}
-          - {refTemplate: mapper, fileName: $classVar$Mapper.java,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\mapper}
-          - {refTemplate: mapper.xml, fileName: $classVar$.mapper.xml,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\mapper}
-          - {refTemplate: dao, fileName: $classVar$Dao.java,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\dao}
-          - {refTemplate: service, fileName: $classVar$Service.java,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\service}
+          - {refTemplate: domain, fileName: $classVar$.java,override: true,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\domain}
+          - {refTemplate: mapper, fileName: $classVar$Mapper.java,override: false,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\mapper}
+          - {refTemplate: mapper.xml, fileName: $classVar$.mapper.xml,override: true,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\mapper}
+          - {refTemplate: dao, fileName: $classVar$Dao.java,override: false,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\dao}
+          - {refTemplate: service, fileName: $classVar$Service.java,override: false,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\service}
 #表配置信息
 table:
     tableCode: sys_user
