@@ -1,0 +1,40 @@
+!!com.willow.platform.codegen.model.codegenconfig.CodeGenConfig
+#数据库配置
+databaseConfig:
+    url:    jdbc:mysql://localhost:3306/platform?useUnicode=true&characterEncoding=UTF-8
+    userName:   book
+    password:   book
+#开发者信息配置
+developerConfig:
+    developer: 朱贤俊
+    company: 贤俊工作室
+    version: 1.0
+#模板信息
+ftlConfig:
+    basePath: codegen/door/tpl_one/
+    templateConfigs:
+         - {id: domain,name: doordomain.ftl}
+         - {id: mapper,name: doormapper.ftl}
+         - {id: mapper.xml,name: doormapper.xml.ftl}
+         - {id: dao,name: doordao.ftl}
+         - {id: service,name: doorservice.ftl}
+#生成文件路径
+codeGenFileConfig:
+    baseDir: E:\05projectDev\willow\
+    outFileConfigs:
+          - {refTemplate: domain, fileName: $classVar$.java,dir: src\main\java\com\willow\platform\module\basic\$simplePackageVar$\domain}
+          - {refTemplate: mapper, fileName: $classVar$Mapper.java,dir: src\main\java\com\willow\platform\module\basic\$simplePackageVar$\mapper}
+          - {refTemplate: mapper.xml, fileName: $classVar$.mapper.xml,dir: src\main\java\com\willow\platform\module\basic\$simplePackageVar$\mapper}
+          - {refTemplate: dao, fileName: $classVar$Dao.java,dir: src\main\java\com\willow\platform\module\basic\$simplePackageVar$\dao}
+          - {refTemplate: service, fileName: $classVar$Service.java,dir: src\main\java\com\willow\platform\module\basic\$simplePackageVar$\service}
+#表配置信息
+table:
+    tableCode: sys_user
+    tableName: 系统用户
+    classVar: SysUser
+    packageVar: com.willow.platform.module.basic.sysuser
+    simplePackageVar: sysuser
+
+
+
+

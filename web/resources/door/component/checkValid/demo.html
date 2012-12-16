@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>验证框架</title>
+    <script src="/resources/js/jquery/jquery-1.6.3.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/checkValid.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var config = {
+                reportMode:"hint", //可选值为 alert|hint,默认为alert；前者为弹出对话框的方式报告错误，后者为DIV的方式，需要表单页面中存在错误报表的DIV ，如果没有这则使用弹出对话框
+                props:[
+                    {
+                        name:"name", //表单对用的name或id的值,
+                        hintId:"nameHintId", //错误信息显示区域id
+                        label:"名称", //表单对应的中文名.
+                        trim:true, //在检验长度时，是否需要先去除前后的空格，默认为true
+                        required:true, //是否必填，默认为false;
+                        lengthRange:{min:1, max:3, unit:"char"} //长度校验规则，有4个属性：min,max,fixlen,unit,如果是范围可以使用min和max，支持开区间，如
+                        //长度必须小于 100，仅设置max:100就可以了，如果必须大于10，则仅需设置min:10。
+                        //如果需要固定长度,可以通过fixlen属性来设置,unit为长度测量的单位：byte|char，默认为byte（一个中文对应2个字节长度）
+                    },
+                    {
+                        name:"age",
+                        label:"年龄",
+                        trim:true,
+                        required:true,
+                        dataType:"int",
+                        valueRange:{min:1, max:150}//如果是数字，则可以指定范围，min和max至少要设置一个属性。
+                    },
+                    {
+                        name:"email",
+                        label:"邮箱",
+                        trim:true,
+                        required:true,
+                        dataType:"email"//dataType:[int|email|tel|postcode|url|en|cn|number|date]
+                        //数据的类型，支持 email：电子邮件
+                        // tel：电话
+                        // postcode:邮政编码
+                        // url：URL
+                        // an:数英及下划线
+                        // en:英文字符（ASCII字符）
+                        // cn:中文字符
+                        //int:整数
+                        // number 数字类型:(支持标准数据表示形式，如number(4,2),number(4)等。)
+                        // date:日期,格式为:yyyy-MM-dd
+                    },
+                    {
+                        name:"tel",
+                        label:"电话",
+                        trim:true,
+                        required:true,
+                        dataType:"tel"
+                    },
+                    {
+                        name:"cusf",
+                        label:"自定义函数",
+                        trim:true,
+                        required:true,
+                        jsFunction:function (property, propValue, validResult) {//支持自定义验证函数
+                            //property:校验配置对象，参见上面配置JSON格式的说明
+                            //propValue：当前表单的值
+                            //validResult：校验的结果对象，如果验证失败，必须调用该对象的setError()方法
+                            if (!/^([0-9])*-?([0-9])*$/.test(propValue)) {
+                                validResult.setError(property.formatLabel + "不正确");
+                                return false;
+                            }
+                            return true;
+                        }
+                    },
+                    {
+                        name:"par",
+                        label:"正则表达式",
+                        trim:true,
+                        required:true,
+                        pattern:{regExp:"/^([0-9])*-?([0-9])*$/", errorMsg:"正则表达式验证不通过"}//支持正则表达式验证表单数据的合法性
+                    },
+                    {
+                        name:"num",
+                        label:"数字",
+                        trim:true,
+                        required:true,
+                        dataType:"number(4,2)"
+                    },
+                    {
+                        name:"int",
+                        label:"整型",
+                        trim:true,
+                        required:true,
+                        dataType:"int"
+                    },
+                    {
+                        name:"date",
+                        label:"日期",
+                        trim:true,
+                        required:true,
+                        dataType:"date"
+                    }
+                ]
+            }
+            var checkValid = $.checkValid(config);//构建验证对象
+            $("#ok").click(function () {
+                if (checkValid.checkAll()) {//当验证通过后进行其他操作
+                    alert("验证通过");
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+<table cellspacing="1" cellpadding="3" width="100%">
+    <tbody>
+    <tr>
+        <td class="label">姓名</td>
+        <td><input type="text" name="name" id="name"><span id="nameHintId" style="color: red"></span></td>
+    </tr>
+    <tr>
+        <td class="label">年龄</td>
+        <td><input type="text" name="age" id="age"></td>
+    </tr>
+    <tr>
+        <td class="label">邮箱</td>
+        <td><input type="text" name="email" id="email"></td>
+    </tr>
+    <tr>
+        <td class="label">电话</td>
+        <td><input type="text" name="tel" id="tel"></td>
+    </tr>
+    <tr>
+        <td class="label">自定义函数</td>
+        <td><input type="text" name="cusf" id="cusf"></td>
+    </tr>
+    <tr>
+        <td class="label">正则表达式</td>
+        <td><input type="text" name="par" id="par"></td>
+    </tr>
+    <tr>
+        <td class="label">是否为数字</td>
+        <td><input type="text" name="num"></td>
+    </tr>
+    <tr>
+        <td class="label">是否为整型</td>
+        <td><input type="text" name="int"></td>
+    </tr>
+    <tr>
+        <td class="label">是否为日期</td>
+        <td><input type="text" name="date"></td>
+    </tr>
+
+    <tr>
+        <td colspan="2"><input type="button" name="ok" id="ok" value="提交"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

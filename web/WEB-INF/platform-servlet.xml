@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	   http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+      http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+      http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+    <!--消息资源文件-->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource"
+          p:basename="i18n/messages"/>
+
+    <!--扫描Web类包-->
+    <context:component-scan base-package="com.willow.platform">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <context:component-scan base-package="com.willow.enterprise">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <context:component-scan base-package="com.willow.door">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+
+    <!-- 处理Mutipart文件上次的bean -->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+          p:defaultEncoding="UTF-8" p:maxUploadSize="25242880"/>
+
+    <!--启用注解驱动的MVC-->
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+            <bean class="org.springframework.http.converter.xml.SourceHttpMessageConverter"/>
+
+            <bean class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
+                <property name="marshaller" ref="xmlMarshaller"/>
+                <property name="unmarshaller" ref="xmlMarshaller"/>
+                <property name="supportedMediaTypes" value="application/xml;charset=UTF-8"/>
+            </bean>
+            <bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
+                <property name="supportedMediaTypes" value="application/json;charset=UTF-8"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+
+    <!--静态资源映射-->
+    <mvc:default-servlet-handler/>
+
+    <mvc:resources mapping="#{webSiteContext.resourceRoot}/**"
+                   location="/resources/" cache-period="31536000"/>
+
+
+    <!--基于协商的视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver"
+          p:order="0"
+          p:defaultContentType="text/html"
+          p:ignoreAcceptHeader="true"
+          p:favorPathExtension="false"
+          p:favorParameter="true"
+          p:parameterName="format">
+        <property name="mediaTypes">
+            <map>
+                <entry key="html" value="text/html"/>
+                <entry key="xml" value="application/xml"/>
+                <entry key="json" value="application/json"/>
+            </map>
+        </property>
+        <property name="defaultViews">
+            <list>
+                <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"
+                      p:contentType="application/json;charset=UTF-8"/>
+                <bean class="org.springframework.web.servlet.view.xml.MarshallingView"
+                      p:marshaller-ref="xmlMarshaller" p:modelKey="model"
+                      p:contentType="application/xml;charset=UTF-8"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="xmlMarshaller"
+          class="org.springframework.oxm.xstream.XStreamMarshaller"
+          p:autodetectAnnotations="true">
+        <property name="streamDriver">
+            <bean class="com.thoughtworks.xstream.io.xml.StaxDriver"/>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:order="100"
+          p:viewClass="org.springframework.web.servlet.view.JstlView"
+          p:prefix="/WEB-INF/views/" p:suffix=".jsp"/>
+
+    <!--本地化解析器-->
+    <bean id="localeResolver"
+          class="org.springframework.web.servlet.i18n.CookieLocaleResolver"
+          p:cookieName="clientLanguage"
+          p:cookieMaxAge="100000"
+          p:cookiePath="/"
+          p:defaultLocale="zh_CN"/>
+    <mvc:interceptors>
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" p:paramName="locale"/>
+    </mvc:interceptors>
+
+</beans>
+

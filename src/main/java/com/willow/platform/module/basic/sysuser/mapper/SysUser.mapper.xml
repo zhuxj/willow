@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.willow.platform.module.basic.sysuser.mapper.SysUserMapper">
+<resultMap id="SysUserMap" type="com.willow.platform.module.basic.sysuser.domain.SysUser">
+    <!--用户ID-->
+    <result column="obj_id" property="objId"/>
+    <!--创建时间-->
+    <result column="create_time" property="createTime"/>
+    <!--更新时间-->
+    <result column="update_time" property="updateTime"/>
+    <!--操作人-->
+    <result column="user_id" property="userId"/>
+    <!--用户名称-->
+    <result column="user_name" property="userName"/>
+    <!--用户密码-->
+    <result column="password" property="password"/>
+    <!--正式姓名-->
+    <result column="real_name" property="realName"/>
+    <!--排序号-->
+    <result column="order_no" property="orderNo"/>
+    <!--部门-->
+    <result column="dept_id" property="deptId"/>
+    <!--邮箱-->
+    <result column="email" property="email"/>
+    <!--手机-->
+    <result column="telphone" property="telphone"/>
+    <!--备注-->
+    <result column="remark" property="remark"/>
+</resultMap>
+    <!--列信息-->
+    <sql id="column_list">
+        obj_id,create_time,update_time,user_id,user_name,password,real_name,order_no,dept_id,email,telphone,remark
+    </sql>
+    <!--criteria的动态条件-->
+    <sql id="criteria_filters">
+        <where>
+            <if test="criteria.valid">
+                <trim prefix="(" suffix=")" prefixOverrides="and">
+                    <foreach collection="criteria.criteria" item="criterion">
+                        <choose>
+                            <when test="criterion.noValue">
+                                and ${criterion.condition}
+                            </when>
+                            <when test="criterion.singleValue">
+                                and ${criterion.condition} #{criterion.value}
+                            </when>
+                            <when test="criterion.betweenValue">
+                                and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                            </when>
+                            <when test="criterion.listValue">
+                                and ${criterion.condition}
+                                <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                         separator=",">
+                                #{listItem}
+                                </foreach>
+                            </when>
+                        </choose>
+                    </foreach>
+                </trim>
+            </if>
+        </where>
+    </sql>
+    <!--动态条件-->
+    <sql id="where_filters">
+        <where>
+            <if test="objId !=null and objId !=''">
+                and obj_id=#{objId}
+            </if>
+            <if test="createTime !=null and createTime !=''">
+                and create_time=#{createTime}
+            </if>
+            <if test="updateTime !=null and updateTime !=''">
+                and update_time=#{updateTime}
+            </if>
+            <if test="userId !=null and userId !=''">
+                and user_id=#{userId}
+            </if>
+            <if test="userName !=null and userName !=''">
+                and user_name=#{userName}
+            </if>
+            <if test="password !=null and password !=''">
+                and password=#{password}
+            </if>
+            <if test="realName !=null and realName !=''">
+                and real_name=#{realName}
+            </if>
+            <if test="orderNo !=null and orderNo !=''">
+                and order_no=#{orderNo}
+            </if>
+            <if test="deptId !=null and deptId !=''">
+                and dept_id=#{deptId}
+            </if>
+            <if test="email !=null and email !=''">
+                and email=#{email}
+            </if>
+            <if test="telphone !=null and telphone !=''">
+                and telphone=#{telphone}
+            </if>
+            <if test="remark !=null and remark !=''">
+                and remark=#{remark}
+            </if>
+        </where>
+    </sql>
+    <!--保存-->
+    <insert id="save" parameterType="com.willow.platform.module.basic.sysuser.domain.SysUser">
+        INSERT INTO sys_user(<include refid="column_list"/>)
+        VALUES (#{objId},#{createTime},#{updateTime},#{userId},#{userName},#{password},#{realName},#{orderNo},#{deptId},#{email},#{telphone},#{remark});
+    </insert>
+
+    <!--根据主键查询对象数据-->
+    <select id="selectByObjId" parameterType="string" resultMap="SysUserMap">
+        select
+        <include refid="column_list"/>
+        from sys_user
+        where obj_id=#{objId}
+    </select>
+
+    <!--根据主键删除-->
+    <delete id="deleteByObjId" parameterType="string">
+        delete from sys_user where obj_id=#{objId}
+    </delete>
+
+    <!--根据条件删除-->
+    <delete id="deleteByParam" parameterType="map">
+        delete from sys_user
+        <include refid="where_filters"/>
+    </delete>
+
+    <!--更新-->
+    <update id="update" parameterType="com.willow.platform.module.basic.sysuser.domain.SysUser">
+        update sys_user
+        <set>
+            obj_id=#{objId},
+            create_time=#{createTime},
+            update_time=#{updateTime},
+            user_id=#{userId},
+            user_name=#{userName},
+            password=#{password},
+            real_name=#{realName},
+            order_no=#{orderNo},
+            dept_id=#{deptId},
+            email=#{email},
+            telphone=#{telphone},
+            remark=#{remark}
+        </set>
+        where obj_id=#{objId}
+    </update>
+
+    <!--根据主键ID更新不为空的字段-->
+    <update id="updateByIdSelective" parameterType="com.willow.platform.module.basic.sysuser.domain.SysUser">
+        update sys_user
+        <set>
+            <if test="objId !=null">
+                obj_id=#{objId},
+            </if>
+            <if test="createTime !=null">
+                create_time=#{createTime},
+            </if>
+            <if test="updateTime !=null">
+                update_time=#{updateTime},
+            </if>
+            <if test="userId !=null">
+                user_id=#{userId},
+            </if>
+            <if test="userName !=null">
+                user_name=#{userName},
+            </if>
+            <if test="password !=null">
+                password=#{password},
+            </if>
+            <if test="realName !=null">
+                real_name=#{realName},
+            </if>
+            <if test="orderNo !=null">
+                order_no=#{orderNo},
+            </if>
+            <if test="deptId !=null">
+                dept_id=#{deptId},
+            </if>
+            <if test="email !=null">
+                email=#{email},
+            </if>
+            <if test="telphone !=null">
+                telphone=#{telphone},
+            </if>
+            <if test="remark !=null">
+                remark=#{remark},
+            </if>
+        </set>
+        where obj_id=#{objId}
+    </update>
+
+    <!--根据条件查询列表-->
+    <select id="queryList" parameterType="map" resultMap="SysUserMap">
+        select
+        <include refid="column_list"/>
+        from sys_user
+        <include refid="where_filters"/>
+        <if test="sortFieldName!=null and sortFieldName!=''">
+            ORDER BY
+            ${sortFieldName}
+            <if test="sortType!=null and sortType!=''">
+            ${sortType}
+            </if>
+        </if>
+        <if test="pageFirst!=null">
+            limit #{pageFirst},#{pageSize}
+        </if>
+    </select>
+
+    <!--根据条件查询数量-->
+    <select id="countList" parameterType="map" resultType="int">
+        select count(*) from sys_user
+        <include refid="where_filters"/>
+    </select>
+
+
+    <!--根据条件查询唯一记录-->
+    <select id="selectByCondition" parameterType="map" resultMap="SysUserMap">
+        select
+        <include refid="column_list"/>
+        from sys_user
+        <include refid="where_filters"/>
+    </select>
+
+
+    <!--根据Criteria方式查询列表-->
+    <select id="queryListByCriteria" parameterType="map" resultMap="SysUserMap">
+        select
+        <include refid="column_list"/>
+        from sys_user
+        <include refid="criteria_filters"/>
+        <if test="sortFieldName!=null and sortFieldName!=''">
+            ORDER BY
+            ${sortFieldName}
+            <if test="sortType!=null and sortType!=''">
+            ${sortType}
+            </if>
+        </if>
+        <if test="pageFirst!=null">
+            limit #{pageFirst},#{pageSize}
+        </if>
+    </select>
+
+    <!--根据Criteria方式查询数量-->
+    <select id="countListByCriteria" parameterType="map" resultType="int">
+        select count(*) from sys_user
+        <include refid="criteria_filters"/>
+    </select>
+
+
+</mapper>

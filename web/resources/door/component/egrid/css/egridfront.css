@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*table*/
+.cmp_tanle_tdl { text-align:left;}
+.cmp_tanle_tdr { text-align:right;}
+.cmp_tanle_tdc { text-align:center;}
+.cmp_egrid_ttop { vertical-align:top;}
+
+.cmp_egrid { width:100%; font-size: 12px; border-spacing: 0; border-collapse:collapse; }
+.cmp_egrid thead th {padding:0 5px; height:26px;font-weight:normal;  background:url(../images/tdx.png) repeat-x; border-top:solid 1px #c2c2c2;border-bottom:solid 1px #c1c8d2; border-left: solid 1px #d2d5d6;border-right: solid 1px #d2d5d6;}
+.cmp_egrid_bor_l {/* border-left: solid 1px #dadada;*/}
+.cmp_egrid_bor_r {/* border-right: solid 1px #dadada;*/}
+.cmp_egrid_order_th {width:10px;}
+
+.cmp_egrid_even_tr {background-color:#fff}
+.cmp_egrid td { padding:10px 5px; border-bottom:solid 1px #dcdcdc; }
+
+.cmp_egrid_toolbar { padding:4px 7px;  background:#fafafa; }
+.com_egrid_toolbar_fixed {display: block; min-height: 1%;}
+.com_egrid_toolbar_fixed:after { content: "."; display: block; clear: both; height: 0; visibility: hidden; }
+.cmp_egrid_toolbar_left { float:left;}
+.cmp_egrid_toolbar_left .btn_01 { margin: 3px 10px 0 0; border: 0; width: 45px; height: 21px; line-height: 21px; background: url(../images/opbtn.png); float: left;}
+.cmp_egrid_toolbar_left input { margin:0 2px 0 0;}
+.cmp_egrid_toolbar_left label { padding-right:10px;}
+.cmp_egrid_toolbar_right { float:right;}
+.cmp_egrid .hover { background:#f5f5f5;}
+ .cmp_td250 { width:250px;}
+/*table end*/
+
+/********pagination css********/
+.cmp_egrid_pagination { height:24px; margin-top:4px; }
+.cmp_egrid_inpagination { float:right;height:24px;}
+.cmp_egrid_pagination a { color:#404040; border:solid 1px #C1C1C1; padding:4px 6px; float:left;vertical-align: middle; font-size:12px; line-height:12px; margin:0 3px; text-decoration:none; background:#fff; cursor:pointer;  }
+.cmp_egrid_pagination a:hover { background-color:#fff;text-decoration:none; border:solid 1px #F16D1D; color:#FF5500}
+.cmp_egrid_pagination a.cmp_egrid_page_prev { background:url(../images/pagination.png) #fff no-repeat 48px -24px;}
+.cmp_egrid_pagination a.cmp_egrid_page_next { background:url(../images/pagination.png) no-repeat 5px -42px;background:#fff;}
+.cmp_egrid_pagination span.cmp_egrid_page_current { border:solid 1px #FD6D01; padding:3px 6px 4px; float:left;vertical-align: middle; font-size:12px; line-height:12px; margin:0 3px;  background:#FFEDE1; color:#ff5500; font-weight:bold; }
+.cmp_egrid_pagination span.cmp_egrid_page_omitted { padding:5px 2px; float:left;vertical-align: middle; font-size:12px; line-height:12px; margin:0 3px; font-family:Arial, Helvetica, sans-serif;}
+.cmp_egrid_pagination span.cmp_egrid_page_much { float:left; line-height:22px; padding: 0 10px; }
+.cmp_egrid_pagination span.cmp_egrid_page_jump { float:left; padding:2px 8px; }
+.cmp_egrid_pagination span.cmp_egrid_page_jump { float:left; padding:2px 8px; }
+.cmp_egrid_pagination span.cmp_egrid_page_loading { float:left; padding:2px 8px; line-height:22px; color:#909090; }
+.cmp_egrid_pagination span.cmp_egrid_page_jump input { width:25px; height:17px; line-height:17px;border-top:solid 1px #aaa;border-left:solid 1px #aaa; border-right:solid 1px #ccc;border-bottom:solid 1px #ccc; margin:0 3px; font-weight:bold; text-align:center; color:#555;}
+.cmp_egrid_pagination .cmp_egrid_page_btn { width:50px; height:21px; float:left; border:none;cursor:pointer; background: #000;}
+.cmp_egrid_pagination .cmp_egrid_page_btn span {display:none;}
+/********pagination end css********/
+
+

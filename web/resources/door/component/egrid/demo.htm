@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link href="css/egrid.css" rel="stylesheet" type="text/css"/>
+<style>
+    p { margin: 0; padding: 0; }
+    a { color:#004A80; text-decoration:none;}
+    a:hover { text-decoration: underline;}
+    a.cmp_table_bookimg { width:50px; height:50px; display:block; float:left; border:solid 1px #dcdcdc; overflow:hidden;}
+    a.cmp_table_bookimg img { width:50px;}
+    .cmp_table_tdttl { width:235px; height:32px; line-height:16px; overflow:hidden; word-warp:break-word; float:left;padding-left:5px; margin-top:5px;}
+    .cmp_table_tdnote { width:235px; height:20px; line-height:20px; float:left; color:#909090;padding-left:5px;}
+    .icon_zt01 { background:url(images/icon_zt.png) no-repeat 0 0; width:41px; height:16px; display:inline-block; margin:2px 0;}
+
+</style>
+<script type="text/javascript" src="../../js/jquery/jquery-1.6.3.min.js"></script>
+<script type="text/javascript" src="js/egrid.js"></script>
+<script type="text/javascript">
+
+$(document.body).ready(function(){
+
+    var myGrid = $.egrid({
+        container   : 'grid',    //放置表格的DIV
+        url          : '/grid.html?method=query',                   //表格数据获取的URL
+        params       : {},                     //数据查询条件
+        sorts        : {
+            sortFieldName : 'price',
+            sortType : '1'
+        },                     //排序条件
+        pageSize      : 10,                 //每页展现数据数
+        autoLoad        : true,            //是否表格创建完自动加载数据
+        showTableIndex  : true,           //是否显示表格行索引
+        width           : "800px",         //表格的宽度，可以是
+        keyColumn       : 'bookId',
+        /**
+         * column : 列名，如果没有设置renderer则直接引用数据同名属性.
+         * label :  列头展现名.
+         * width : 列宽度，可以设置像素或者百分比.
+         * sort : 根据列头排序.
+         * align ：列对其方式,默认为left，可以设置为center,right.
+         * isKey : 是否主键, true/false.
+         * isShow : 是否显示.
+         * headerCss : 列头样式名.
+         * cellCss : 表格单元样式名.
+         * displayLength : 显示中文长度.
+         * renderer : 渲染函数，通过渲染函数可以灵活自定义该单元格的展现模式.
+         */
+        columns          : [                //表格展现列参数
+				{column:'bookInfo',label:'图书信息',width:'300px',
+					renderer : function(record,keyColumn,grid,colNo,rowNo,cell){
+                        var values = [];
+                        if(record['publishCompany']) values.push(record['publishCompany']);
+                        if(record['publishDate']) values.push(record['publishDate']);
+
+                        return '<a class="cmp_table_bookimg" href=""><img src="'+record['UImageUrl']+'" /></a>' +
+                        '<p class="cmp_table_tdttl"><a href="'+record['companySiteUrl']+'/book/'+record['bookId']+'.xhtml" title="'+record['bookName']+'" target="_blank">'+record['bookName']+'</a></p>' +
+                        '<p class="cmp_table_tdnote">' + values.join("/") +  '</p>'
+					}
+				},
+				{column:'isbn_selfId',label:'ISBN/自编码',
+                    renderer : function(record,keyField,grid,colNo,rowNo,cell){
+                        var values = [];
+                        if(record['isbn']) values.push("<span title='ISBN'>" + record['isbn'] + "</span>");
+                        if(record['localBookCode']) values.push("<span title='自编码'>" + record['localBookCode'] + "</span>");
+                        return values.join("<br/>");
+                    }
+                },
+				{column:'price',label:'定价', align:'right',
+                    renderer : function(record,keyField,grid,colNo,rowNo,cell){
+                        return "<b>￥" + record.price + "</b>";
+                    }
+                },
+				{column:'invenAmount',label:'库存', align:'right',
+                    renderer : function(record,keyField,grid,colNo,rowNo,cell){
+                        var input = $('<input type="text" value="" size="3" />').appendTo(cell);
+                        input.blur(function(){
+                            record['new_value'] = $(this).val();
+                        });
+                    }
+                },
+				{column:'packageSize',label:'包册数', align:'right'},
+				{column:'status',label:'状态', align:'right',
+                    renderer : function(record,keyField,grid,colNo,rowNo,cell){
+                        return '<span class="icon_zt01"></span>';
+                    }
+                },
+                {column:'func', label:'操作', align:'center', actions : [
+                    {label : '编辑', action : function(record,keyField,grid,colNo,rowNo,cell){
+                        window.location.href = '';
+                    }},
+                    {label : '更换封面', action : function(record,keyField,grid,colNo,rowNo,cell){
+                        window.location.href = '';
+                    }}
+                ]}
+        ],
+        /**
+         * 表格回调事件.
+         */
+        events  : {
+            onLoad : function(data){
+
+            },
+            onError : function(data){
+
+            },
+            onCheckBoxClick : function(record, row, isChecked){
+            }
+        },
+        /**
+         * 包含在分页栏中的按钮列表.
+         */
+        toolbars : [
+            {label : '下架', action : function(){
+
+            }},
+            {label : '删除', action : function(){
+
+            }}
+        ]
+    });
+
+    $('#query').click(function(){
+        /**
+         * 重新查询接口.
+         */
+        myGrid.query({
+            params : {bookName : $('#bookName').val()},
+            sorts : [],
+            pageSize : 20
+        });
+
+    });
+
+    /**
+     * 获取所有被选中的复选框的记录主键值.
+     */
+    $('#testCheckBox').click(function(){
+        var values = myGrid.getCheckBoxValues();
+        alert(values.length);
+    })
+
+    $('#testAllData').click(function(){
+        var datas = myGrid.getAllData();
+        for(var i = 0; i < datas.length; i++){
+            if(datas[i].new_value){
+                alert(datas[i].bookName + ":" + datas[i].new_value);
+            }
+        }
+    });
+
+});
+
+</script>
+</head>
+
+<body>
+<form>
+    <input type="text" name="bookName" id="bookName"/>
+    <input type="button" name="query" id="query" value="查询"/>
+
+    <input type="button" name="testCheckBox" id="testCheckBox" value="获取复选框"/>
+    <input type="button" name="testAllData" id="testAllData" value="获取所有数据"/>
+</form>
+<div id="grid"></div>
+
+</body>
+
+</html>

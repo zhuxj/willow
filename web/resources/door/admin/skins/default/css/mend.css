@@ -1,0 +1,3 @@
+.ed-file2 { vertical-align: middle; text-align: center; line-height: 21px; width: 80px; height: 21px; display: inline-block; background: url(../images/file.png); overflow: hidden; position: relative;}
+.ed-file2 input { cursor: pointer; width: 80px; height: 21px; position: absolute; left: 0; top: 0; font-size: 100%;filter:alpha(opacity:0);opacity: 0;}
+.ed-sliderli .ed-li-03-p a { color: #0078B6;}

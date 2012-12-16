@@ -1,0 +1,14 @@
+2012-12-11
+1.mybatis通用基类编写
+
+2012-12-12
+1.扩展unitils测试框架,方便进行单元测试
+2.dao和service基类的编写
+2012-12-13
+1.解决deunit的mysql的单元测试框架的问题，重新指定unitils.module.dbunit.className=com.willow.unitilsext.dbunit.WillowDbUnitModule
+2012-12-15
+1.yaml的研究，代码生成器使用yaml技术
+2.代码生成器配置使用yaml技术
+3.
+
+

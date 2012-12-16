@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>图片延迟加载</title>
+
+    <script src="/resources/js/jquery/jquery-1.6.3.min.js" type="text/javascript"></script>
+    <script src="/resources/js/component/lazyload/js/lazyload.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //图片延迟加载,默认就延迟加载，需要将img的src写为original
+//            $("#imagelist img").eglazyload();//可以不写该剧
+
+            //数据内容加载
+            $("#lazyContent").eglazyload({func:function (obj) {
+                obj.html("加载完成");
+            }});
+        })
+
+    </script>
+</head>
+<body>
+<div id="imagelist" style="display: block;">
+    <img src="http://img.bookegou.com/src/D4362065-DC69-4246-8B18-438AE83348B1.jpg" height="500px"><br>
+    <img original="http://img.bookegou.com/src/1.jpg" height="500px"><br>
+    <img original="http://img.bookegou.com/src/2.jpg" height="500px"><br>
+    <img original="http://img.bookegou.com/src/3.jpg" height="500px"><br>
+    <img original="http://img.bookegou.com/src/4.jpg" height="500px"><br>
+    <img original="http://img.bookegou.com/src/5.jpg" height="500px"><br>
+    <img original="http://img.bookegou.com/src/6.jpg" height="500px"><br>
+    <img original="http://img.bookegou.com/src/7.jpg" height="500px"><br>
+    <img original="http://img.bookegou.com/src/8.jpg" height="500px"><br>
+    <img original="http://img.bookegou.com/src/9.jpg" height="500px"><br>
+    <img original="http://img.bookegou.com/src/10.jpg" height="500px"><br>
+    <img original="http://img.bookegou.com/src/11.jpg" height="500px"><br>
+    <img src="http://img.bookegou.com/src/12.jpg" height="500px"><br>
+</div>
+
+<div id="lazyContent">
+
+</div>
+
+</body>
+</html>

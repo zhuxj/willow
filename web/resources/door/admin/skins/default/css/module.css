@@ -1,0 +1,125 @@
+/*login*/
+.loginbox{ background:url(../images/bglr.png) repeat-x; position: relative; }
+.loginbox .logo { width: 237px; height: 96px; left: 39%; top: -130px; position: absolute;}
+.loginbox .loginbox_inner {  background:url(../images/bgg.png) no-repeat center 0;height:240px;}
+.loginbox ul{ float:left; padding:50px 0 0 37%;}
+.loginbox ul li {height:30px; line-height:30px; margin-bottom:10px;}
+.loginbox ul li label { margin:0 5px 0 0; color:#fff;}
+.loginbox .inputbox{ margin: 0 5px 0 0; border:solid 1px #037ba7;color:#000; height:26px; font-family:tahoma; font-size:14px; font-weight:bold; line-height:26px; padding: 0 3px; width:210px;-moz-border-radius: 3px;-webkit-border-radius: 3px;border-radius: 3px;}
+.loginbox .logbutton{ background:url(../images/loginpic.png); height:30px; width:185px; border:0 none; cursor:pointer; margin:0 20px 0 55px;}
+.loginbox .loading { width: 16px; height: 16px; display: block; overflow: hidden; background: url(../images/loading.gif); position: absolute; z-index: 2; left: 100px; top:10px;}
+
+/*crumbsbox*/
+.crumbsbox { padding: 4px 10px 3px; line-height: 22px; background: #eee; border-bottom: solid 1px #C7CFD6; }
+.crumbsbox a.btn_back { width:32px; height: 22px; display: block; float: left; background-position:-48px 0; }
+.crumbsbox a.btn_back:hover { background-position:-80px 0;}
+.crumbsbox p a,.crumbsbox p span { color: #333; margin: 0 5px;}
+.crumbsbox a.ben_refresh { height: 20px; border: solid 1px #c5c5c5; line-height: 22px; padding: 0 5px; display: block; float: left; color: #333;}
+.crumbsbox a.ben_refresh i { background-position: -112px 0; width: 16px; height: 16px; display:block; float: left; margin: 2px 5px 0 0px;}
+.crumbsbox a.ben_refresh:hover { border: solid 1px #909090; text-decoration: none;}
+
+
+/*opbar*/
+.bot_opbar { padding: 8px 15px 6px; background: #f9fbfc; z-index: 10; position: absolute; width: 100%; bottom: 0; border-top:solid 1px #ddd; }
+.opbar { padding: 5px 10px 3px; background: #fafdff;position: relative; z-index: 2;}
+.opbar_bor {border-bottom: solid 1px #dde5eb;}
+.opbar a.btn_add { color: #fff; cursor: pointer; display: block; float: left; background-position: left -166px; margin: 0 15px 0 0; padding: 0 0 0 8px;}
+.opbar a.btn_add span {  height:28px; line-height: 28px; display: block; float: left; padding: 0 10px 0 0; background-position: right -166px;}
+.opbar a.btn_add i { width: 16px; height: 16px; float: left; display: block; margin: 6px 3px 0 0; background-position: -176px -16px;}
+.opbar a.btn_add:hover { text-decoration: none;background-position: left -194px;}
+.opbar a.btn_add:hover span { text-decoration: none;background-position: right -194px;}
+
+a.btn_add02 { color: #333; cursor: pointer; display: block; float: left; background-position: left -137px; margin: 0 15px 0 0; padding: 0 0 0 13px; }
+a.btn_add02 span {  height:29px; line-height: 29px; display: block; float: left; padding: 0 15px 0 0; background-position: right -137px;}
+a.btn_add02 i { width: 16px; height: 16px; float: left; display: block; margin: 6px 5px 0 0; background-position: -32px -32px; overflow: hidden;}
+a.btn_add02:hover { text-decoration: none;background-position: left -222px;}
+a.btn_add02:hover span { text-decoration: none;background-position: right -222px;}
+
+.opbtns { float: left;}
+.opbtns ul li { float: left; position: relative; z-index: 2;  }
+.opbtns ul li.opbtns_line { width: 1px; overflow: hidden; background: #c4c4c4; height: 29px;}
+.opbtns li a { cursor: pointer; display: block; float:left;height: 29px;line-height: 29px; padding: 0 3px 0 8px; color: #333; white-space: nowrap;}
+.opbtns li a:hover { text-decoration: none;}
+.opbtns a.opbtn_01 { background-position: 0 -137px;}
+.opbtns a.opbtn_02 { background-position: -10px -137px;}
+.opbtns a.opbtn_03 { background-position: right -137px;}
+.opbtns a.opbtn_01:hover { background-position: 0 -222px;}
+.opbtns a.opbtn_02:hover { background-position: -10px -222px;}
+.opbtns a.opbtn_03:hover { background-position: right -222px;}
+.opbtns li a i { width: 16px; height: 16px; display: block; float: left; margin: 6px 3px 0 0;}
+.opbtns li a em { width: 16px; height: 16px; display: block; float: left; margin: 6px 0px 0 0; background-position: -176px 0; }
+.opbtns a.opbtn_01 i { background-position: -128px 0;}
+.opbtns a.opbtn_02 i { background-position: -192px -16px;}
+.opbtns a.opbtn_03 i { background-position: -112px -16px;}
+.opbtns .opbtns_pop {width:120px; padding:2px;background: #f3f8fb; border: solid 1px #c4c4c4; position: absolute; z-index: 2; left: 0; top:28px;-webkit-box-shadow:2px 2px 2px #ddd;
+-moz-box-shadow:2px 2px 2px #ddd;}
+.opbtns .dl_batch dd { height: 18px; line-height: 18px;  padding: 3px 10px; cursor: pointer; color: #555; vertical-align: middle;}
+.opbtns .dl_batch dd.opbtns_pop_hover { background: #0479bf; color: #fff; }
+.opbtns .dl_batch dd label { display: block; cursor: pointer;}
+
+.searchbox { float: left; background: url(../images/searchbg.png) no-repeat 0 0; padding-left: 4px; margin-top: 1px; }
+.searchbox_inner { float: left; height: 20px; width: 220px; padding:3px; background: url(../images/searchbg.png) no-repeat right 0;}
+.searchbox_btn { width: 20px; height: 20px; float: right; background: url(../images/btn_search.png); border: none; cursor: pointer; }
+.searchbox_class { float: left; line-height: 20px; background-position: right 5px;  cursor: pointer; position: relative; z-index: 12; }
+.searchbox_class a { display: block; color: #000; padding: 1px 16px 0 0;}
+.searchbox_class a:hover { text-decoration: none;}
+.searchbox_class_pop { position: absolute; padding-top:4px;z-index: 12;width: 69px; background: #fff; border: solid 1px #bbbbbb; border-top: 0; left: -7px; top:18px;}
+.searchbox_class_pop li {  height: 25px; line-height: 25px; word-wrap: break-word; overflow: hidden;}
+.searchbox_class_pop li a { display: block;padding-left: 4px; color: #333;}
+.searchbox_class_pop li a:hover { background: #f2f2f2;}
+.searchbox_txt { border: 0; padding:3px; width: 128px; float: left;}
+
+.opbar .btn_moresou { width:70px; height: 22px; display: block; float: left; margin: 3px 0 0 5px;background-position: -40px -73px; }
+.opbar .opbar_pop {display: none; position: absolute; top:37px; left: 0;z-index: 2; padding: 10px; background: #FAFDFF;width: 100%; border-top: 0;border-bottom: solid 1px #b6bfc5;-webkit-box-shadow:2px 2px 2px #ccc;
+-moz-box-shadow:2px 2px 2px #ccc;}
+.opbar_pop .opbar_pop_close { display: block; position: absolute; z-index: 2; top:10px; right: 30px; background-position: -102px -49px; width: 15px; height: 14px; overflow: hidden;}
+.opbar_pop .opbar_pop_close:hover { background-position: -117px -49px;}
+
+/*tip*/
+.tipbox_a,.tipbox_b,.tipbox_c_hd,.tipbox_c_bd,.tipbox_c_bot,.tipbox_c_close { background-image:url(../images/tipicos.png); background-repeat:no-repeat;}
+.tipbox_a { background-position:2px -13px; background-color:#FFF8EE; padding:1px 5px 0 20px; border:solid 1px #F4C989; float:left;}
+.tipbox_b { background-position:8px -60px;background-color:#FFF8EE; padding:6px 10px 6px 45px; border:solid 1px #F4C989; float:left;}
+.tipbox_cbox {position: relative; z-index:45;}
+.tipbox_c { width:282px; position:absolute; z-index:45; left: -12px; top:22px;}
+.tipbox_c .tipbox_c_hd { height:5px; overflow:hidden; background-position:0 0;}
+.tipbox_c .tipbox_c_hd span { width:11px; height:7px; display:block; position:absolute; top:-6px; left:20px; background:url(../images/tipicos.png) no-repeat 0 -45px;}
+.tipbox_c .tipbox_c_bot { height:5px; overflow:hidden; background-position:0 -5px;}
+.tipbox_c .tipbox_c_bd { line-height: 1.5; background-color:#ffffe1; background-position:10px -65px; border-left:solid 1px #c6c5a8;border-right:solid 3px #c1c1c1;color:#555; padding:2px 10px 5px 47px;}
+.tipbox_c .tipbox_c_bd h4 { color:#000; line-height:25px; font-size:14px;}
+.tipbox_c a.tipbox_c_close { position:absolute; top:10px; right:8px; width:12px; height:12px; overflow:hidden; float:right; display:block; background-position:-14px -43px; }
+
+/* table style 01*/
+.grid01 { border-top: solid 1px #C2C2C2;border-collapse: separate }
+.grid01 th { padding: 0 10px; text-align:left; background: #F2F4F6; font-weight: normal; border-bottom: solid 1px #C2C2C2; border-top: solid 1px #fff;}
+.grid01 td { padding: 5px 10px; border-bottom: solid 1px #e1e1e1; word-wrap: break-word;overflow: hidden;}
+/*TAB*/
+#tabbox .tabbox_hd { height:35px;border-bottom: solid 1px #c9d6e1; position: relative; background: #fafafa;}
+#tabbox .tabbox_hd ul { position: absolute; left: 10px; top:6px;}
+#tabbox .tabbox_hd ul li { background: #F2F6F8; float: left; margin: 0 5px 0 0px; display: inline;border: solid 1px #c9d6e1; }
+#tabbox .tabbox_hd ul li a { display: block; padding: 0 18px; float: left; text-decoration: none;height: 28px; line-height: 28px; color: #005596;}
+#tabbox .tabbox_hd ul li a:hover { background-color: #eaf2f6;}
+#tabbox .tabbox_hd ul li.tabbox_current { border: solid 1px #b6c4ce; border-bottom-color: #fff; background: #fff; font-size: 13px;font-family: Microsoft YaHei; }
+#tabbox .tabbox_hd ul li.tabbox_current a { color: #333; font-weight: bold; padding: 0 16px;}
+#tabbox .tabbox_hd ul li.tabbox_current a:hover { background: #fff;}
+#tabbox .tabbox_bd {  }
+
+/*formlist*/
+.formlist { width: 97%; }
+.formlist table th { color: #111; font-family:Microsoft YaHei; font-size: 13px; text-align: right; font-weight: normal; padding: 10px 5px; border-bottom: solid 1px #eee; background: #f8f8f8;}
+.formlist table td { padding: 10px; border-bottom: solid 1px #eee;}
+
+/*paging*/
+.paging { font-family:tahoma; margin: 20px 0 20px}
+.paging .paging_inner { float:right;}
+.paging a,.paging span {height:23px; line-height:23px; display:block; float:left; border:solid 1px #d3d3d3; padding:0 9px; margin-left:5px; background: #fff;}
+.paging a { cursor: pointer;  text-decoration:none;}
+.paging a:hover { border:solid 1px #5cadd3;}
+.paging span.paging_current { background:#EFEFEF; color:#444; font-weight:bold;}
+.paging span.paging_disable { border:solid 1px #d9d9d9; color:#aaa;}
+.paging .paging_break { border:solid 1px #fff; padding:0; color:#777;}
+.paging .paging_skip { float:left; padding:0 8px;border-color:#fff;}
+.paging .paging_skip input { width:28px; margin:-3px 5px 0; height:18px; line-height:18px;}
+.paging .paging_skip button { visibility:visible; padding:0 2px;}
+.paging .page_much { border-color:#fff; }
+
+

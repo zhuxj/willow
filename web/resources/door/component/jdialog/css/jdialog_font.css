@@ -1,0 +1,29 @@
+@charset "utf-8";
+.jqmWindow { display: none;position: fixed; background-color: #EEE;color: #333;border: 0px solid black; padding: 12px;}
+.jqmOverlay { background-color: #000; }
+
+.pop { padding:5px; background:url(../images/popbg.png) repeat;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/popbg.png',sizingMethod='scale',enabled='true');_background:none; position:absolute; z-index:9999; }
+.pop .pop_inner { border:solid 1px #999;}
+.pop .pop_hd { height:30px; line-height:30px; background:#eee; padding:0 8px;cursor: move;}
+.pop .pop_hd strong { color:#333; float:left; font-size: 14px;}
+.pop a.pop_close { width:15px; height:14px; overflow:hidden; margin-top:8px; display:block; float:right; background:url(../images/popbgs.png) no-repeat 0 -55px;}
+.pop a.pop_close:hover { background:url(../images/popbgs.png) no-repeat 0 -41px;}
+.pop .pop_bd { background:#fff; word-wrap:break-word;}
+.pop .pop_bd_scroll { overflow-y: auto;}
+.pop .pop_bot { background:#eee; border-top: solid 1px #ccc; padding:6px 5px; }
+.pop .pop_icon_err { width:32px; height:32px; display:inline-block; background:url(../images/popicons.png) no-repeat 0 0; vertical-align:middle; margin:0 5px 0 0;}
+.pop .pop_icon_right { width:32px; height:32px; display:inline-block; background:url(../images/popicons.png) no-repeat 0 -32px; vertical-align:middle; margin:0 5px 0 0;}
+.pop .pop_icon_tip { width:32px; height:32px; display:inline-block; background:url(../images/popicons.png) no-repeat 0 -64px; vertical-align:middle; margin:0 5px 0 0;}
+
+.pop_bot .popbtn {display:inline-block;*display:inline;padding:0 0 0 2px; background-image:url(../images/popbtn_bg.png); background-repeat:no-repeat;margin:0 15px 0 0;}
+.pop_bot .popbtn a {  cursor:pointer; display:inline-block;background-image:url(../images/popbtn_bg.png); background-repeat:no-repeat;  }
+.pop_bot .popbtn a:hover { text-decoration: none;}
+
+.pop_bot .popbtn01 { background-position:left 0px;}
+.pop_bot .popbtn01 a { color:#fff;padding:0 15px 0 13px; background-position:right 0px;height:25px; line-height:25px; }
+
+.pop_bot .popbtn02 { background-position:left -25px;}
+.pop_bot .popbtn02 a {padding:0 12px 0 10px; background-position:right -25px; color:#000;height:25px; line-height:25px; }
+
+
+.jqDrag {cursor: move;}

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.willow.platform.module.basic.menu.mapper.SysMenuMapper">
+    <resultMap id="SysMenuMap" type="com.willow.platform.module.basic.menu.domain.SysMenu">
+        <result column="obj_id" property="objId"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="user_id" property="userId"/>
+        <result column="menu_name" property="menuName"/>
+        <result column="menu_code" property="menuCode"/>
+        <result column="parent_menu_id" property="parentMenuId"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="menu_type" property="menuType"/>
+        <result column="node_type" property="nodeType"/>
+        <result column="url" property="url"/>
+        <result column="icon" property="icon"/>
+    </resultMap>
+    <!--列信息-->
+    <sql id="column_list">
+          obj_id,create_time,update_time,user_id,menu_name,menu_code,parent_menu_id,order_no,menu_type,node_type,url,icon
+    </sql>
+    <!--criteria的动态条件-->
+    <sql id="criteria_filters">
+        <where>
+            <if test="criteria.valid">
+                <trim prefix="(" suffix=")" prefixOverrides="and">
+                    <foreach collection="criteria.criteria" item="criterion">
+                        <choose>
+                            <when test="criterion.noValue">
+                                and ${criterion.condition}
+                            </when>
+                            <when test="criterion.singleValue">
+                                and ${criterion.condition} #{criterion.value}
+                            </when>
+                            <when test="criterion.betweenValue">
+                                and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                            </when>
+                            <when test="criterion.listValue">
+                                and ${criterion.condition}
+                                <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                         separator=",">
+                                    #{listItem}
+                                </foreach>
+                            </when>
+                        </choose>
+                    </foreach>
+                </trim>
+            </if>
+        </where>
+    </sql>
+    <!--动态条件-->
+    <sql id="where_filters">
+        <where>
+            <if test="objId !=null and objId !=''">
+                and obj_id=#{objId}
+            </if>
+            <if test="createTime !=null and createTime !=''">
+                and create_time like #{createTime}
+            </if>
+            <if test="updateTime !=null and updateTime !=''">
+                and update_time like #{updateTime}
+            </if>
+            <if test="userId !=null and userId !=''">
+                and user_id=#{userId}
+            </if>
+            <if test="menuName !=null and menuName !=''">
+                and menu_name like #{menuName}
+            </if>
+            <if test="menuCode !=null and menuCode !=''">
+                and menu_code=#{menuCode}
+            </if>
+            <if test="parentMenuId !=null and parentMenuId !=''">
+                and parent_menu_id=#{parentMenuId}
+            </if>
+            <if test="menuType !=null and menuType !=''">
+                and menu_type=#{menuType}
+            </if>
+            <if test="nodeType !=null and nodeType !=''">
+                and node_type=#{nodeType}
+            </if>
+            <if test="url !=null and url !=''">
+                and url=#{url}
+            </if>
+            <if test="icon !=null and icon !=''">
+                and icon=#{icon}
+            </if>
+        </where>
+    </sql>
+    <!--保存-->
+    <insert id="save" parameterType="com.willow.platform.module.basic.menu.domain.SysMenu">
+        INSERT INTO sys_menu(<include refid="column_list"/>)
+        VALUES (#{objId},#{createTime},${updateTime},#{userId},#{menuName},#{menuCode},#{parentMenuId},#{orderNo},
+        #{menuType},#{nodeType},#{url},#{icon});
+    </insert>
+
+    <!--根据主键查询对象数据-->
+    <select id="selectByObjId" parameterType="string" resultMap="SysMenuMap">
+        select
+        <include refid="column_list"/>
+        from sys_menu
+        where obj_id=#{objId}
+    </select>
+
+    <!--根据主键删除-->
+    <delete id="deleteByObjId" parameterType="string">
+        delete from sys_menu where obj_id=#{objId}
+    </delete>
+
+    <!--根据条件删除-->
+    <delete id="deleteByParam" parameterType="map">
+        delete from sys_menu
+        <include refid="where_filters"/>
+    </delete>
+
+    <!--更新-->
+    <update id="update" parameterType="com.willow.platform.module.basic.menu.domain.SysMenu">
+        update sys_menu
+        <set>
+        create_time=#{createTime},
+        update_time=#{updateTime},
+        user_id=#{userId},
+        menu_name=#{menuName},
+        menu_code=#{menuCode},
+        parent_menu_id=#{parentMenuId},
+        order_no=#{orderNo},
+        menu_type=#{menuType},
+        node_type=#{nodeType},
+        url=#{url},
+        icon=#{icon}
+        </set>
+        where obj_id=#{objId}
+    </update>
+
+    <!--根据主键ID更新不为空的字段-->
+    <update id="updateByIdSelective" parameterType="com.willow.platform.module.basic.menu.domain.SysMenu">
+        update sys_menu
+        <set>
+            <if test="createTime !=null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime !=null">
+                update_time = #{updateTime},
+            </if>
+            <if test="userId !=null">
+                user_id=#{userId},
+            </if>
+            <if test="menuName !=null">
+                menu_name = #{menuName},
+            </if>
+            <if test="menuCode !=null">
+                menu_code=#{menuCode},
+            </if>
+            <if test="parentMenuId !=null ">
+                parent_menu_id=#{parentMenuId},
+            </if>
+            <if test="menuType !=null">
+                menu_type=#{menuType} ,
+            </if>
+            <if test="nodeType !=null">
+                node_type=#{nodeType},
+            </if>
+            <if test="url !=null">
+                url=#{url},
+            </if>
+            <if test="icon !=null">
+                icon=#{icon},
+            </if>
+        </set>
+        where obj_id=#{objId}
+    </update>
+
+    <!--根据条件查询列表-->
+    <select id="queryList" parameterType="map" resultMap="SysMenuMap">
+        select
+        <include refid="column_list"/>
+        from sys_menu
+        <include refid="where_filters"/>
+        <if test="sortFieldName!=null and sortFieldName!=''">
+            ORDER BY
+            ${sortFieldName}
+            <if test="sortType!=null and sortType!=''">
+                ${sortType}
+            </if>
+        </if>
+        <if test="pageFirst!=null">
+            limit #{pageFirst},#{pageSize}
+        </if>
+    </select>
+
+    <!--根据条件查询数量-->
+    <select id="countList" parameterType="map" resultType="int">
+        select count(*) from sys_menu
+        <include refid="where_filters"/>
+    </select>
+
+
+    <!--根据条件查询唯一记录-->
+    <select id="selectByCondition" parameterType="map" resultMap="SysMenuMap">
+        select
+        <include refid="column_list"/>
+        from sys_menu
+        <include refid="where_filters"/>
+    </select>
+
+
+    <!--根据Criteria方式查询列表-->
+    <select id="queryListByCriteria" parameterType="map" resultMap="SysMenuMap">
+        select
+        <include refid="column_list"/>
+        from sys_menu
+        <include refid="criteria_filters"/>
+        <if test="sortFieldName!=null and sortFieldName!=''">
+            ORDER BY
+            ${sortFieldName}
+            <if test="sortType!=null and sortType!=''">
+                ${sortType}
+            </if>
+        </if>
+        <if test="pageFirst!=null">
+            limit #{pageFirst},#{pageSize}
+        </if>
+    </select>
+
+    <!--根据Criteria方式查询数量-->
+    <select id="countListByCriteria" parameterType="map" resultType="int">
+        select count(*) from sys_menu
+        <include refid="criteria_filters"/>
+    </select>
+
+
+</mapper>

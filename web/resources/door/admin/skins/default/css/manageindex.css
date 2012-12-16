@@ -1,0 +1,53 @@
+.manindexbox {background: #f5f7f8; position: relative; height: 100%;}
+.manage_left { margin-right: 291px;}
+.manage_right { width: 276px; position: absolute;right: 15px; top: 15px;}
+
+.manage_mod02 { background: #fff; border: solid 1px #c6dbe4; padding:0 15px 15px;}
+.manage_mod02_hd { height: 32px; line-height: 32px; border-bottom: solid 2px #efefef; position: relative; z-index: 2;}
+.manage_mod02_hd .hdline { height: 2px;width: 60px; overflow: hidden; background: #79abc9; position: absolute; z-index: 2; left: -1px; bottom:-2px;}
+.manage_applist { padding: 5px;}
+.manage_applist .manage_apppic { width: 60px; height: 60px; background: #eee; float: left; margin-right: 8px; display: inline;}
+.manage_applist li { padding: 0 0 0 0; margin: 15px 0 0 0; width: 240px;}
+.manage_mod02_switch { float: right; margin-top: 10px;}
+.manage_applist li h3 { float: left; width: 166px; float: left;}
+.manage_applist li p { height: 36px; overflow: hidden; width: 166px; float: left; }
+.manage_mod02_switch a { width: 16px; height: 16px; display: block; float: left; background-image: url(../images/page.png);}
+.manage_mod02_switch a.prev { background-position:0 0; }
+.manage_mod02_switch a.prev:hover { background-position: 0 -16px;}
+.manage_mod02_switch a.next { background-position:-16px 0; }
+.manage_mod02_switch a.next:hover { background-position:-16px -16px; }
+.templatelist { padding: 20px 0 0;}
+.templatelist li { float: left; width: 112px; display: inline; margin: 0 5px;}
+.templatelist_pic { width: 100px; margin: 0 auto; height: 120px; padding: 5px; display: block; border: solid 1px #e1e1e1;}
+.templatelist li h3 { width: 100%; text-align: center; font-weight: normal; height: 30px; line-height: 30px; overflow: hidden;}
+
+.manage_mod01 { border: solid 1px #c6dbe4; border-top:solid 2px #8bc1d8; }
+.manage_mod01_bd { background: #fff;}
+.manage_mod01_hd { height: 32px; line-height: 32px; background: url(../images/adminhomebg.png) repeat-x 0 -60px;}
+.manage_mod01_hd i { width: 20px; height: 20px; float: left; background-image: url(../images/adminhomebg.png); margin: 7px 6px 0 8px;}
+.manage_mod01_hd i.icon_time { background-position: 0 0;}
+.manage_mod01_hd i.icon_rec { background-position: 0 -20px;}
+.manage_mod01_hd i.icon_stat { background-position: 0 -40px;}
+.pendinglist { padding: 10px 0;}
+.pendinglist li { height: 30px; line-height: 30px; width: 28%; padding-right: 1%; float: left; display: inline;  margin-left: 3.3%;}
+.manage_mod01_switch { float: right;}
+.manage_mod01_switch li { float: left; margin: 0 5px;}
+.manage_mod01_switch li a { padding: 2px 5px 1px;}
+.manage_mod01_switch li a:hover { text-decoration: none;background: #c7e5f7;}
+.manage_mod01_switch li.cur a { background: #6d99b4; color: #fff;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

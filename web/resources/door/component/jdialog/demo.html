@@ -1,0 +1,381 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>窗口组件实例</title>
+<link type="text/css" rel="stylesheet" href="/resources/skins/shopadmin/css/public.css"/>
+<link type="text/css" rel="stylesheet" href="/resources/skins/shopadmin/css/layout.css"/>
+<link type="text/css" rel="stylesheet" href="/resources/skins/shopadmin/css/module.css"/>
+<link rel="stylesheet" type="text/css" media="screen" href="/resources/js/component/jdialog/css/jdialog.css"/>
+<script src="/resources/js/jquery/jquery-1.6.3.js" type="text/javascript"></script>
+<script src="/resources/js/component/jdialog/js/jqDnR.js" type="text/javascript"></script>
+
+<script src="/resources/js/component/jdialog/js/dimensions.js" type="text/javascript"></script>
+<script src="/resources/js/component/jdialog/js/jqModal.js" type="text/javascript"></script>
+<script src="/resources/js/component/jdialog/js/jdialog.js" type="text/javascript"></script>
+<script type="text/javascript">
+/**
+ id:"dialog", 对话框的ID
+ title:"", 对话框的标题
+ content:"",内容区的内容
+ url:"", 如果content为空时适用，如果 content不为空，则使用content
+ _ajax:false,是否使用ajax加载内容区
+ modal:true,
+ width:"600",窗口宽度
+ height:"200", 窗口高度
+ needAction:false,底部是否需要按钮
+ actions:[ 定义底部按钮
+ {
+ label:"关 闭",
+ actionClasss:'btn btn04_s',
+ action:function (dialogObj) {
+
+ }
+ ],
+ onClosed:function (h, dialogObj) {
+
+ },
+ onConfirm:function (dialogObj) {
+
+ },
+ onCancel:function (dialogObj) {
+
+ }
+ */
+$(document).ready(function () {
+    $("#myjqModal").click(function () {
+        $.jDialog({id:"jDialog2",
+            width:"500",
+            height:'188',
+            title:"mydialog_content",
+            content:"内容区<br/><br/><br/><br/><br/><br/><br/>容区内容区内容区内容区内容区内容区内容区内容区<br/><br/><br/><br/><br/><br/><br/>内容区3",
+            modal:true,
+            needAction:true,
+            bottomClass:"dright",
+            actions:[
+                {
+                    label:"确 定",
+                    actionClasss:'popbtn popbtn01',
+                    action:function (dialogObj) {
+                        alert("确定");
+                        var activeDialog = $.getActiveDialog();
+                    }
+                }
+            ],
+            onClosed:function (h, dialogObj) {
+                alert("关闭");
+            }});
+    });
+
+    $("#myjqModal1").click(function () {
+        $.jDialog({
+            id:"jDialog1",
+            width:"500",
+            height:'218',
+            url:"/resources/js/component/jdialog/content.html",
+            title:"mydialog_url",
+            needAction:true,
+            modal:true
+        });
+    });
+
+    $("#myjqModal2").click(function () {
+        $.jDialog({
+            id:"百度",
+            width:"800",
+            height:'338',
+            url:"http://www.baidu.com/",
+            title:"mydialog_url",
+            needAction:true,
+            modal:true
+        });
+    });
+
+    $("#myjqModal3").click(function () {
+        $.jDialog({
+            id:"jDialog3",
+            width:"500",
+            height:'188',
+            title:"mydialog_ajax",
+            url:"/resources/js/component/jdialog/content.html",
+            _ajax:true,
+            modal:true
+        });
+    });
+
+    $("#myjqModal4").click(function () {
+        var _context = $("<span>内容区<br/><br/></span>");
+        var ac = $('<a href="javascript:void(0)" id="innerDialog">innerDialog</a>');
+        ac.click(function () {
+            var _context1 = $("<span>内容区1<br/><br/></span>");
+            var ac1 = $('<a href="javascript:void(0)" id="innerDialog">innerDialog1</a>');
+            ac1.click(function () {
+                $.jDialog({id:"innerDialog1",
+                    width:"500",
+                    height:'188',
+                    title:"innerDialog1",
+                    content:"innerDialog1",
+                    modal:true,
+                    onClosed:function (h, dialogObj) {
+
+                    }
+                });
+
+            });
+            _context1.append(ac1);
+            $.jDialog({id:"innerDialog",
+                width:"500",
+                height:'188',
+                title:"innerDialog",
+                content:_context1,
+                needAction:false,
+                modal:true
+            });
+
+        });
+
+        _context.append(ac);
+        $.jDialog({id:"jDialog4",
+            width:"500",
+            height:'188',
+            title:"mydialog_cotent_obj",
+            content:_context,
+            modal:true
+        });
+
+    });
+
+    $("#myjqModal5").click(function () {
+        $.jDialog({
+            id:"jDialog5",
+            width:"500",
+            height:'188',
+            title:"mydialog_data",
+            url:"/resources/js/component/jdialog/content.html",
+            modal:true,
+            needAction:true,
+            actions:[
+                {
+                    label:"确 定",
+                    actionClasss:'popbtn popbtn01',
+                    action:function (dialogObj) {
+                        var activeDialog = $.getActiveDialog();
+                        $.info(activeDialog.getData("name"));
+                    }
+                }
+            ]
+        });
+    });
+
+    $("#myjqModal6").click(function () {
+        $.jDialog({
+            id:"百度",
+            width:"800",
+            height:'338',
+            url:"http://www.baidu.com/",
+            title:"mydialog_hide_effect",
+            needAction:true,
+            modal:true,
+            hideOpt:{
+                properties:{
+                    opacity:0.25,
+                    height:'-=0',
+                    top:'-=150'
+                },
+                duration:1000
+            }
+        });
+    });
+
+    $("#myjqModal7").click(function () {
+
+        $.jDialog({
+            id:"百度",
+            width:"800",
+            height:'338',
+            url:"http://www.baidu.com/",
+            title:"mydialog_hide_effect2",
+            needAction:true,
+            bottomClass:"dcen",
+            modal:true,
+            hideOpt:{
+                properties:{
+                    opacity:0.25,
+                    height:'-=400',
+                    top:'+=200'
+                },
+                duration:600
+            }
+        });
+    });
+
+    $("#myjqModal8").click(function () {
+        $.jDialog({
+            id:"百度",
+            width:"800",
+            height:'338',
+            url:"http://www.baidu.com/",
+            needTitle:false,
+            title:"mydialog_hide_effect2",
+            needAction:true,
+            bottomClass:"dcen",
+            modal:true
+        });
+    });
+    $("#myjqModal9").click(function () {
+        $.alert("提示文字");
+    });
+
+    $("#myjqModal10").click(function () {
+        $.success("编辑成功");
+    });
+
+    $("#myjqModal14").click(function () {
+        $.success("编辑成功", true);
+    });
+
+    $("#myjqModal15").click(function () {
+        $.success("编辑成功", true, 5000, function () {
+            alert("关闭");
+        });
+    });
+
+    $("#myjqModal11").click(function () {
+        $.error("出错了");
+    });
+
+    $("#myjqModal12").click(function () {
+        $.info("infoinfoinfoinfoinfoinfoinfoinfoinfoinfoininfoinfoinfoinfofoinfoinfoinfoinfoinfoinfo", {autoClosed:false}, 300, 110);
+    });
+
+    $("#myjqModal13").click(function () {
+        $.jDialog({id:"jDialog13",
+            width:"500",
+            height:'188',
+            title:"mydialog_callback",
+            content:"内容区<br/><br/><br/><br/><br/><br/><br/>容区内容区内容区内容区内容区内容区内容区内容区<br/><br/><br/><br/><br/><br/><br/>内容区3",
+            modal:true,
+            needAction:true,
+            bottomClass:"dright",
+            actions:[
+                {
+                    label:"确 定",
+                    actionClasss:'popbtn popbtn01',
+                    action:function (dialogObj) {
+                        var activeDialog = $.getActiveDialog();
+                        dialogObj.confirm();
+                    }
+                },
+                {
+                    label:"取 消",
+                    actionClasss:'btn btn04_s',
+                    action:function (dialogObj) {
+                        var activeDialog = $.getActiveDialog();
+                        dialogObj.cancel();
+                    }
+                }
+            ],
+            onConfirm:function (dialogObj) {
+                alert("onConfirm");
+            },
+            onCancel:function (dialogObj) {
+                alert("onCancle");
+
+            },
+            onClosed:function (h, dialogObj) {
+                alert("onClosed");
+            }});
+    });
+    $("#tipbox1").tipBox({content:"一句话的注释"});
+
+    $("#tipbox2").tipBox({type:"multiRow",
+        rows:[
+            {content:"多行注释示例。"},
+            {content:"启用该功能后，在“组织用户”菜单中，将可以对每个。"},
+            {content:"在本地图书管理系统中维护，由中图通上传到平台。"}
+        ]
+    });
+    $("#tipbox3").tipBox({type:"canClose", title:"新特性",
+        rows:[
+            {content:"多行注释示例。"},
+            {content:"启用该功能后，在“组织用户”菜单中，将可以对每个。"},
+            {content:"在本地图书管理系统中维护，由中图通上传到平台。"}
+        ]
+    });
+
+    $("#tipbox4").tipBox({type:"canClose", title:"新特性", content:"一句话的注释"});
+})
+</script>
+</head>
+<body>
+<a href="javascript:void(0)" id="myjqModal">mydialog_content</a>
+<br/>
+<a href="javascript:void(0)" id="myjqModal1">mydialog_url</a>
+
+<br/>
+<a href="javascript:void(0)" id="myjqModal2">mydialog_url_baidu</a>
+
+<br/>
+<a href="javascript:void(0)" id="myjqModal3">mydialog_ajax</a>
+
+<br/>
+<a href="javascript:void(0)" id="myjqModal4">mydialog_cotent_obj</a>
+
+<br/>
+<a href="javascript:void(0)" id="myjqModal5">mydialog_data</a>
+
+<br/>
+<a href="javascript:void(0)" id="myjqModal6">mydialog_hide_effect</a>
+
+<br/>
+<a href="javascript:void(0)" id="myjqModal7">mydialog_hide_effect2</a>
+
+<br/>
+<a href="javascript:void(0)" id="myjqModal8">mydialog_hiddentitle</a>
+
+<br/>
+<a href="javascript:void(0)" id="myjqModal13">mydialog_callback</a>
+
+<br/>
+<a href="javascript:void(0)" id="myjqModal9">alert</a>
+<br/>
+<a href="javascript:void(0)" id="myjqModal10">success</a>
+<br/>
+<a href="javascript:void(0)" id="myjqModal11">error</a>
+
+<br/>
+<a href="javascript:void(0)" id="myjqModal12">info</a>
+
+<br/>
+<a href="javascript:void(0)" id="myjqModal14">auto_closed</a>
+
+<br/>
+<a href="javascript:void(0)" id="myjqModal15">auto_closed1</a>
+
+
+<br/>
+
+<span id="tipbox1"></span>
+
+<br/>
+<br/>
+
+<span id="tipbox2"></span>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<span style="width: 100%; background: #ccc; height: 35px; line-height: 35px; display: block;">
+     会员<span id="tipbox3">管理</span>
+      aaaaaadddddddddddddddddddddddddaaaaaaddddddddddddddddddddddddd滴答滴答
+    <span id="tipbox4">一行可关闭</span>
+</span>
+
+
+</body>
+</html>
