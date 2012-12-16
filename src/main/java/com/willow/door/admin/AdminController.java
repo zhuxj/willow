@@ -6,6 +6,9 @@ package com.willow.door.admin;
 
 import com.willow.platform.core.base.web.BaseController;
 import com.willow.platform.core.context.WebSiteContext;
+import com.willow.platform.module.basic.menu.domain.SysMenu;
+import com.willow.platform.module.basic.menu.service.SysMenuService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +29,9 @@ import java.util.Map;
 @RequestMapping(WebSiteContext.MANAGER + "admin")
 @Controller
 public class AdminController extends BaseController {
+    @Autowired
+    private SysMenuService sysMenuService;
+
     @RequestMapping("/index")
     public String shopAdminIndex(ModelMap modelMap) {
         return "/door/admin/index";
@@ -44,7 +50,8 @@ public class AdminController extends BaseController {
     @RequestMapping("/queryMenu")
     public Map<String, Object> queryMenu(String menuCode) {
         Map<String, Object> map = new HashMap<String, Object>();
-
+        List<SysMenu> sysMenus = sysMenuService.querySysMenusByParentMenuId(menuCode);
+        map.put("data", sysMenus);
         return map;
     }
 }

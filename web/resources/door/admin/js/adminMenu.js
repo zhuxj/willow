@@ -13,7 +13,7 @@
             workground:"workground",
             loadMask:"loadMask",
             basePath:"",
-            defultUrl:"/shopadmin/showManageIndex",
+            defultUrl:"/index.jsp",
             url:"",
             historyManager:{},
             menuCode:"ROOT",
@@ -43,16 +43,16 @@
                         var dSize = (result.data).length;
                         var _li = null;
                         $.each(result.data, function (index, menu) {
-                            var li = $('<li id="' + menu.menuId + '"><a href="javascript:void(0)" url="' + menu.menuUrl + '" menuCode="' + menu.menuCode + '">' + menu.menuName + '</a></li>');
+                            var li = $('<li id="' + menu.objId + '"><a href="javascript:void(0)" url="' + menu.url + '" menuCode="' + menu.menuCode + '">' + menu.menuName + '</a></li>');
                             li.click(function () {
-                                setCurrentMenu(menu.menuId, null, null);
+                                setCurrentMenu(menu.objId, null, null);
                                 if (thisMenu.isLoading) {
                                     return false;
                                 }
                                 thisMenu.isLoading = true;
-                                thisMenu.queryLeftMenu(menu.menuId, function () {
+                                thisMenu.queryLeftMenu(menu.objId, function () {
                                     thisMenu.contentManager.loadUrl({
-                                        url:menu.menuUrl
+                                        url:menu.url
                                     });
                                     thisMenu.isLoading = false;
                                 });
@@ -101,7 +101,7 @@
                         var _menubox_ttl = null;
                         $.each(result.data, function (index, menu) {
                                 var menubox = $('<div class="menubox"></div>').appendTo(leftMenuContainer);
-                                var menubox_ttl = $('<div isShow="false"  id="' + menu.menuId + '" class="menubox_ttl2" style="cursor: pointer"><span class="menu_icon ' + menu.className + '" />' + menu.menuName + '</div>').appendTo(menubox);
+                                var menubox_ttl = $('<div isShow="false"  id="' + menu.objId + '" class="menubox_ttl2" style="cursor: pointer"><span class="menu_icon ' + menu.className + '" />' + menu.menuName + '</div>').appendTo(menubox);
                                 var menubox_con = $('<div class="menubox_con" style="display: none"></div>').appendTo(menubox);
                                 menubox_ttl.click(function () {
                                     if ($(this).attr("isShow") == "false") {
@@ -123,15 +123,15 @@
                                     }
                                 });
                                 var menubox_con_ul = $('<ul></ul>').appendTo(menubox_con);
-                                if (menu.childMenus != null) {
-                                    $.each(menu.childMenus, function (cidx, childMenu) {
-                                        var menubox_con_ul_li = $('<li><a href="javascript:void(0)" url="' + childMenu.menuUrl + '" title="' + childMenu.menuName + '" id="' + childMenu.menuId + '">' + childMenu.menuName + '</a></li>').appendTo(menubox_con_ul);
+                                if (menu.childMenuList != null) {
+                                    $.each(menu.childMenuList, function (cidx, childMenu) {
+                                        var menubox_con_ul_li = $('<li><a href="javascript:void(0)" url="' + childMenu.url + '" title="' + childMenu.menuName + '" id="' + childMenu.objId + '">' + childMenu.menuName + '</a></li>').appendTo(menubox_con_ul);
                                         menubox_con_ul_li.click(function () {
-                                            setCurrentMenu(null, menubox_ttl.attr("id"), childMenu.menuId);
+                                            setCurrentMenu(null, menubox_ttl.attr("id"), childMenu.objId);
                                             $(this).parent().parent().parent().parent().find(".menubox_current").removeClass("menubox_current");
                                             $(this).addClass("menubox_current"); //高亮当前菜单
                                             thisMenu.contentManager.loadUrl({
-                                                url:childMenu.menuUrl
+                                                url:childMenu.url
                                             });
                                         });
                                     });

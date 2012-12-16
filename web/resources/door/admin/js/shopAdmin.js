@@ -19,12 +19,12 @@ $(document).ready(function () {
             queryMenuUrl:"/admin/queryMenu",
             resourceRoot:resourceRoot
         });
-//        _menu.queryRootMenu();//初始化一级菜单
+        _menu.queryRootMenu();//初始化一级菜单
         buildMenuUtils(_menu);
         setLeftTogglerHight();
-//        menuUtils.loadUrl({
-//            url:location.hash.slice(1)
-//        });
+        menuUtils.loadUrl({
+            url:location.hash.slice(1)
+        });
         disableF5();
         $("#mainPageReturn").click(function () {
             if ($("#workground").css("display") != "none") {

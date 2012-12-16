@@ -6,6 +6,8 @@ package com.willow.platform.module.basic.menu.domain;
 
 import com.willow.platform.core.base.domian.BaseObject;
 
+import java.util.List;
+
 /**
  * <pre>
  * 系统菜单对象
@@ -31,6 +33,17 @@ public class SysMenu extends BaseObject {
     private String url;
     //节点图标
     private String icon;
+
+    //子菜单列表
+    private List<SysMenu> childMenuList;
+
+    public List<SysMenu> getChildMenuList() {
+        return childMenuList;
+    }
+
+    public void setChildMenuList(List<SysMenu> childMenuList) {
+        this.childMenuList = childMenuList;
+    }
 
     public String getMenuName() {
         return menuName;

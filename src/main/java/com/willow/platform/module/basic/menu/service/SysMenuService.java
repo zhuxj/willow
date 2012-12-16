@@ -11,6 +11,8 @@ import com.willow.platform.module.basic.menu.domain.SysMenu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <pre>
  * 业务类
@@ -23,6 +25,25 @@ import org.springframework.stereotype.Service;
 public class SysMenuService extends BaseService<SysMenu> {
     @Autowired
     private SysMenuDao sysMenuDao;
+
+    /**
+     * 根据父菜单查询子菜单
+     * @param parentMenuId
+     * @return
+     */
+    public List<SysMenu> querySysMenusByParentMenuId(String parentMenuId) {
+        SysMenu filter = new SysMenu();
+        filter.setParentMenuId(parentMenuId);
+        List<SysMenu> sysMenus = sysMenuDao.queryList(filter);
+        for (SysMenu sysMenu : sysMenus) {
+            SysMenu childFilter = new SysMenu();
+            childFilter.setParentMenuId(sysMenu.getObjId());
+            List<SysMenu> childSysMenus = sysMenuDao.queryList(childFilter);
+            sysMenu.setChildMenuList(childSysMenus);
+        }
+        return sysMenus;
+    }
+
 
     @Override
     public BaseDao<SysMenu> getDao() {
