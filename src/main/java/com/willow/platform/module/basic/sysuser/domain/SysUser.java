@@ -34,8 +34,15 @@ public class SysUser extends BaseObject{
     private String deptId;
     //邮箱
     private String email;
-    //手机
+    //电话
     private String telphone;
+    //手机
+    private String mobile;
+    //管理员
+    //登陆IP
+    private String lastLogonIp;
+    //会话ID
+    private String sessionId;
     //备注
     private String remark;
 
@@ -104,6 +111,24 @@ public class SysUser extends BaseObject{
     }
     public void setTelphone(String telphone) {
     this.telphone = telphone;
+    }
+    public String getMobile() {
+    return mobile;
+    }
+    public void setMobile(String mobile) {
+    this.mobile = mobile;
+    }
+    public String getLastLogonIp() {
+    return lastLogonIp;
+    }
+    public void setLastLogonIp(String lastLogonIp) {
+    this.lastLogonIp = lastLogonIp;
+    }
+    public String getSessionId() {
+    return sessionId;
+    }
+    public void setSessionId(String sessionId) {
+    this.sessionId = sessionId;
     }
     public String getRemark() {
     return remark;

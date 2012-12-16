@@ -37,7 +37,7 @@
     </taskdef>
     <!--代码生成任务-->
     <target name="codeGen" description="代码生成器" depends="compile">
-        <codeGenTask codegenconfig="/src/main/resources/doorCodeGenConfig.yml">
+        <codeGenTask codegenconfig="/src/main/resources/codeGenConfig.yml">
         </codeGenTask>
     </target>
 

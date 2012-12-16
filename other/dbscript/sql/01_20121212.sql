@@ -32,12 +32,15 @@ create table sys_user(
    order_no int(20) COMMENT '排序号',
    dept_id varchar(36) COMMENT '部门',
    email varchar(100) COMMENT '邮箱',
-   telphone varchar(36) COMMENT '手机',
+   telphone varchar(36) COMMENT '电话',
+   mobile varchar(36) COMMENT '手机',
+   admin_state char(5) COMMENT '管理员',
+   last_logon_ip varchar(30) COMMENT '登陆IP',
+   session_id  varchar(36) COMMENT '会话ID',
    remark varchar(500) COMMENT '备注',
    PRIMARY KEY (id)
  )comment '系统用户';
  create unique index idx_sys_user_id on sys_user(obj_id);
-
 
 
 

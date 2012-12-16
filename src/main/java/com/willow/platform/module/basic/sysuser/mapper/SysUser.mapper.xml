@@ -22,14 +22,22 @@
     <result column="dept_id" property="deptId"/>
     <!--邮箱-->
     <result column="email" property="email"/>
-    <!--手机-->
+    <!--电话-->
     <result column="telphone" property="telphone"/>
+    <!--手机-->
+    <result column="mobile" property="mobile"/>
+    <!--管理员-->
+    <result column="admin_state" property="adminState"/>
+    <!--登陆IP-->
+    <result column="last_logon_ip" property="lastLogonIp"/>
+    <!--会话ID-->
+    <result column="session_id" property="sessionId"/>
     <!--备注-->
     <result column="remark" property="remark"/>
 </resultMap>
     <!--列信息-->
     <sql id="column_list">
-        obj_id,create_time,update_time,user_id,user_name,password,real_name,order_no,dept_id,email,telphone,remark
+        obj_id,create_time,update_time,user_id,user_name,password,real_name,order_no,dept_id,email,telphone,mobile,admin_state,last_logon_ip,session_id,remark
     </sql>
     <!--criteria的动态条件-->
     <sql id="criteria_filters">
@@ -96,6 +104,18 @@
             <if test="telphone !=null and telphone !=''">
                 and telphone=#{telphone}
             </if>
+            <if test="mobile !=null and mobile !=''">
+                and mobile=#{mobile}
+            </if>
+            <if test="adminState !=null and adminState !=''">
+                and admin_state=#{adminState}
+            </if>
+            <if test="lastLogonIp !=null and lastLogonIp !=''">
+                and last_logon_ip=#{lastLogonIp}
+            </if>
+            <if test="sessionId !=null and sessionId !=''">
+                and session_id=#{sessionId}
+            </if>
             <if test="remark !=null and remark !=''">
                 and remark=#{remark}
             </if>
@@ -104,7 +124,7 @@
     <!--保存-->
     <insert id="save" parameterType="com.willow.platform.module.basic.sysuser.domain.SysUser">
         INSERT INTO sys_user(<include refid="column_list"/>)
-        VALUES (#{objId},#{createTime},#{updateTime},#{userId},#{userName},#{password},#{realName},#{orderNo},#{deptId},#{email},#{telphone},#{remark});
+        VALUES (#{objId},#{createTime},#{updateTime},#{userId},#{userName},#{password},#{realName},#{orderNo},#{deptId},#{email},#{telphone},#{mobile},#{adminState},#{lastLogonIp},#{sessionId},#{remark});
     </insert>
 
     <!--根据主键查询对象数据-->
@@ -141,6 +161,10 @@
             dept_id=#{deptId},
             email=#{email},
             telphone=#{telphone},
+            mobile=#{mobile},
+            admin_state=#{adminState},
+            last_logon_ip=#{lastLogonIp},
+            session_id=#{sessionId},
             remark=#{remark}
         </set>
         where obj_id=#{objId}
@@ -182,6 +206,18 @@
             </if>
             <if test="telphone !=null">
                 telphone=#{telphone},
+            </if>
+            <if test="mobile !=null">
+                mobile=#{mobile},
+            </if>
+            <if test="adminState !=null">
+                admin_state=#{adminState},
+            </if>
+            <if test="lastLogonIp !=null">
+                last_logon_ip=#{lastLogonIp},
+            </if>
+            <if test="sessionId !=null">
+                session_id=#{sessionId},
             </if>
             <if test="remark !=null">
                 remark=#{remark},
