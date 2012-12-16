@@ -24,7 +24,7 @@ codeGenFileConfig:
     outFileConfigs:
           - {refTemplate: domain, fileName: $classVar$.java,override: true,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\domain}
           - {refTemplate: mapper, fileName: $classVar$Mapper.java,override: false,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\mapper}
-          - {refTemplate: mapper.xml, fileName: $classVar$.mapper.xmloverride: true,,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\mapper}
+          - {refTemplate: mapper.xml, fileName: $classVar$.mapper.xml,override: true,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\mapper}
           - {refTemplate: dao, fileName: $classVar$Dao.java,override: false,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\dao}
           - {refTemplate: service, fileName: $classVar$Service.java,override: false,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\service}
 #表配置信息
