@@ -39,6 +39,7 @@ public class SysUser extends BaseObject{
     //手机
     private String mobile;
     //管理员
+    private String adminState;
     //登陆IP
     private String lastLogonIp;
     //会话ID
@@ -117,6 +118,12 @@ public class SysUser extends BaseObject{
     }
     public void setMobile(String mobile) {
     this.mobile = mobile;
+    }
+    public String getAdminState() {
+    return adminState;
+    }
+    public void setAdminState(String adminState) {
+    this.adminState = adminState;
     }
     public String getLastLogonIp() {
     return lastLogonIp;

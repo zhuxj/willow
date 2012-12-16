@@ -16,7 +16,7 @@ import com.willow.platform.core.base.domian.BaseObject;
 public class ${codeGenConfig.table.classVar!} extends BaseObject{
 <#list tableClass.fieldColumns as fieldColumn>
     //${fieldColumn.propName!}
-    <#if fieldColumn.columnType=="VARCHAR">
+    <#if fieldColumn.columnType=="VARCHAR" || fieldColumn.columnType=="CHAR">
     private String ${fieldColumn.javaProperty!};
     </#if>
     <#if fieldColumn.columnType=="INT" || fieldColumn.columnType=="INT UNSIGNED">
@@ -25,7 +25,7 @@ public class ${codeGenConfig.table.classVar!} extends BaseObject{
 </#list>
 
 <#list tableClass.fieldColumns as fieldColumn>
-    <#if fieldColumn.columnType=="VARCHAR">
+    <#if fieldColumn.columnType=="VARCHAR"  || fieldColumn.columnType=="CHAR">
     public String get${fieldColumn.gsJavaProperty!}() {
     return ${fieldColumn.javaProperty!};
     }

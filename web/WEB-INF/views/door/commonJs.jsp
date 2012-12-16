@@ -37,12 +37,8 @@
 <script src="${resourceRoot}/door/component/jdialog/js/jdialog.js" type="text/javascript"></script>
 <script type="text/javascript" src="${resourceRoot}/door/component/egrid/js/egrid.js"></script>
 
-<script language="javascript" type="text/javascript"
-        src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js"></script>
-
-
 <%--验证表单--%>
-<script type="text/javascript" src="${resourceRoot}/js/component/checkValid/js/checkValid.js"></script>
+<script type="text/javascript" src="${resourceRoot}/door/component/checkValid/js/checkValid.js"></script>
 
 <script src="${resourceRoot}/js/lib/jquery/plugins/highcharts.js" type="text/javascript"></script>
 <script src="${resourceRoot}/js/lib/jquery/plugins/exporting.js" type="text/javascript"></script>
