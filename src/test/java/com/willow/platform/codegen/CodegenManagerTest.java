@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 /**
  * <pre>
- *
+ * 通过java来使用代码生成器生成文件
  * </pre>
  *
  * @author 朱贤俊
