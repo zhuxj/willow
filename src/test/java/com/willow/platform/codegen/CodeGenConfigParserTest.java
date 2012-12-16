@@ -24,7 +24,7 @@ public class CodeGenConfigParserTest {
     public void parserCodeGenConfigTest() {
         CodeGenConfigParser codeGenConfigParser = new CodeGenConfigParser();
         String codegenConfigPath = "/com/willow/platform/codegen/DoorCodeGenConfigTest.yml";
-        CodeGenConfig codeGenConfig = codeGenConfigParser.parserCodeGenConfig(codegenConfigPath);
+        CodeGenConfig codeGenConfig = codeGenConfigParser.parserCodeGenConfigFromClassPath(codegenConfigPath);
         assertNotNull(codeGenConfig);
         assertEquals(codeGenConfig.getTable().getTableCode(), "sys_user");
 

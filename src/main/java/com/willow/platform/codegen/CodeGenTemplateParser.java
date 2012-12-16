@@ -18,6 +18,7 @@ import freemarker.template.TemplateException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.Resource;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
@@ -39,6 +40,12 @@ public class CodeGenTemplateParser {
      * 日志记录
      */
     private final static Logger logger = LoggerFactory.getLogger(CodeGenTemplateParser.class);
+
+    private Resource resource;
+
+    public CodeGenTemplateParser(Resource resource) {
+        this.resource = resource;
+    }
 
     /**
      * 解析模板内容
@@ -97,7 +104,7 @@ public class CodeGenTemplateParser {
         Configuration cfg = new Configuration();
         cfg.setDefaultEncoding("UTF-8");
         try {
-            cfg.setDirectoryForTemplateLoading(new ClassPathResource("ftl/").getFile());
+            cfg.setDirectoryForTemplateLoading(resource.getFile());
         } catch (Exception e) {
             e.printStackTrace();
         }

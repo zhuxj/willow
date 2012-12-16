@@ -33,7 +33,7 @@ table:
     tableName: 系统用户
     classVar: SysUser
     packageVar: com.willow.platform.module.basic.sysuser
-    simplePackageVar: sysmenu
+    simplePackageVar: sysuser
 
 
 

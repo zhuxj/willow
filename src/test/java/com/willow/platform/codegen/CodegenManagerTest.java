@@ -19,9 +19,8 @@ public class CodegenManagerTest {
     public void generateTest() {
         CodegenManager codegenManager = new CodegenManager();
         String codegenConfigPath = "/com/willow/platform/codegen/DoorCodeGenConfigTest.yml";
-        codegenManager.setConfigPath(codegenConfigPath);
         try {
-            codegenManager.generate();
+            codegenManager.generateFromJava(codegenConfigPath);
         } catch (Exception e) {
             e.printStackTrace();
         }

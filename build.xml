@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project name="willow">
+    <property name="project.name" value="willow"/>
+    <property name="web.root" value="web"/>
+
+    <!-- 源文件编译目录 -->
+    <property name="src.build.dir" value="web/WEB-INF/classes"/>
+
+    <!-- 源代码目录 -->
+    <property name="src.dir" value="src/main/java"/>
+    <property name="src.sources.dir" value="src/main/resources"/>
+
+    <!-- 最终生成项目包 -->
+    <property name="dist.dir" value="out/dist"/>
+    <property name="zip.dir" value="out/zip"/>
+
+    <property name="compile.debug" value="true"/>
+    <property name="compile.deprecation" value="false"/>
+    <property name="compile.optimize" value="true"/>
+    <property name="compile.target" value="1.6"/>
+    <property name="compile.source" value="1.6"/>
+    <property name="compile.encoding" value="UTF-8"/>
+
+    <path id="compile.classpath">
+        <path location="${src.build.dir}"/>
+        <fileset dir="web/WEB-INF/lib" includes="**/*.jar"/>
+        <fileset dir="other/build/lib" includes="**/*.jar"/>
+    </path>
+
+    <path id="classpath.main">
+        <pathelement location="${src.build.dir}"/>
+    </path>
+
+    <taskdef name="codeGenTask"
+             classname="com.willow.platform.codegen.ant.CodegenTask">
+        <classpath refid="compile.classpath"></classpath>
+    </taskdef>
+    <!--代码生成任务-->
+    <target name="codeGen" description="代码生成器" depends="compile">
+        <codeGenTask codegenconfig="/src/main/resources/doorCodeGenConfig.yml">
+        </codeGenTask>
+    </target>
+
+    <!-- 清空发布目录 -->
+    <target name="clean" description="清空发布目录">
+        <delete dir="${src.build.dir}"/>
+        <delete dir="${dist.dir}"/>
+        <delete dir="${zip.dir}"/>
+    </target>
+
+    <target name="compile" description="编译源代码" depends="clean">
+        <mkdir dir="${src.build.dir}"/>
+        <javac srcdir="${src.dir}"
+               destdir="${src.build.dir}"
+               debug="${compile.debug}"
+               target="${compile.target}"
+               source="${compile.source}"
+               deprecation="${compile.deprecation}"
+               optimize="${compile.optimize}"
+               encoding="${compile.encoding}">
+            <classpath refid="compile.classpath"/>
+            <!--<compilerarg value="-Xlint:unchecked"/>-->
+            <compilerarg value="-Xlint:deprecation"/>
+        </javac>
+
+
+        <copy todir="${src.build.dir}">
+            <fileset dir="${src.dir}">
+                <include name="**"/>
+                <exclude name="**/*.java"/>
+                <exclude name="**/*.svn"/>
+            </fileset>
+        </copy>
+        <copy todir="${src.build.dir}">
+            <fileset dir="${src.sources.dir}">
+                <include name="**"/>
+                <exclude name="**/*.svn"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- 发布正式项目 -->
+    <target name="dist" description="生成WAR包" depends="compile">
+        <delete dir="${dist.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+        <war destfile="${dist.dir}/${project.name}.war" webxml="${web.root}/WEB-INF/web.xml">
+            <fileset dir="${web.root}">
+                <include name="**"/>
+                <exclude name="**/*.svn"/>
+                <exclude name="WEB-INF/classes/conf/platformConf.properties"/>
+            </fileset>
+            <zipfileset dir="other/build/conf/" includes="platformConf.properties"
+                        fullpath="WEB-INF/classes/conf/platformConf.properties"/>
+        </war>
+    </target>
+</project>

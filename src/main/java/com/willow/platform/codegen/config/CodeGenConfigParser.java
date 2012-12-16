@@ -9,6 +9,7 @@ import com.willow.platform.core.WillowException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.IOException;
@@ -31,10 +32,10 @@ public class CodeGenConfigParser {
     /**
      * 解析代码生成器配置文件
      *
-     * @param configPath 代码生成器配置文件，相对类路径
+     * @param configPath 代码生成器配置文件，类路径
      * @return
      */
-    public CodeGenConfig parserCodeGenConfig(String configPath) {
+    public CodeGenConfig parserCodeGenConfigFromClassPath(String configPath) {
         Yaml yaml = new Yaml();
         InputStream input = null;
         try {
@@ -45,6 +46,27 @@ public class CodeGenConfigParser {
         }
         CodeGenConfig config = (CodeGenConfig) yaml.load(input);
         logger.info("读取" + configPath + "成功");
+        return config;
+    }
+
+
+    /**
+     * 解析代码生成器配置文件
+     *
+     * @param fileConfigPath 系统文件路径
+     * @return
+     */
+    public CodeGenConfig parserCodeGenConfigFromFileSystemPath(String fileConfigPath) {
+        Yaml yaml = new Yaml();
+        InputStream input = null;
+        try {
+            input = new FileSystemResource(fileConfigPath).getInputStream();
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new WillowException("can not load codegen config", e.getCause());
+        }
+        CodeGenConfig config = (CodeGenConfig) yaml.load(input);
+        logger.info("读取" + fileConfigPath + "成功");
         return config;
     }
 

@@ -45,7 +45,7 @@ public class YmlParserTest {
     @Test
     public void ymlParserTest1() throws Exception {
         Yaml yaml = new Yaml();
-        InputStream input = new ClassPathResource("/com/willow/platform/codegen/DoorCodeGenConfig.yml").getInputStream();
+        InputStream input = new ClassPathResource("/DoorCodeGenConfig.yml").getInputStream();
         CodeGenConfig config = (CodeGenConfig) yaml.load(input);
         logger.info(config.toString());
         System.out.println(yaml.dump(config));
