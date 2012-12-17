@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.willow.platform.module.basic.website.mapper.WebSiteMapper">
+<resultMap id="WebSiteMap" type="com.willow.platform.module.basic.website.domain.WebSite">
+    <!--网站ID-->
+    <result column="obj_id" property="objId"/>
+    <!--创建时间-->
+    <result column="create_time" property="createTime"/>
+    <!--更新时间-->
+    <result column="update_time" property="updateTime"/>
+    <!--操作人-->
+    <result column="user_id" property="userId"/>
+    <!--公司ID-->
+    <result column="company_id" property="companyId"/>
+    <!--公司ID-->
+    <result column="template_id" property="templateId"/>
+    <!--商城名称-->
+    <result column="website_name" property="websiteName"/>
+    <!--商城标题-->
+    <result column="website_title" property="websiteTitle"/>
+    <!--商城描述-->
+    <result column="website_desc" property="websiteDesc"/>
+    <!--网站Logo图片ID-->
+    <result column="logo_image_id" property="logoImageId"/>
+    <!--商城关键字-->
+    <result column="website_keyword" property="websiteKeyword"/>
+    <!--客服邮件地址-->
+    <result column="service_email" property="serviceEmail"/>
+    <!--客服电话-->
+    <result column="service_tel" property="serviceTel"/>
+    <!--客服传真-->
+    <result column="service_fax" property="serviceFax"/>
+    <!--工作时间-->
+    <result column="work_time" property="workTime"/>
+    <!--是否暂时关闭网站-->
+    <result column="shut_down" property="shutDown"/>
+    <!--ICP备案证书号-->
+    <result column="website_icp" property="websiteIcp"/>
+</resultMap>
+    <!--列信息-->
+    <sql id="column_list">
+        obj_id,create_time,update_time,user_id,company_id,template_id,website_name,website_title,website_desc,logo_image_id,website_keyword,service_email,service_tel,service_fax,work_time,shut_down,website_icp
+    </sql>
+    <!--criteria的动态条件-->
+    <sql id="criteria_filters">
+        <where>
+            <if test="criteria.valid">
+                <trim prefix="(" suffix=")" prefixOverrides="and">
+                    <foreach collection="criteria.criteria" item="criterion">
+                        <choose>
+                            <when test="criterion.noValue">
+                                and ${criterion.condition}
+                            </when>
+                            <when test="criterion.singleValue">
+                                and ${criterion.condition} #{criterion.value}
+                            </when>
+                            <when test="criterion.betweenValue">
+                                and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                            </when>
+                            <when test="criterion.listValue">
+                                and ${criterion.condition}
+                                <foreach collection="criterion.value" item="listItem" open="(" close=")"
+                                         separator=",">
+                                #{listItem}
+                                </foreach>
+                            </when>
+                        </choose>
+                    </foreach>
+                </trim>
+            </if>
+        </where>
+    </sql>
+    <!--动态条件-->
+    <sql id="where_filters">
+        <where>
+            <if test="objId !=null and objId !=''">
+                and obj_id=#{objId}
+            </if>
+            <if test="createTime !=null and createTime !=''">
+                and create_time=#{createTime}
+            </if>
+            <if test="updateTime !=null and updateTime !=''">
+                and update_time=#{updateTime}
+            </if>
+            <if test="userId !=null and userId !=''">
+                and user_id=#{userId}
+            </if>
+            <if test="companyId !=null and companyId !=''">
+                and company_id=#{companyId}
+            </if>
+            <if test="templateId !=null and templateId !=''">
+                and template_id=#{templateId}
+            </if>
+            <if test="websiteName !=null and websiteName !=''">
+                and website_name=#{websiteName}
+            </if>
+            <if test="websiteTitle !=null and websiteTitle !=''">
+                and website_title=#{websiteTitle}
+            </if>
+            <if test="websiteDesc !=null and websiteDesc !=''">
+                and website_desc=#{websiteDesc}
+            </if>
+            <if test="logoImageId !=null and logoImageId !=''">
+                and logo_image_id=#{logoImageId}
+            </if>
+            <if test="websiteKeyword !=null and websiteKeyword !=''">
+                and website_keyword=#{websiteKeyword}
+            </if>
+            <if test="serviceEmail !=null and serviceEmail !=''">
+                and service_email=#{serviceEmail}
+            </if>
+            <if test="serviceTel !=null and serviceTel !=''">
+                and service_tel=#{serviceTel}
+            </if>
+            <if test="serviceFax !=null and serviceFax !=''">
+                and service_fax=#{serviceFax}
+            </if>
+            <if test="workTime !=null and workTime !=''">
+                and work_time=#{workTime}
+            </if>
+            <if test="shutDown !=null and shutDown !=''">
+                and shut_down=#{shutDown}
+            </if>
+            <if test="websiteIcp !=null and websiteIcp !=''">
+                and website_icp=#{websiteIcp}
+            </if>
+        </where>
+    </sql>
+    <!--保存-->
+    <insert id="save" parameterType="com.willow.platform.module.basic.website.domain.WebSite">
+        INSERT INTO website(<include refid="column_list"/>)
+        VALUES (#{objId},#{createTime},#{updateTime},#{userId},#{companyId},#{templateId},#{websiteName},#{websiteTitle},#{websiteDesc},#{logoImageId},#{websiteKeyword},#{serviceEmail},#{serviceTel},#{serviceFax},#{workTime},#{shutDown},#{websiteIcp});
+    </insert>
+
+    <!--根据主键查询对象数据-->
+    <select id="selectByObjId" parameterType="string" resultMap="WebSiteMap">
+        select
+        <include refid="column_list"/>
+        from website
+        where obj_id=#{objId}
+    </select>
+
+    <!--根据主键删除-->
+    <delete id="deleteByObjId" parameterType="string">
+        delete from website where obj_id=#{objId}
+    </delete>
+
+    <!--根据条件删除-->
+    <delete id="deleteByParam" parameterType="map">
+        delete from website
+        <include refid="where_filters"/>
+    </delete>
+
+    <!--更新-->
+    <update id="update" parameterType="com.willow.platform.module.basic.website.domain.WebSite">
+        update website
+        <set>
+            obj_id=#{objId},
+            create_time=#{createTime},
+            update_time=#{updateTime},
+            user_id=#{userId},
+            company_id=#{companyId},
+            template_id=#{templateId},
+            website_name=#{websiteName},
+            website_title=#{websiteTitle},
+            website_desc=#{websiteDesc},
+            logo_image_id=#{logoImageId},
+            website_keyword=#{websiteKeyword},
+            service_email=#{serviceEmail},
+            service_tel=#{serviceTel},
+            service_fax=#{serviceFax},
+            work_time=#{workTime},
+            shut_down=#{shutDown},
+            website_icp=#{websiteIcp}
+        </set>
+        where obj_id=#{objId}
+    </update>
+
+    <!--根据主键ID更新不为空的字段-->
+    <update id="updateByIdSelective" parameterType="com.willow.platform.module.basic.website.domain.WebSite">
+        update website
+        <set>
+            <if test="objId !=null">
+                obj_id=#{objId},
+            </if>
+            <if test="createTime !=null">
+                create_time=#{createTime},
+            </if>
+            <if test="updateTime !=null">
+                update_time=#{updateTime},
+            </if>
+            <if test="userId !=null">
+                user_id=#{userId},
+            </if>
+            <if test="companyId !=null">
+                company_id=#{companyId},
+            </if>
+            <if test="templateId !=null">
+                template_id=#{templateId},
+            </if>
+            <if test="websiteName !=null">
+                website_name=#{websiteName},
+            </if>
+            <if test="websiteTitle !=null">
+                website_title=#{websiteTitle},
+            </if>
+            <if test="websiteDesc !=null">
+                website_desc=#{websiteDesc},
+            </if>
+            <if test="logoImageId !=null">
+                logo_image_id=#{logoImageId},
+            </if>
+            <if test="websiteKeyword !=null">
+                website_keyword=#{websiteKeyword},
+            </if>
+            <if test="serviceEmail !=null">
+                service_email=#{serviceEmail},
+            </if>
+            <if test="serviceTel !=null">
+                service_tel=#{serviceTel},
+            </if>
+            <if test="serviceFax !=null">
+                service_fax=#{serviceFax},
+            </if>
+            <if test="workTime !=null">
+                work_time=#{workTime},
+            </if>
+            <if test="shutDown !=null">
+                shut_down=#{shutDown},
+            </if>
+            <if test="websiteIcp !=null">
+                website_icp=#{websiteIcp},
+            </if>
+        </set>
+        where obj_id=#{objId}
+    </update>
+
+    <!--根据条件查询列表-->
+    <select id="queryList" parameterType="map" resultMap="WebSiteMap">
+        select
+        <include refid="column_list"/>
+        from website
+        <include refid="where_filters"/>
+        <if test="sortFieldName!=null and sortFieldName!=''">
+            ORDER BY
+            ${sortFieldName}
+            <if test="sortType!=null and sortType!=''">
+            ${sortType}
+            </if>
+        </if>
+        <if test="pageFirst!=null">
+            limit #{pageFirst},#{pageSize}
+        </if>
+    </select>
+
+    <!--根据条件查询数量-->
+    <select id="countList" parameterType="map" resultType="int">
+        select count(*) from website
+        <include refid="where_filters"/>
+    </select>
+
+
+    <!--根据条件查询唯一记录-->
+    <select id="selectByCondition" parameterType="map" resultMap="WebSiteMap">
+        select
+        <include refid="column_list"/>
+        from website
+        <include refid="where_filters"/>
+    </select>
+
+
+    <!--根据Criteria方式查询列表-->
+    <select id="queryListByCriteria" parameterType="map" resultMap="WebSiteMap">
+        select
+        <include refid="column_list"/>
+        from website
+        <include refid="criteria_filters"/>
+        <if test="sortFieldName!=null and sortFieldName!=''">
+            ORDER BY
+            ${sortFieldName}
+            <if test="sortType!=null and sortType!=''">
+            ${sortType}
+            </if>
+        </if>
+        <if test="pageFirst!=null">
+            limit #{pageFirst},#{pageSize}
+        </if>
+    </select>
+
+    <!--根据Criteria方式查询数量-->
+    <select id="countListByCriteria" parameterType="map" resultType="int">
+        select count(*) from website
+        <include refid="criteria_filters"/>
+    </select>
+
+
+</mapper>
