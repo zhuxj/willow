@@ -16,30 +16,15 @@ import com.willow.platform.core.base.domian.BaseObject;
 public class ${codeGenConfig.table.classVar!} extends BaseObject{
 <#list tableClass.fieldColumns as fieldColumn>
     //${fieldColumn.propName!}
-    <#if fieldColumn.columnType=="VARCHAR" || fieldColumn.columnType=="CHAR">
-    private String ${fieldColumn.javaProperty!};
-    </#if>
-    <#if fieldColumn.columnType=="INT" || fieldColumn.columnType=="INT UNSIGNED">
-    private Integer ${fieldColumn.javaProperty!};
-    </#if>
+    private ${fieldColumn.jdbcType!} ${fieldColumn.javaProperty!};
 </#list>
 
 <#list tableClass.fieldColumns as fieldColumn>
-    <#if fieldColumn.columnType=="VARCHAR"  || fieldColumn.columnType=="CHAR">
-    public String get${fieldColumn.gsJavaProperty!}() {
-    return ${fieldColumn.javaProperty!};
+    public ${fieldColumn.jdbcType!} get${fieldColumn.gsJavaProperty!}() {
+        return ${fieldColumn.javaProperty!};
     }
-    public void set${fieldColumn.gsJavaProperty!}(String ${fieldColumn.javaProperty!}) {
-    this.${fieldColumn.javaProperty!} = ${fieldColumn.javaProperty!};
+    public void set${fieldColumn.gsJavaProperty!}(${fieldColumn.jdbcType!} ${fieldColumn.javaProperty!}) {
+        this.${fieldColumn.javaProperty!} = ${fieldColumn.javaProperty!};
     }
-    </#if>
-    <#if fieldColumn.columnType=="INT" || fieldColumn.columnType=="INT UNSIGNED">
-    public Integer get${fieldColumn.gsJavaProperty!}() {
-    return ${fieldColumn.javaProperty!};
-    }
-    public void set${fieldColumn.gsJavaProperty!}(Integer ${fieldColumn.javaProperty!}) {
-    this.${fieldColumn.javaProperty!} = ${fieldColumn.javaProperty!};
-    }
-    </#if>
 </#list>
 }

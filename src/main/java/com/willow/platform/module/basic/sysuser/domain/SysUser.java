@@ -1,6 +1,6 @@
 /**
 * 版权声明：贤俊工作室 版权所有 违者必究
-* 日    期：2012-12-16
+* 日    期：2012-12-17
 */
 package com.willow.platform.module.basic.sysuser.domain;
 
@@ -48,99 +48,99 @@ public class SysUser extends BaseObject{
     private String remark;
 
     public String getObjId() {
-    return objId;
+        return objId;
     }
     public void setObjId(String objId) {
-    this.objId = objId;
+        this.objId = objId;
     }
     public String getCreateTime() {
-    return createTime;
+        return createTime;
     }
     public void setCreateTime(String createTime) {
-    this.createTime = createTime;
+        this.createTime = createTime;
     }
     public String getUpdateTime() {
-    return updateTime;
+        return updateTime;
     }
     public void setUpdateTime(String updateTime) {
-    this.updateTime = updateTime;
+        this.updateTime = updateTime;
     }
     public String getUserId() {
-    return userId;
+        return userId;
     }
     public void setUserId(String userId) {
-    this.userId = userId;
+        this.userId = userId;
     }
     public String getUserName() {
-    return userName;
+        return userName;
     }
     public void setUserName(String userName) {
-    this.userName = userName;
+        this.userName = userName;
     }
     public String getPassword() {
-    return password;
+        return password;
     }
     public void setPassword(String password) {
-    this.password = password;
+        this.password = password;
     }
     public String getRealName() {
-    return realName;
+        return realName;
     }
     public void setRealName(String realName) {
-    this.realName = realName;
+        this.realName = realName;
     }
     public Integer getOrderNo() {
-    return orderNo;
+        return orderNo;
     }
     public void setOrderNo(Integer orderNo) {
-    this.orderNo = orderNo;
+        this.orderNo = orderNo;
     }
     public String getDeptId() {
-    return deptId;
+        return deptId;
     }
     public void setDeptId(String deptId) {
-    this.deptId = deptId;
+        this.deptId = deptId;
     }
     public String getEmail() {
-    return email;
+        return email;
     }
     public void setEmail(String email) {
-    this.email = email;
+        this.email = email;
     }
     public String getTelphone() {
-    return telphone;
+        return telphone;
     }
     public void setTelphone(String telphone) {
-    this.telphone = telphone;
+        this.telphone = telphone;
     }
     public String getMobile() {
-    return mobile;
+        return mobile;
     }
     public void setMobile(String mobile) {
-    this.mobile = mobile;
+        this.mobile = mobile;
     }
     public String getAdminState() {
-    return adminState;
+        return adminState;
     }
     public void setAdminState(String adminState) {
-    this.adminState = adminState;
+        this.adminState = adminState;
     }
     public String getLastLogonIp() {
-    return lastLogonIp;
+        return lastLogonIp;
     }
     public void setLastLogonIp(String lastLogonIp) {
-    this.lastLogonIp = lastLogonIp;
+        this.lastLogonIp = lastLogonIp;
     }
     public String getSessionId() {
-    return sessionId;
+        return sessionId;
     }
     public void setSessionId(String sessionId) {
-    this.sessionId = sessionId;
+        this.sessionId = sessionId;
     }
     public String getRemark() {
-    return remark;
+        return remark;
     }
     public void setRemark(String remark) {
-    this.remark = remark;
+        this.remark = remark;
     }
 }
