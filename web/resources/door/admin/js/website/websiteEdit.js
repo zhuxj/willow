@@ -14,9 +14,15 @@ $(document).ready(function () {
         var websiteName = $("#websiteName").val();
         var websiteTitle = $("#websiteTitle").val();
         var websiteDesc = $("#websiteDesc").val();
-        var logoImageId = $("#logoImageId").val();
-
         var websiteKeyword = $("#websiteKeyword").val();
+
+        var websiteNameEn = $("#websiteNameEn").val();
+        var websiteTitleEn = $("#websiteTitleEn").val();
+        var websiteDescEn = $("#websiteDescEn").val();
+        var websiteKeywordEn = $("#websiteKeywordEn").val();
+
+
+        var logoImageId = $("#logoImageId").val();
 
         var serviceEmail = $("#serviceEmail").val();
         var serviceFax = $("#serviceFax").val();
@@ -47,8 +53,12 @@ $(document).ready(function () {
                 websiteName:websiteName,
                 websiteTitle:websiteTitle,
                 websiteDesc:websiteDesc,
+                websiteKeyword:websiteKeywordEn,
+                websiteNameEn:websiteNameEn,
+                websiteTitleEn:websiteTitleEn,
+                websiteDescEn:websiteDescEn,
+                websiteKeywordEn:websiteKeywordEn,
                 logoImageId:logoImageId,
-                websiteKeyword:websiteKeyword,
                 serviceEmail:serviceEmail,
                 serviceFax:serviceFax,
                 serviceTel:serviceTel,

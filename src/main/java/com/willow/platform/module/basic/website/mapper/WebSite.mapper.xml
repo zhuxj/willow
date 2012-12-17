@@ -20,10 +20,18 @@
     <result column="website_title" property="websiteTitle"/>
     <!--商城描述-->
     <result column="website_desc" property="websiteDesc"/>
+    <!--商城英文名称-->
+    <result column="website_name_en" property="websiteNameEn"/>
+    <!--商城英文标题-->
+    <result column="website_title_en" property="websiteTitleEn"/>
+    <!--商城英文描述-->
+    <result column="website_desc_en" property="websiteDescEn"/>
     <!--网站Logo图片ID-->
     <result column="logo_image_id" property="logoImageId"/>
     <!--商城关键字-->
     <result column="website_keyword" property="websiteKeyword"/>
+    <!--商城英文关键字-->
+    <result column="website_keyword_en" property="websiteKeywordEn"/>
     <!--客服邮件地址-->
     <result column="service_email" property="serviceEmail"/>
     <!--客服电话-->
@@ -39,7 +47,7 @@
 </resultMap>
     <!--列信息-->
     <sql id="column_list">
-        obj_id,create_time,update_time,user_id,company_id,template_id,website_name,website_title,website_desc,logo_image_id,website_keyword,service_email,service_tel,service_fax,work_time,shut_down,website_icp
+        obj_id,create_time,update_time,user_id,company_id,template_id,website_name,website_title,website_desc,website_name_en,website_title_en,website_desc_en,logo_image_id,website_keyword,website_keyword_en,service_email,service_tel,service_fax,work_time,shut_down,website_icp
     </sql>
     <!--criteria的动态条件-->
     <sql id="criteria_filters">
@@ -100,11 +108,23 @@
             <if test="websiteDesc !=null and websiteDesc !=''">
                 and website_desc=#{websiteDesc}
             </if>
+            <if test="websiteNameEn !=null and websiteNameEn !=''">
+                and website_name_en=#{websiteNameEn}
+            </if>
+            <if test="websiteTitleEn !=null and websiteTitleEn !=''">
+                and website_title_en=#{websiteTitleEn}
+            </if>
+            <if test="websiteDescEn !=null and websiteDescEn !=''">
+                and website_desc_en=#{websiteDescEn}
+            </if>
             <if test="logoImageId !=null and logoImageId !=''">
                 and logo_image_id=#{logoImageId}
             </if>
             <if test="websiteKeyword !=null and websiteKeyword !=''">
                 and website_keyword=#{websiteKeyword}
+            </if>
+            <if test="websiteKeywordEn !=null and websiteKeywordEn !=''">
+                and website_keyword_en=#{websiteKeywordEn}
             </if>
             <if test="serviceEmail !=null and serviceEmail !=''">
                 and service_email=#{serviceEmail}
@@ -129,7 +149,7 @@
     <!--保存-->
     <insert id="save" parameterType="com.willow.platform.module.basic.website.domain.WebSite">
         INSERT INTO website(<include refid="column_list"/>)
-        VALUES (#{objId},#{createTime},#{updateTime},#{userId},#{companyId},#{templateId},#{websiteName},#{websiteTitle},#{websiteDesc},#{logoImageId},#{websiteKeyword},#{serviceEmail},#{serviceTel},#{serviceFax},#{workTime},#{shutDown},#{websiteIcp});
+        VALUES (#{objId},#{createTime},#{updateTime},#{userId},#{companyId},#{templateId},#{websiteName},#{websiteTitle},#{websiteDesc},#{websiteNameEn},#{websiteTitleEn},#{websiteDescEn},#{logoImageId},#{websiteKeyword},#{websiteKeywordEn},#{serviceEmail},#{serviceTel},#{serviceFax},#{workTime},#{shutDown},#{websiteIcp});
     </insert>
 
     <!--根据主键查询对象数据-->
@@ -164,8 +184,12 @@
             website_name=#{websiteName},
             website_title=#{websiteTitle},
             website_desc=#{websiteDesc},
+            website_name_en=#{websiteNameEn},
+            website_title_en=#{websiteTitleEn},
+            website_desc_en=#{websiteDescEn},
             logo_image_id=#{logoImageId},
             website_keyword=#{websiteKeyword},
+            website_keyword_en=#{websiteKeywordEn},
             service_email=#{serviceEmail},
             service_tel=#{serviceTel},
             service_fax=#{serviceFax},
@@ -207,11 +231,23 @@
             <if test="websiteDesc !=null">
                 website_desc=#{websiteDesc},
             </if>
+            <if test="websiteNameEn !=null">
+                website_name_en=#{websiteNameEn},
+            </if>
+            <if test="websiteTitleEn !=null">
+                website_title_en=#{websiteTitleEn},
+            </if>
+            <if test="websiteDescEn !=null">
+                website_desc_en=#{websiteDescEn},
+            </if>
             <if test="logoImageId !=null">
                 logo_image_id=#{logoImageId},
             </if>
             <if test="websiteKeyword !=null">
                 website_keyword=#{websiteKeyword},
+            </if>
+            <if test="websiteKeywordEn !=null">
+                website_keyword_en=#{websiteKeywordEn},
             </if>
             <if test="serviceEmail !=null">
                 service_email=#{serviceEmail},

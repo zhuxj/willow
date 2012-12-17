@@ -78,6 +78,11 @@ public class WebSiteController extends BaseController {
         webSite.setWebsiteTitle(webSiteVo.getWebsiteTitle());
         webSite.setWebsiteDesc(webSiteVo.getWebsiteDesc());
         webSite.setWebsiteKeyword(webSiteVo.getWebsiteKeyword());
+
+        webSite.setWebsiteNameEn(webSiteVo.getWebsiteNameEn());
+        webSite.setWebsiteTitleEn(webSiteVo.getWebsiteTitleEn());
+        webSite.setWebsiteDescEn(webSiteVo.getWebsiteDescEn());
+        webSite.setWebsiteKeywordEn(webSiteVo.getWebsiteKeywordEn());
         webSite.setLogoImageId(webSiteVo.getLogoImageId());
 
         webSite.setShutDown(webSiteVo.getShutDown());

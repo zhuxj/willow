@@ -26,17 +26,34 @@
                 <td><input class="ipt_250" name="websiteName" id="websiteName" value="${webSite.websiteName}"></td>
             </tr>
             <tr>
+                <th width="120"><em class="fstar">*</em>网站英文名称：</th>
+                <td><input class="ipt_250" name="websiteNameEn" id="websiteNameEn" value="${webSite.websiteNameEn}"></td>
+            </tr>
+            <tr>
                 <th><em class="fstar">*</em>网站标题：</th>
                 <td><input class="ipt_300" id="websiteTitle" name="websiteTitle" value="${webSite.websiteTitle}"></td>
+            </tr>
+            <tr>
+                <th><em class="fstar">*</em>网站英文标题：</th>
+                <td><input class="ipt_300" id="websiteTitleEn" name="websiteTitleEn" value="${webSite.websiteTitleEn}"></td>
             </tr>
             <tr>
                 <th><em class="fstar">*</em>网站描述：</th>
                 <td><textarea class="textarea" id="websiteDesc">${webSite.websiteDesc}</textarea></td>
             </tr>
             <tr>
+                <th><em class="fstar">*</em>网站英文描述：</th>
+                <td><textarea class="textarea" id="websiteDescEn">${webSite.websiteDescEn}</textarea></td>
+            </tr>
+            <tr>
                 <th>网站关键字：</th>
                 <td><input class="ipt_400" name="websiteKeyword" id="websiteKeyword"
                            value="${webSite.websiteKeyword}"><span class="fgray9">&nbsp;请以英文逗号分离</span></td>
+            </tr>
+            <tr>
+                <th>网站英文关键字：</th>
+                <td><input class="ipt_400" name="websiteKeywordEn" id="websiteKeywordEn"
+                           value="${webSite.websiteKeywordEn}"><span class="fgray9">&nbsp;请以英文逗号分离</span></td>
             </tr>
             <tr style="display: none;">
                 <th>网站模板ID：</th>

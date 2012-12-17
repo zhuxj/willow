@@ -32,10 +32,18 @@ public class WebSite extends BaseObject{
     private String websiteTitle;
     //商城描述
     private String websiteDesc;
+    //商城英文名称
+    private String websiteNameEn;
+    //商城英文标题
+    private String websiteTitleEn;
+    //商城英文描述
+    private String websiteDescEn;
     //网站Logo图片ID
     private String logoImageId;
     //商城关键字
     private String websiteKeyword;
+    //商城英文关键字
+    private String websiteKeywordEn;
     //客服邮件地址
     private String serviceEmail;
     //客服电话
@@ -103,6 +111,24 @@ public class WebSite extends BaseObject{
     public void setWebsiteDesc(String websiteDesc) {
         this.websiteDesc = websiteDesc;
     }
+    public String getWebsiteNameEn() {
+        return websiteNameEn;
+    }
+    public void setWebsiteNameEn(String websiteNameEn) {
+        this.websiteNameEn = websiteNameEn;
+    }
+    public String getWebsiteTitleEn() {
+        return websiteTitleEn;
+    }
+    public void setWebsiteTitleEn(String websiteTitleEn) {
+        this.websiteTitleEn = websiteTitleEn;
+    }
+    public String getWebsiteDescEn() {
+        return websiteDescEn;
+    }
+    public void setWebsiteDescEn(String websiteDescEn) {
+        this.websiteDescEn = websiteDescEn;
+    }
     public String getLogoImageId() {
         return logoImageId;
     }
@@ -114,6 +140,12 @@ public class WebSite extends BaseObject{
     }
     public void setWebsiteKeyword(String websiteKeyword) {
         this.websiteKeyword = websiteKeyword;
+    }
+    public String getWebsiteKeywordEn() {
+        return websiteKeywordEn;
+    }
+    public void setWebsiteKeywordEn(String websiteKeywordEn) {
+        this.websiteKeywordEn = websiteKeywordEn;
     }
     public String getServiceEmail() {
         return serviceEmail;
