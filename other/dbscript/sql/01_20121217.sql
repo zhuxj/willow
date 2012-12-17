@@ -1,6 +1,6 @@
 /*网站信息配置*/
-DROP TABLE IF EXISTS website;
-CREATE TABLE website (
+DROP TABLE IF EXISTS sys_website;
+CREATE TABLE sys_website (
   id int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '表主键',
   obj_id varchar(36) COMMENT '网站ID',
   create_time varchar(14) COMMENT '创建时间',
@@ -26,5 +26,5 @@ CREATE TABLE website (
   PRIMARY KEY (id)
 ) COMMENT='网站参数设置';
 
-create index idx_uk_website_id on website(obj_id);
+create index idx_uk_website_id on sys_website(obj_id);
 

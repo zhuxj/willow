@@ -148,7 +148,7 @@
     </sql>
     <!--保存-->
     <insert id="save" parameterType="com.willow.platform.module.basic.website.domain.WebSite">
-        INSERT INTO website(<include refid="column_list"/>)
+        INSERT INTO sys_website(<include refid="column_list"/>)
         VALUES (#{objId},#{createTime},#{updateTime},#{userId},#{companyId},#{templateId},#{websiteName},#{websiteTitle},#{websiteDesc},#{websiteNameEn},#{websiteTitleEn},#{websiteDescEn},#{logoImageId},#{websiteKeyword},#{websiteKeywordEn},#{serviceEmail},#{serviceTel},#{serviceFax},#{workTime},#{shutDown},#{websiteIcp});
     </insert>
 
@@ -156,24 +156,24 @@
     <select id="selectByObjId" parameterType="string" resultMap="WebSiteMap">
         select
         <include refid="column_list"/>
-        from website
+        from sys_website
         where obj_id=#{objId}
     </select>
 
     <!--根据主键删除-->
     <delete id="deleteByObjId" parameterType="string">
-        delete from website where obj_id=#{objId}
+        delete from sys_website where obj_id=#{objId}
     </delete>
 
     <!--根据条件删除-->
     <delete id="deleteByParam" parameterType="map">
-        delete from website
+        delete from sys_website
         <include refid="where_filters"/>
     </delete>
 
     <!--更新-->
     <update id="update" parameterType="com.willow.platform.module.basic.website.domain.WebSite">
-        update website
+        update sys_website
         <set>
             obj_id=#{objId},
             create_time=#{createTime},
@@ -202,7 +202,7 @@
 
     <!--根据主键ID更新不为空的字段-->
     <update id="updateByIdSelective" parameterType="com.willow.platform.module.basic.website.domain.WebSite">
-        update website
+        update sys_website
         <set>
             <if test="objId !=null">
                 obj_id=#{objId},
@@ -275,7 +275,7 @@
     <select id="queryList" parameterType="map" resultMap="WebSiteMap">
         select
         <include refid="column_list"/>
-        from website
+        from sys_website
         <include refid="where_filters"/>
         <if test="sortFieldName!=null and sortFieldName!=''">
             ORDER BY
@@ -291,7 +291,7 @@
 
     <!--根据条件查询数量-->
     <select id="countList" parameterType="map" resultType="int">
-        select count(*) from website
+        select count(*) from sys_website
         <include refid="where_filters"/>
     </select>
 
@@ -300,7 +300,7 @@
     <select id="selectByCondition" parameterType="map" resultMap="WebSiteMap">
         select
         <include refid="column_list"/>
-        from website
+        from sys_website
         <include refid="where_filters"/>
     </select>
 
@@ -309,7 +309,7 @@
     <select id="queryListByCriteria" parameterType="map" resultMap="WebSiteMap">
         select
         <include refid="column_list"/>
-        from website
+        from sys_website
         <include refid="criteria_filters"/>
         <if test="sortFieldName!=null and sortFieldName!=''">
             ORDER BY
@@ -325,7 +325,7 @@
 
     <!--根据Criteria方式查询数量-->
     <select id="countListByCriteria" parameterType="map" resultType="int">
-        select count(*) from website
+        select count(*) from sys_website
         <include refid="criteria_filters"/>
     </select>
 

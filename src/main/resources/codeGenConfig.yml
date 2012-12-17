@@ -29,11 +29,11 @@ codeGenFileConfig:
           - {refTemplate: service, fileName: $classVar$Service.java,override: false,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\service}
 #表配置信息
 table:
-    tableCode: sys_user
-    tableName: 系统用户
-    classVar: SysUser
-    packageVar: com.willow.platform.module.basic.sysuser
-    simplePackageVar: sysuser
+    tableCode: sys_website
+    tableName: 网站配置
+    classVar: WebSite
+    packageVar: com.willow.platform.module.basic.website
+    simplePackageVar: website
 
 
 
