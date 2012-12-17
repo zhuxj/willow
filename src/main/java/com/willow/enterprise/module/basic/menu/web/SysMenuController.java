@@ -10,6 +10,7 @@ import com.willow.platform.core.base.web.BaseController;
 import com.willow.platform.core.context.WebSiteContext;
 import com.willow.platform.module.basic.menu.domain.SysMenu;
 import com.willow.platform.module.basic.menu.service.SysMenuService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -79,9 +80,11 @@ public class SysMenuController extends BaseController {
      * @return
      */
     @RequestMapping("/batchDel")
-    public Map<String, Object> batchDel(List<String> objIds) {
+    public Map<String, Object> batchDel(String objIds) {
         Map<String, Object> map = new HashMap<String, Object>();
-        sysMenuService.deleteByObjIds(objIds);
+        String[] objIdArr = StringUtils.split(objIds, ",");
+        sysMenuService.deleteByObjIds(objIdArr);
+        map.put("success", "1");
         return map;
     }
 

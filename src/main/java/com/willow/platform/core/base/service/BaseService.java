@@ -45,7 +45,7 @@ public abstract class BaseService<E> {
      *
      * @param objIds
      */
-    public void deleteByObjIds(List<String> objIds) {
+    public void deleteByObjIds(String[] objIds) {
         for (String objId : objIds) {
             getDao().deleteByObjId(objId);
         }

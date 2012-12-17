@@ -10,6 +10,7 @@ import com.willow.platform.core.base.web.BaseController;
 import com.willow.platform.core.context.WebSiteContext;
 import com.willow.platform.module.basic.sysuser.domain.SysUser;
 import com.willow.platform.module.basic.sysuser.service.SysUserService;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -84,9 +85,11 @@ public class SysUserController extends BaseController {
      * @return
      */
     @RequestMapping("/batchDel")
-    public Map<String, Object> batchDel(List<String> objIds) {
+    public Map<String, Object> batchDel(String objIds) {
         Map<String, Object> map = new HashMap<String, Object>();
-        sysUserService.deleteByObjIds(objIds);
+        String[] objIdArr = StringUtils.split(objIds, ",");
+        sysUserService.deleteByObjIds(objIdArr);
+        map.put("success", "1");
         return map;
     }
 
@@ -100,6 +103,8 @@ public class SysUserController extends BaseController {
     @RequestMapping("/updatePage")
     public ModelAndView updatePage(SysUser sysUser) {
         ModelAndView view = new ModelAndView("/door/admin/sysuser/update");
+        SysUser user = sysUserService.selectByObjId(sysUser.getObjId());
+        view.addObject("user", user);
         return view;
     }
 
@@ -114,6 +119,11 @@ public class SysUserController extends BaseController {
     public Map<String, Object> update(SysUser sysUser) {
         Map<String, Object> map = new HashMap<String, Object>();
         int affectCount = sysUserService.update(sysUser);
+        if (affectCount > 0) {
+            map.put("success", "1");
+        } else {
+            map.put("success", "0");
+        }
         return map;
     }
 
@@ -166,7 +176,7 @@ public class SysUserController extends BaseController {
     public ModelAndView detailPage(String objId) {
         ModelAndView view = new ModelAndView("/door/admin/sysuser/detail");
         SysUser sysUser = sysUserService.selectByObjId(objId);
-        view.addObject("sysUser", sysUser);
+        view.addObject("user", sysUser);
         return view;
     }
 

@@ -21,10 +21,55 @@ $(document).ready(function () {
             {column:'realName', label:'真实姓名', width:'50px'},
             {column:'email', label:'邮箱', width:'100px'},
             {column:'mobile', label:'手机', width:'50px'},
-            {column:'telphone', label:'电话', width:'50px'}
+            {column:'telphone', label:'电话', width:'50px'},
+            {column:'func', label:'操作', align:'center', width:'50px', headerCls:"cmp_tanle_tdc", cellCss:"cmp_tanle_tdc", actions:[
+                {label:'编辑', action:function (record, keyField, grid, colNo, rowNo, cell) {
+                    top.jq.workgroundManager.openPage({url:"/admin/sysuser/updatePage?objId=" + record.objId,
+                        onChanged:function () {
+                            myGrid.refresh();
+                        }
+                    });
+                }
+                },
+                {label:'查看', action:function (record, keyField, grid, colNo, rowNo, cell) {
+                    top.jq.workgroundManager.openPage({url:"/admin/sysuser/detailPage?objId=" + record.objId,
+                        onChanged:function () {
+                            myGrid.refresh();
+                        }
+                    });
+                }
+                }
+            ]}
+        ],
+        toolbars:[
+            {label:'删除', action:function () {
+                var values = myGrid.getCheckBoxValues();
+                if (values.length == 0) {
+                    alert("请先选择记录!");
+                    return false;
+                }
+                var objIdArr = [];
+                $.each(values, function (idx, user) {
+                    objIdArr.push(user.objId);
+                })
+                if (confirm("确定要删除？")) {
+                    $.localAjax({
+                        url:"/admin/sysuser/batchDel",
+                        data:{objIds:objIdArr.join(",")},
+                        dataType:"json",
+                        type:"post",
+                        success:function (result) {
+                            if (result.success == "1") {
+                                myGrid.refresh();
+                            }
+                        }
+                    })
+                }
+            }
+            }
         ]
     });
-    $("#addUser").click(function(){
+    $("#addUser").click(function () {
         top.jq.workgroundManager.openPage({url:"/admin/sysuser/addPage",
             onChanged:function () {
                 myGrid.refresh();

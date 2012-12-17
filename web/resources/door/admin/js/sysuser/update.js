@@ -1,24 +1,21 @@
 /**
  *版权声明：厦门中图壹购信息技术有限公司 版权所有 违者必究 2012
- *日    期： 12-12-16
+ *日    期： 12-12-17
  *作    者： 朱贤俊
  */
 $(document).ready(function () {
-    function saveSysUser() {
+    function updateUser() {
         var user = $("#userForm").serializeJson();
-        user.password = hex_sha1($("#password").val());
-        user.confirmPassword = hex_sha1($("#confirmPassword").val());
         $.localAjax({
-            url:"/admin/sysuser/save",
+            url:"/admin/sysuser/update",
             data:user,
             dataType:"json",
             type:"POST",
             success:function (result) {
-                if (result.success == "1") {
-                    $.success("增加成功！", true, 3000);
+                if (result.success) {
                     top.jq.workgroundManager.returnPage(true);
                 } else {
-                    alert(result.msg);
+                    alert(result.error_msg);
                 }
             }
         })
@@ -34,43 +31,28 @@ $(document).ready(function () {
                 required:true //是否必填，默认为false;
             },
             {
-                name:"password",
-                label:"密码",
-                trim:true,
-                required:true,
-                lengthRange:{min:"6", max:"30"}
-            },
-            {
-                name:"confirmPassword",
-                label:"确认密码",
-                trim:true,
-                required:true
-            } ,
-            {
-                name:"mobile",
-                label:"手机",
-                required:true,
-                dataType:"tel"
-            },
-            {
                 name:"email",
                 label:"邮箱",
                 required:true,
                 dataType:"email"
+            },
+            {
+                name:"roleIds",
+                label:"角色",
+                required:true
             }
         ]
     }
 
     var checkValid = $.checkValid(config);//构建验证对象
 
-    $("#saveUser").click(function () {
+    $("#updateUser").click(function () {
         if (checkValid.checkAll()) {
-            saveSysUser();
+            updateUser();
         }
     });
 
     $("#_back").click(function () {
         top.jq.workgroundManager.returnPage(true);
     });
-
 })
