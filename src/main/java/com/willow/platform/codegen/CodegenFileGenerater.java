@@ -50,7 +50,10 @@ public class CodegenFileGenerater {
         for (OutFileConfig outFileConfig : outFileConfigs) {
             String refTemplate = outFileConfig.getRefTemplate();
             String fileName = StringUtils.replace(outFileConfig.getFileName(), CodegenConst.CLASS_VAR, codeGenConfig.getTable().getClassVar());
-            String dir = StringUtils.replace(outFileConfig.getDir(), CodegenConst.SIMPLE_PACKAGE_VAR, codeGenConfig.getTable().getSimplePackageVar());
+            String packageVar = codeGenConfig.getTable().getPackageVar();
+            String packageVarPath = StringUtils.replace(packageVar, ".", "\\");
+
+            String dir = StringUtils.replace(outFileConfig.getDir(), CodegenConst.PACKAGE_VAR, packageVarPath);
             File pathFile = new File(baseDir + dir);
             if (!pathFile.exists()) {
                 pathFile.mkdirs();

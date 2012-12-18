@@ -18,15 +18,17 @@ ftlConfig:
          - {id: mapper.xml,name: doormapper.xml.ftl}
          - {id: dao,name: doordao.ftl}
          - {id: service,name: doorservice.ftl}
+         - {id: controller,name: doorcontroller.ftl}
 #生成文件路径
 codeGenFileConfig:
     baseDir: E:\05projectDev\willow
     outFileConfigs:
-          - {refTemplate: domain, fileName: $classVar$.java,override: true,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\domain}
-          - {refTemplate: mapper, fileName: $classVar$Mapper.java,override: false,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\mapper}
-          - {refTemplate: mapper.xml, fileName: $classVar$.mapper.xml,override: true,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\mapper}
-          - {refTemplate: dao, fileName: $classVar$Dao.java,override: false,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\dao}
-          - {refTemplate: service, fileName: $classVar$Service.java,override: false,dir: \src\main\java\com\willow\platform\module\basic\$simplePackageVar$\service}
+          - {refTemplate: domain, fileName: $classVar$.java,override: true,dir: \src\test\java\$packageVar$\domain}
+          - {refTemplate: mapper, fileName: $classVar$Mapper.java,override: false,dir: \src\test\java\$packageVar$\mapper}
+          - {refTemplate: mapper.xml, fileName: $classVar$.mapper.xml,override: true,dir: \src\test\java\$packageVar$\mapper}
+          - {refTemplate: dao, fileName: $classVar$Dao.java,override: false,dir: \src\test\java\$packageVar$\dao}
+          - {refTemplate: service, fileName: $classVar$Service.java,override: false,dir: \src\test\java\$packageVar$\service}
+          - {refTemplate: controller, fileName: $classVar$Controller.java,override: true,dir: \src\test\java\$packageVar$\web}
 #表配置信息
 table:
     tableCode: sys_user

@@ -23,21 +23,21 @@ ftlConfig:
 codeGenFileConfig:
     baseDir: E:\05projectDev\willow
     outFileConfigs:
-          - {refTemplate: domain, fileName: $classVar$.java,override: true,dir: \src\main\java\com\willow\door\$simplePackageVar$\domain}
-          - {refTemplate: mapper, fileName: $classVar$Mapper.java,override: false,dir: \src\main\java\com\willow\door\$simplePackageVar$\mapper}
-          - {refTemplate: mapper.xml, fileName: $classVar$.mapper.xml,override: true,dir: \src\main\java\com\willow\door\$simplePackageVar$\mapper}
-          - {refTemplate: dao, fileName: $classVar$Dao.java,override: false,dir: \src\main\java\com\willow\door\$simplePackageVar$\dao}
-          - {refTemplate: service, fileName: $classVar$Service.java,override: false,dir: \src\main\java\com\willow\door\$simplePackageVar$\service}
-          - {refTemplate: controller, fileName: $classVar$Controller.java,override: true,dir: \src\main\java\com\willow\door\$simplePackageVar$\web}
+          - {refTemplate: domain, fileName: $classVar$.java,override: true,dir: \src\main\java\$packageVar$\domain}
+          - {refTemplate: mapper, fileName: $classVar$Mapper.java,override: false,dir: \src\main\java\$packageVar$\mapper}
+          - {refTemplate: mapper.xml, fileName: $classVar$.mapper.xml,override: true,dir: \src\main\java\$packageVar$\mapper}
+          - {refTemplate: dao, fileName: $classVar$Dao.java,override: false,dir: \src\main\java\$packageVar$\dao}
+          - {refTemplate: service, fileName: $classVar$Service.java,override: false,dir: \src\main\java\$packageVar$\service}
+          - {refTemplate: controller, fileName: $classVar$Controller.java,override: true,dir: \src\main\java\$packageVar$\web}
 #表配置信息
 table:
-    tableCode: sys_website
-    tableName: 网站配置
-    classVar: WebSite
-    packageVar: com.willow.door.website
-    simplePackageVar: website
-    jspDir: /door/admin/website
-    jsDir:  /door/admin/js/website
+    tableCode: t_door_product_catalog
+    tableName: 产品分类
+    classVar: ProductCatalog
+    packageVar: com.willow.door.admin.productcatalog
+    simplePackageVar: productcatalog
+    jspDir: /door/admin/productcatalog
+    jsDir:  /door/admin/js/productcatalog
 
 
 

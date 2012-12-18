@@ -17,7 +17,7 @@ public class CodegenConst {
     public static final String CLASS_VAR = "$classVar$";
 
     //包名变量常量
-    public static final String SIMPLE_PACKAGE_VAR = "$simplePackageVar$";
+    public static final String PACKAGE_VAR = "$packageVar$";
 
 
 }
