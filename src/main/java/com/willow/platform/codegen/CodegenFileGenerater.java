@@ -51,7 +51,7 @@ public class CodegenFileGenerater {
             String refTemplate = outFileConfig.getRefTemplate();
             String fileName = StringUtils.replace(outFileConfig.getFileName(), CodegenConst.CLASS_VAR, codeGenConfig.getTable().getClassVar());
             String packageVar = codeGenConfig.getTable().getPackageVar();
-            String packageVarPath = StringUtils.replace(packageVar, ".", "\\");
+            String packageVarPath = StringUtils.replace(packageVar, ".", "\\"); //使用包名解析底层类路径
 
             String dir = StringUtils.replace(outFileConfig.getDir(), CodegenConst.PACKAGE_VAR, packageVarPath);
             File pathFile = new File(baseDir + dir);
