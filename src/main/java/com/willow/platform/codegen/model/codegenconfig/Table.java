@@ -28,6 +28,17 @@ public class Table {
      */
     private String classVar;
 
+
+    /**
+     * jsp路径
+     */
+    private String jspDir;
+    /**
+     * js路径
+     */
+    private String jsDir;
+
+
     /**
      * 完整类包名
      */
@@ -38,6 +49,22 @@ public class Table {
      */
     private String simplePackageVar;
 
+    public String getJspDir() {
+        return jspDir;
+    }
+
+    public void setJspDir(String jspDir) {
+        this.jspDir = jspDir;
+    }
+
+    public String getJsDir() {
+        return jsDir;
+    }
+
+    public void setJsDir(String jsDir) {
+        this.jsDir = jsDir;
+    }
+
     public String getSimplePackageVar() {
         return simplePackageVar;
     }
@@ -47,7 +74,7 @@ public class Table {
     }
 
     public String getClassVariable() {
-        return FieldPropertyConvert.classVarToFirstUp(classVar);
+        return FieldPropertyConvert.classVarToFirstDown(classVar);
     }
 
     public String getTableCode() {

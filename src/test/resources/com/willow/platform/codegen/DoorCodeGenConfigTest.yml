@@ -31,9 +31,11 @@ codeGenFileConfig:
 table:
     tableCode: sys_user
     tableName: 系统用户
-    classVar: SysUser
-    packageVar: com.willow.platform.module.basic.sysuser
-    simplePackageVar: sysuser
+    classVar: SysUserTest
+    packageVar: com.willow.platform.module.basic.sysusertest
+    simplePackageVar: sysusertest
+    jspDir: /door/admin/sysusertest
+    jsDir:  /door/admin/js/sysusertest
 
 
 

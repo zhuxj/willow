@@ -20,7 +20,7 @@ public class FieldPropertyConvert {
      * @param className
      * @return
      */
-    public static String classVarToFirstUp(String className) {
+    public static String classVarToFirstDown(String className) {
         if (null == className) {
             return "";
         }
