@@ -44,6 +44,20 @@ public class FieldColumn {
 
     private String gsJavaProperty;
 
+    /**
+     * 是否包含排除的属性
+     *
+     * @return
+     */
+    public Boolean getIsIncludeField() {
+        boolean result = false;
+        if ("objId".equals(javaProperty) || "createTime".equals(javaProperty) || "updateTime".equals(javaProperty) || "userId".equals(javaProperty)) {
+            result = true;
+        }
+        return result;
+    }
+
+
     public String getGsJavaProperty() {
         return gsJavaProperty;
     }

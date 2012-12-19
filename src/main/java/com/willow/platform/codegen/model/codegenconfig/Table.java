@@ -30,16 +30,6 @@ public class Table {
 
 
     /**
-     * jsp路径
-     */
-    private String jspDir;
-    /**
-     * js路径
-     */
-    private String jsDir;
-
-
-    /**
      * 完整类包名
      */
     private String packageVar;
@@ -48,22 +38,6 @@ public class Table {
      * 类包名
      */
     private String simplePackageVar;
-
-    public String getJspDir() {
-        return jspDir;
-    }
-
-    public void setJspDir(String jspDir) {
-        this.jspDir = jspDir;
-    }
-
-    public String getJsDir() {
-        return jsDir;
-    }
-
-    public void setJsDir(String jsDir) {
-        this.jsDir = jsDir;
-    }
 
     public String getSimplePackageVar() {
         return simplePackageVar;

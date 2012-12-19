@@ -16,7 +16,32 @@ import java.util.List;
  */
 public class CodeGenFileConfig {
     private String baseDir;
+
+    /**
+     * jsp路径
+     */
+    private String jspDir;
+    /**
+     * js路径
+     */
+    private String jsDir;
     private List<OutFileConfig> outFileConfigs;
+
+    public String getJspDir() {
+        return jspDir;
+    }
+
+    public void setJspDir(String jspDir) {
+        this.jspDir = jspDir;
+    }
+
+    public String getJsDir() {
+        return jsDir;
+    }
+
+    public void setJsDir(String jsDir) {
+        this.jsDir = jsDir;
+    }
 
     public String getBaseDir() {
         return baseDir;

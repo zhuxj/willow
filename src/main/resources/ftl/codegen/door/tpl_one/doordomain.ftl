@@ -15,16 +15,20 @@ import com.willow.platform.core.base.domian.BaseObject;
  */
 public class ${codeGenConfig.table.classVar!} extends BaseObject{
 <#list tableClass.fieldColumns as fieldColumn>
+    <#if !fieldColumn.isIncludeField>
     //${fieldColumn.propName!}
     private ${fieldColumn.jdbcType!} ${fieldColumn.javaProperty!};
+    </#if>
 </#list>
 
 <#list tableClass.fieldColumns as fieldColumn>
+    <#if  !fieldColumn.isIncludeField>
     public ${fieldColumn.jdbcType!} get${fieldColumn.gsJavaProperty!}() {
         return ${fieldColumn.javaProperty!};
     }
     public void set${fieldColumn.gsJavaProperty!}(${fieldColumn.jdbcType!} ${fieldColumn.javaProperty!}) {
         this.${fieldColumn.javaProperty!} = ${fieldColumn.javaProperty!};
     }
+    </#if>
 </#list>
 }

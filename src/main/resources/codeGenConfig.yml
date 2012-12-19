@@ -19,9 +19,17 @@ ftlConfig:
          - {id: dao,name: doordao.ftl}
          - {id: service,name: doorservice.ftl}
          - {id: controller,name: doorcontroller.ftl}
+         - {id: doorlistjsp,name: web/doorlistjsp.ftl}
+         - {id: doorlistjs,name: web/doorlistjs.ftl}
+         - {id: dooraddjsp,name: web/dooraddjsp.ftl}
+         - {id: dooraddjs,name: web/dooraddjs.ftl}
+         - {id: doorupdatejsp,name: web/doorupdatejsp.ftl}
+         - {id: doorupdatejs,name: web/doorupdatejs.ftl}
 #生成文件路径
 codeGenFileConfig:
     baseDir: E:\05projectDev\willow
+    jspDir: /door/admin/productcatalog
+    jsDir:  /door/admin/js/productcatalog
     outFileConfigs:
           - {refTemplate: domain, fileName: $classVar$.java,override: true,dir: \src\main\java\$packageVar$\domain}
           - {refTemplate: mapper, fileName: $classVar$Mapper.java,override: false,dir: \src\main\java\$packageVar$\mapper}
@@ -29,6 +37,12 @@ codeGenFileConfig:
           - {refTemplate: dao, fileName: $classVar$Dao.java,override: false,dir: \src\main\java\$packageVar$\dao}
           - {refTemplate: service, fileName: $classVar$Service.java,override: false,dir: \src\main\java\$packageVar$\service}
           - {refTemplate: controller, fileName: $classVar$Controller.java,override: true,dir: \src\main\java\$packageVar$\web}
+          - {refTemplate: doorlistjsp, fileName: list.jsp,override: true,dir: \web\WEB-INF\views$jspDir$}
+          - {refTemplate: doorlistjs, fileName: list.js,override: true,dir: \web\resources$jsDir$}
+          - {refTemplate: dooraddjsp, fileName: add.jsp,override: true,dir: \web\WEB-INF\views$jspDir$}
+          - {refTemplate: dooraddjs, fileName: add.js,override: true,dir: \web\resources$jsDir$}
+          - {refTemplate: doorupdatejsp, fileName: update.jsp,override: true,dir: \web\WEB-INF\views$jspDir$}
+          - {refTemplate: doorupdatejs, fileName: update.js,override: true,dir: \web\resources$jsDir$}
 #表配置信息
 table:
     tableCode: t_door_product_catalog
@@ -36,8 +50,6 @@ table:
     classVar: ProductCatalog
     packageVar: com.willow.door.admin.productcatalog
     simplePackageVar: productcatalog
-    jspDir: /door/admin/productcatalog
-    jsDir:  /door/admin/js/productcatalog
 
 
 

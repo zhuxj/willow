@@ -43,7 +43,7 @@ private ${codeGenConfig.table.classVar!}Service ${codeGenConfig.table.classVaria
      */
     @RequestMapping("/addPage")
     public ModelAndView addPage(${codeGenConfig.table.classVar!} ${codeGenConfig.table.classVariable!}) {
-        ModelAndView view = new ModelAndView("${codeGenConfig.table.jspDir!}/add");
+        ModelAndView view = new ModelAndView("${codeGenConfig.codeGenFileConfig.jspDir!}/add");
         return view;
     }
 
@@ -103,7 +103,7 @@ private ${codeGenConfig.table.classVar!}Service ${codeGenConfig.table.classVaria
      */
     @RequestMapping("/updatePage")
     public ModelAndView updatePage(${codeGenConfig.table.classVar!} ${codeGenConfig.table.classVariable!}) {
-        ModelAndView view = new ModelAndView("${codeGenConfig.table.jspDir!}/update");
+        ModelAndView view = new ModelAndView("${codeGenConfig.codeGenFileConfig.jspDir!}/update");
         ${codeGenConfig.table.classVar!} domain = ${codeGenConfig.table.classVariable!}Service.selectByObjId(${codeGenConfig.table.classVariable!}.getObjId());
         view.addObject("${codeGenConfig.table.classVariable!}", domain);
         return view;
@@ -150,7 +150,7 @@ private ${codeGenConfig.table.classVar!}Service ${codeGenConfig.table.classVaria
      */
     @RequestMapping("/listPage")
     public ModelAndView listPage(${codeGenConfig.table.classVar!} ${codeGenConfig.table.classVariable!}) {
-        ModelAndView view = new ModelAndView("${codeGenConfig.table.jspDir!}/list");
+        ModelAndView view = new ModelAndView("${codeGenConfig.codeGenFileConfig.jspDir!}/list");
         return view;
     }
 
@@ -175,7 +175,7 @@ private ${codeGenConfig.table.classVar!}Service ${codeGenConfig.table.classVaria
     */
     @RequestMapping("/detailPage")
     public ModelAndView detailPage(String objId) {
-        ModelAndView view = new ModelAndView("${codeGenConfig.table.jspDir!}/detail");
+        ModelAndView view = new ModelAndView("${codeGenConfig.codeGenFileConfig.jspDir!}/detail");
         ${codeGenConfig.table.classVar!} ${codeGenConfig.table.classVariable!} = ${codeGenConfig.table.classVariable!}Service.selectByObjId(objId);
         view.addObject("${codeGenConfig.table.classVariable!}", ${codeGenConfig.table.classVariable!});
         return view;

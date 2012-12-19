@@ -19,5 +19,11 @@ public class CodegenConst {
     //包名变量常量
     public static final String PACKAGE_VAR = "$packageVar$";
 
+    //jsp路径变量名
+    public static final String JSP_DIR = "$jspDir$";
+
+    //js路径变量名
+    public static final String JS_DIR = "$jsDir$";
+
 
 }

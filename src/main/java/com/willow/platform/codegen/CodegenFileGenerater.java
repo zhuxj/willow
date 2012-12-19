@@ -7,6 +7,7 @@ package com.willow.platform.codegen;
 import com.willow.platform.codegen.model.codegenconfig.CodeGenConfig;
 import com.willow.platform.codegen.model.codegenconfig.CodeGenFileConfig;
 import com.willow.platform.codegen.model.codegenconfig.OutFileConfig;
+import com.willow.platform.core.WillowException;
 import com.willow.platform.utils.FileUtil;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -50,10 +51,21 @@ public class CodegenFileGenerater {
         for (OutFileConfig outFileConfig : outFileConfigs) {
             String refTemplate = outFileConfig.getRefTemplate();
             String fileName = StringUtils.replace(outFileConfig.getFileName(), CodegenConst.CLASS_VAR, codeGenConfig.getTable().getClassVar());
-            String packageVar = codeGenConfig.getTable().getPackageVar();
-            String packageVarPath = StringUtils.replace(packageVar, ".", "\\"); //使用包名解析底层类路径
+            String dir = null;
+            if (StringUtils.contains(outFileConfig.getDir(), CodegenConst.PACKAGE_VAR)) {
+                String packageVar = codeGenConfig.getTable().getPackageVar();
+                String packageVarPath = StringUtils.replace(packageVar, ".", "\\"); //使用包名解析底层类路径
+                dir = StringUtils.replace(outFileConfig.getDir(), CodegenConst.PACKAGE_VAR, packageVarPath);
+            } else if (StringUtils.contains(outFileConfig.getDir(), CodegenConst.JSP_DIR)) {
+                dir = StringUtils.replace(outFileConfig.getDir(), CodegenConst.JSP_DIR, StringUtils.replace(codeGenFileConfig.getJspDir(),"/","\\"));
+            } else if (StringUtils.contains(outFileConfig.getDir(), CodegenConst.JS_DIR)) {
+                dir = StringUtils.replace(outFileConfig.getDir(), CodegenConst.JS_DIR, StringUtils.replace(codeGenFileConfig.getJsDir(),"/","\\"));
+            }
 
-            String dir = StringUtils.replace(outFileConfig.getDir(), CodegenConst.PACKAGE_VAR, packageVarPath);
+            if (dir == null) {
+                throw new WillowException(fileName + "代码生成器文件路径不存在!");
+            }
+
             File pathFile = new File(baseDir + dir);
             if (!pathFile.exists()) {
                 pathFile.mkdirs();
