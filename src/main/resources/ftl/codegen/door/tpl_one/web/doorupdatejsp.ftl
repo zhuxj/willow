@@ -15,6 +15,8 @@
 <body>
 <form id="${codeGenConfig.table.classVariable!}Form">
     <input type="hidden" id="objId" name="objId" value="${r'${'}${codeGenConfig.table.classVariable!}.objId${r'}'}">
+    <input type="hidden" id="userId" name="userId" value="${r'${'}${codeGenConfig.table.classVariable!}.userId${r'}'}">
+    <input type="hidden" id="createTime" name="createTime" value="${r'${'}${codeGenConfig.table.classVariable!}.createTime${r'}'}">
     <div class="formlist">
         <table>
             <tbody>
