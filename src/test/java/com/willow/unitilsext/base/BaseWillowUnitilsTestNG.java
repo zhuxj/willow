@@ -40,7 +40,7 @@ public class BaseWillowUnitilsTestNG extends UnitilsTestNG {
             sqlSessionFactoryBean.setConfigLocation(config);
 
             ResourceArrayPropertyEditor rapEditor = new ResourceArrayPropertyEditor();
-            rapEditor.setAsText("classpath*:/com/willow/**/*.mapper.xml");
+            rapEditor.setAsText("classpath*:/com/willow/**/*.mapper*.xml");
             Resource[] resources = (Resource[]) rapEditor.getValue();
             sqlSessionFactoryBean.setMapperLocations(resources);
 

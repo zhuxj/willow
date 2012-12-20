@@ -222,4 +222,13 @@ public class SysMenuDaoTest extends BaseWillowUnitilsTestNG {
         assertEquals(count, 2);
     }
 
+
+    @Test
+    @DataSet
+    public void querySysMenusBuParentMenuIdTest() {
+        List<SysMenu> sysMenuList = sysMenuDao.querySysMenusBuParentMenuId("ROOT");
+        assertNotNull(sysMenuList);
+        assertEquals(2, sysMenuList.size());
+    }
+
 }

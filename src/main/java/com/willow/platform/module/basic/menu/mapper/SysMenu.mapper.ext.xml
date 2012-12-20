@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.willow.platform.module.basic.menu.mapper.SysMenuMapper">
+    <select id="querySysMenusBuParentMenuId" parameterType="string" resultMap="SysMenuMap">
+        select
+        <include refid="column_list"/>
+        from sys_menu
+        where parent_menu_id=#{parentMenuId}
+    </select>
+</mapper>

@@ -7,6 +7,8 @@ package com.willow.platform.module.basic.menu.mapper;
 import com.willow.platform.core.base.mapper.BaseMapper;
 import com.willow.platform.module.basic.menu.domain.SysMenu;
 
+import java.util.List;
+
 /**
  * <pre>
  * 系统菜单映射类
@@ -16,5 +18,5 @@ import com.willow.platform.module.basic.menu.domain.SysMenu;
  * @version 1.00
  */
 public interface SysMenuMapper extends BaseMapper<SysMenu> {
-
+    public List<SysMenu> querySysMenusBuParentMenuId(String parentMenuId);
 }

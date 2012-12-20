@@ -9,6 +9,8 @@ import com.willow.platform.module.basic.menu.domain.SysMenu;
 import com.willow.platform.module.basic.menu.mapper.SysMenuMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * <pre>
  * 系统菜单持久层
@@ -19,6 +21,11 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class SysMenuDao extends BaseDao<SysMenu> {
+    public List<SysMenu> querySysMenusBuParentMenuId(String parentMenuId) {
+        SysMenuMapper sysMenuMapper = (SysMenuMapper) getMapper(getMapperClass());
+        return sysMenuMapper.querySysMenusBuParentMenuId(parentMenuId);
+    }
+
     @Override
     public Class getMapperClass() {
         return SysMenuMapper.class;
