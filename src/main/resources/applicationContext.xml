@@ -33,8 +33,7 @@
     <context:property-placeholder location="classpath*:conf/platformConf.properties"/>
 
     <bean id="webSiteContext" class="com.willow.platform.core.context.WebSiteContext"
-          p:version="${version}"
-            ></bean>
+          p:version="${version}"></bean>
 
     <!--消息资源文件-->
     <bean id="messageSource"
