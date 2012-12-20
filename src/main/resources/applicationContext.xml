@@ -71,6 +71,7 @@
         <property name="mapperLocations">
             <list>
                 <value>classpath*:/com/**/*.mapper.xml</value>
+                <!--自定义sql语句编写映射文件-->
                 <value>classpath*:/com/**/*.mapper.ext.xml</value>
             </list>
         </property>

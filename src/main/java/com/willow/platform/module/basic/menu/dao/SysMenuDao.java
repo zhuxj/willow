@@ -22,7 +22,7 @@ import java.util.List;
 @Repository
 public class SysMenuDao extends BaseDao<SysMenu> {
     public List<SysMenu> querySysMenusBuParentMenuId(String parentMenuId) {
-        SysMenuMapper sysMenuMapper = (SysMenuMapper) getMapper(getMapperClass());
+        SysMenuMapper sysMenuMapper = getMapper(SysMenuMapper.class);
         return sysMenuMapper.querySysMenusBuParentMenuId(parentMenuId);
     }
 

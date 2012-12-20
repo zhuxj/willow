@@ -37,10 +37,10 @@ codeGenFileConfig:
           - {refTemplate: domain, fileName: $classVar$.java,override: true,dir: \src\main\java\$packageVar$\domain}
           - {refTemplate: mapper, fileName: $classVar$Mapper.java,override: false,dir: \src\main\java\$packageVar$\mapper}
           - {refTemplate: mapper.xml, fileName: $classVar$.mapper.xml,override: true,dir: \src\main\java\$packageVar$\mapper}
-          - {refTemplate: mapper.ext.xml, fileName: $classVar$.mapper.ext.xml,override: false,dir: \src\main\java\$packageVar$\mapper}
+#          - {refTemplate: mapper.ext.xml, fileName: $classVar$.mapper.ext.xml,override: false,dir: \src\main\java\$packageVar$\mapper}
           - {refTemplate: dao, fileName: $classVar$Dao.java,override: false,dir: \src\main\java\$packageVar$\dao}
           - {refTemplate: service, fileName: $classVar$Service.java,override: false,dir: \src\main\java\$packageVar$\service}
-          - {refTemplate: controller, fileName: $classVar$Controller.java,override: true,dir: \src\main\java\$packageVar$\web}
+          - {refTemplate: controller, fileName: $classVar$Controller.java,override: false,dir: \src\main\java\$packageVar$\web}
           - {refTemplate: doorlistjsp, fileName: list.jsp,override: true,dir: \web\WEB-INF\views$jspDir$}
           - {refTemplate: doorlistjs, fileName: list.js,override: true,dir: \web\resources$jsDir$}
           - {refTemplate: dooraddjsp, fileName: add.jsp,override: true,dir: \web\WEB-INF\views$jspDir$}
