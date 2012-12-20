@@ -41,6 +41,11 @@
 1.将代码托管到github中，密码为:123456
 2.修改了生成doordomain.ftl模板,数据库类型和java类型自动对应
 3.管理员管理和网站配置管理
+2012-12-20
+1.mybatis自定义语句文件，命名为xxx.mapper.ext.xml,以便开发人员编写自己的sql语句，以便代码生成器可以二次生成，代码生成器
+  不会覆盖xxx.mapper.ext.xml
+
+
 
 
 
