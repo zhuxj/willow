@@ -29,7 +29,7 @@ import java.util.Map;
  * @version 1.00
  */
 @Controller
-@RequestMapping(WebSiteContext.MANAGER + "/SysMenu/")
+@RequestMapping(WebSiteContext.MANAGER + "/SysMenu")
 public class SysMenuController extends BaseController {
     @Autowired
     private SysMenuService sysMenuService;

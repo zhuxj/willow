@@ -30,7 +30,7 @@ import java.util.Map;
 * @version ${codeGenConfig.developerConfig.version!}
 */
 @Controller
-@RequestMapping(WebSiteContext.MANAGER + "admin/${codeGenConfig.table.simplePackageVar!}/")
+@RequestMapping(WebSiteContext.MANAGER + "admin/${codeGenConfig.table.simplePackageVar!}")
 public class ${codeGenConfig.table.classVar!}Controller extends BaseController {
 @Autowired
 private ${codeGenConfig.table.classVar!}Service ${codeGenConfig.table.classVariable!}Service;

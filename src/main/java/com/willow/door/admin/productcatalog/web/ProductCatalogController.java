@@ -1,6 +1,6 @@
 /**
 * 版权声明：贤俊工作室 版权所有 违者必究
-* 日    期：2012-12-20
+* 日    期：2012-12-21
 */
 package com.willow.door.admin.productcatalog.web;
 
@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -29,7 +30,7 @@ import java.util.Map;
 * @version 1.0
 */
 @Controller
-@RequestMapping(WebSiteContext.MANAGER + "admin/productcatalog/")
+@RequestMapping(WebSiteContext.MANAGER + "admin/productcatalog")
 public class ProductCatalogController extends BaseController {
 @Autowired
 private ProductCatalogService productCatalogService;

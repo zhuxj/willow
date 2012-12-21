@@ -29,7 +29,7 @@ import java.util.Map;
  * @version 1.00
  */
 @Controller
-@RequestMapping(WebSiteContext.MANAGER + "admin/sysuser/")
+@RequestMapping(WebSiteContext.MANAGER + "admin/sysuser")
 public class SysUserController extends BaseController {
     @Autowired
     private SysUserService sysUserService;
