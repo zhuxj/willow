@@ -1,6 +1,6 @@
 /**
 * 版权声明：贤俊工作室 版权所有 违者必究
-* 日    期：2012-12-20
+* 日    期：2012-12-21
 */
 package com.willow.door.admin.productcatalog.domain;
 
