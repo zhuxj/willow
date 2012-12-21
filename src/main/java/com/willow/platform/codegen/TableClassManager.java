@@ -85,7 +85,7 @@ public class TableClassManager {
                 fieldColumn.setJdbcType(jdbcType);
                 fieldColumns.add(fieldColumn);
                 fieldColumn.setRequired("YES".equals(isNullable) ? false : true);
-                System.out.println(isNullable+" "+fieldColumn.getRequired());
+                logger.info(isNullable + " " + fieldColumn.getRequired());
             }
         }
         return fieldColumns;
