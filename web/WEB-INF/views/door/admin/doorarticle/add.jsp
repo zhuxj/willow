@@ -18,27 +18,39 @@
         <table>
             <tbody>
                 <tr>
-                    <th width="150">文章编码：</th>
+                    <th width="150">
+                    <em class="fstar">*</em>文章编码：
+                    </th>
                     <td><input class="ipt_250" name="articleCode" id="articleCode"></td>
                 </tr>
                 <tr>
-                    <th width="150">文章中文标题：</th>
+                    <th width="150">
+                    <em class="fstar">*</em>文章中文标题：
+                    </th>
                     <td><input class="ipt_250" name="articleTitle" id="articleTitle"></td>
                 </tr>
                 <tr>
-                    <th width="150">文章英文标题：</th>
+                    <th width="150">
+                    <em class="fstar">*</em>文章英文标题：
+                    </th>
                     <td><input class="ipt_250" name="articleTitleSn" id="articleTitleSn"></td>
                 </tr>
                 <tr>
-                    <th width="150">文章中文内容：</th>
+                    <th width="150">
+                    <em class="fstar">*</em>文章中文内容：
+                    </th>
                     <td><input class="ipt_250" name="articleContent" id="articleContent"></td>
                 </tr>
                 <tr>
-                    <th width="150">文章英文内容：</th>
+                    <th width="150">
+                    <em class="fstar">*</em>文章英文内容：
+                    </th>
                     <td><input class="ipt_250" name="articleContentEn" id="articleContentEn"></td>
                 </tr>
                 <tr>
-                    <th width="150">序号：</th>
+                    <th width="150">
+                    序号：
+                    </th>
                     <td><input class="ipt_250" name="orderNo" id="orderNo"></td>
                 </tr>
             <tr>

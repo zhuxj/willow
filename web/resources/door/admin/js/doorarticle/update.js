@@ -30,31 +30,31 @@ $(document).ready(function () {
             name:"articleCode",
             label:"文章编码",
             trim:true,
-            required:false
+            required:true
         },
         {
             name:"articleTitle",
             label:"文章中文标题",
             trim:true,
-            required:false
+            required:true
         },
         {
             name:"articleTitleSn",
             label:"文章英文标题",
             trim:true,
-            required:false
+            required:true
         },
         {
             name:"articleContent",
             label:"文章中文内容",
             trim:true,
-            required:false
+            required:true
         },
         {
             name:"articleContentEn",
             label:"文章英文内容",
             trim:true,
-            required:false
+            required:true
         },
         {
             name:"orderNo",
