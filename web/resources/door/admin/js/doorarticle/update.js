@@ -22,8 +22,56 @@ $(document).ready(function () {
         })
     }
 
+    var config={
+    reportMode:"alert",
+    formDiv:"doorArticleForm",
+    props:[
+        {
+            name:"articleCode",
+            label:"文章编码",
+            trim:true,
+            required:false
+        },
+        {
+            name:"articleTitle",
+            label:"文章中文标题",
+            trim:true,
+            required:false
+        },
+        {
+            name:"articleTitleSn",
+            label:"文章英文标题",
+            trim:true,
+            required:false
+        },
+        {
+            name:"articleContent",
+            label:"文章中文内容",
+            trim:true,
+            required:false
+        },
+        {
+            name:"articleContentEn",
+            label:"文章英文内容",
+            trim:true,
+            required:false
+        },
+        {
+            name:"orderNo",
+            label:"序号",
+            trim:true,
+            required:false
+            ,dataType:"int"
+        }
+    ]
+    }
+    var checkValid = $.checkValid(config);//构建验证对象
+
+
     $("#updateDoorArticle").click(function () {
-         updateDoorArticle();
+    if(checkValid.checkAll()){
+        updateDoorArticle();
+    }
     });
 
     $("#_back").click(function () {

@@ -22,8 +22,32 @@ $(document).ready(function () {
         })
     }
 
+    var config={
+    reportMode:"alert",
+    formDiv:"${codeGenConfig.table.classVariable!}Form",
+    props:[
+    <#list tableClass.fieldColumns as fieldColumn>
+        <#if  !fieldColumn.isIncludeField>
+        {
+            name:"${fieldColumn.javaProperty!}",
+            label:"${fieldColumn.propName!}",
+            trim:true,
+            required:false
+            <#if  fieldColumn.jdbcType="Integer">
+            ,dataType:"int"
+            </#if>
+        }<#if fieldColumn_has_next>,</#if>
+        </#if>
+    </#list>
+    ]
+    }
+    var checkValid = $.checkValid(config);//构建验证对象
+
+
     $("#update${codeGenConfig.table.classVar!}").click(function () {
-         update${codeGenConfig.table.classVar!}();
+    if(checkValid.checkAll()){
+        update${codeGenConfig.table.classVar!}();
+    }
     });
 
     $("#_back").click(function () {

@@ -8,7 +8,7 @@ import com.willow.platform.core.base.domian.BaseObject;
 
 /**
  * <pre>
- *   产品信息领域对象
+ *   公司信息领域对象
  * </pre>
  * @author 朱贤俊
  * @version 1.0
