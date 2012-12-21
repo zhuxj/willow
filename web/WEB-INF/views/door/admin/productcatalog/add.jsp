@@ -18,11 +18,15 @@
         <table>
             <tbody>
                 <tr>
-                    <th width="150">分类名称：</th>
+                    <th width="150">
+                    <em class="fstar">*</em>分类名称：
+                    </th>
                     <td><input class="ipt_250" name="catalogName" id="catalogName"></td>
                 </tr>
                 <tr>
-                    <th width="150">分类英文名称：</th>
+                    <th width="150">
+                    <em class="fstar">*</em>分类英文名称：
+                    </th>
                     <td><input class="ipt_250" name="catalogNameEn" id="catalogNameEn"></td>
                 </tr>
             <tr>

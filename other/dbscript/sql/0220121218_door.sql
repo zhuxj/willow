@@ -6,8 +6,8 @@ CREATE TABLE t_door_product_catalog (
   create_time varchar(14) COMMENT '创建时间',
   update_time varchar(14) COMMENT '更新时间',
   user_id varchar(36) COMMENT '操作人',
-  catalog_name varchar(50) DEFAULT NULL COMMENT '分类名称',
-  catalog_name_en varchar(50) DEFAULT NULL COMMENT '分类英文名称',
+  catalog_name varchar(50) NOT NULL COMMENT '分类名称',
+  catalog_name_en varchar(50) NOT NULL COMMENT '分类英文名称',
   PRIMARY KEY (id)
 ) COMMENT='产品分类';
 

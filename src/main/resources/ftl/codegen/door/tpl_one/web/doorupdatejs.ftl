@@ -32,7 +32,7 @@ $(document).ready(function () {
             name:"${fieldColumn.javaProperty!}",
             label:"${fieldColumn.propName!}",
             trim:true,
-            required:false
+            required:<#if fieldColumn.required>true</#if><#if !fieldColumn.required>false</#if>
             <#if  fieldColumn.jdbcType="Integer">
             ,dataType:"int"
             </#if>

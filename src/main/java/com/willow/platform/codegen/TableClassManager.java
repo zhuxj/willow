@@ -74,6 +74,7 @@ public class TableClassManager {
                 String propName = rs.getString("REMARKS");
                 Integer columnLength = rs.getInt("COLUMN_SIZE");
                 String columnType = rs.getString("TYPE_NAME");
+                String isNullable = rs.getString("IS_NULLABLE");
                 String jdbcType = JdbcTypeNameTranslator.getJdbcType(columnType);
                 fieldColumn.setColumnName(columnName);
                 fieldColumn.setJavaProperty(javaProperty);
@@ -83,6 +84,8 @@ public class TableClassManager {
                 fieldColumn.setColumnType(columnType);
                 fieldColumn.setJdbcType(jdbcType);
                 fieldColumns.add(fieldColumn);
+                fieldColumn.setRequired("YES".equals(isNullable) ? false : true);
+                System.out.println(isNullable+" "+fieldColumn.getRequired());
             }
         }
         return fieldColumns;

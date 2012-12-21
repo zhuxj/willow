@@ -23,7 +23,7 @@
             <#list tableClass.fieldColumns as fieldColumn>
                 <#if  !fieldColumn.isIncludeField>
                 <tr>
-                    <th width="150">${fieldColumn.propName!}：</th>
+                    <th width="150"> <#if fieldColumn.required><em class="fstar">*</em></#if>${fieldColumn.propName!}：</th>
                     <td><input class="ipt_250" name="${fieldColumn.javaProperty!}" id="${fieldColumn.javaProperty!}" value="${r'${'}${codeGenConfig.table.classVariable!}.${fieldColumn.javaProperty!}${r'}'}"></td>
                 </tr>
                 </#if>

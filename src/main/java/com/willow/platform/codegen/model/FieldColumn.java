@@ -42,6 +42,11 @@ public class FieldColumn {
      */
     private String jdbcType;
 
+    /**
+     * 是否必填
+     */
+    private Boolean required;
+
     private String gsJavaProperty;
 
     /**
@@ -57,6 +62,13 @@ public class FieldColumn {
         return result;
     }
 
+    public Boolean getRequired() {
+        return required;
+    }
+
+    public void setRequired(Boolean required) {
+        this.required = required;
+    }
 
     public String getGsJavaProperty() {
         return gsJavaProperty;
