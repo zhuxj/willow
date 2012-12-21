@@ -18,47 +18,69 @@
         <table>
             <tbody>
                 <tr>
-                    <th width="150">产品编号：</th>
+                    <th width="150">
+                    <em class="fstar">*</em>产品编号：
+                    </th>
                     <td><input class="ipt_250" name="productSn" id="productSn"></td>
                 </tr>
                 <tr>
-                    <th width="150">产品中文名称：</th>
+                    <th width="150">
+                    <em class="fstar">*</em>产品中文名称：
+                    </th>
                     <td><input class="ipt_250" name="productName" id="productName"></td>
                 </tr>
                 <tr>
-                    <th width="150">产品英文名称：</th>
+                    <th width="150">
+                    <em class="fstar">*</em>产品英文名称：
+                    </th>
                     <td><input class="ipt_250" name="productNameEn" id="productNameEn"></td>
                 </tr>
                 <tr>
-                    <th width="150">产品中文规格：</th>
+                    <th width="150">
+                    <em class="fstar">*</em>产品中文规格：
+                    </th>
                     <td><input class="ipt_250" name="productNorms" id="productNorms"></td>
                 </tr>
                 <tr>
-                    <th width="150">产品英文规格：</th>
+                    <th width="150">
+                    <em class="fstar">*</em>产品英文规格：
+                    </th>
                     <td><input class="ipt_250" name="productNormsEn" id="productNormsEn"></td>
                 </tr>
                 <tr>
-                    <th width="150">产品型号：</th>
+                    <th width="150">
+                    <em class="fstar">*</em>产品型号：
+                    </th>
                     <td><input class="ipt_250" name="productVersion" id="productVersion"></td>
                 </tr>
                 <tr>
-                    <th width="150">产品分类：</th>
+                    <th width="150">
+                    产品分类：
+                    </th>
                     <td><input class="ipt_250" name="catalogId" id="catalogId"></td>
                 </tr>
                 <tr>
-                    <th width="150">产品中文详情：</th>
+                    <th width="150">
+                    产品中文详情：
+                    </th>
                     <td><input class="ipt_250" name="productDesc" id="productDesc"></td>
                 </tr>
                 <tr>
-                    <th width="150">产品英文详情：</th>
+                    <th width="150">
+                    产品英文详情：
+                    </th>
                     <td><input class="ipt_250" name="productDescEn" id="productDescEn"></td>
                 </tr>
                 <tr>
-                    <th width="150">产品图片：</th>
+                    <th width="150">
+                    产品图片：
+                    </th>
                     <td><input class="ipt_250" name="productImage" id="productImage"></td>
                 </tr>
                 <tr>
-                    <th width="150">浏览次数：</th>
+                    <th width="150">
+                    浏览次数：
+                    </th>
                     <td><input class="ipt_250" name="browseTime" id="browseTime"></td>
                 </tr>
             <tr>
