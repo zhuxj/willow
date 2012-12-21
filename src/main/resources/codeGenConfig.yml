@@ -31,8 +31,8 @@ ftlConfig:
 #生成文件路径
 codeGenFileConfig:
     baseDir: E:\05projectDev\willow
-    jspDir: /door/admin/productcatalog
-    jsDir:  /door/admin/js/productcatalog
+    jspDir: /door/admin/doorarticle
+    jsDir:  /door/admin/js/doorarticle
     outFileConfigs:
           - {refTemplate: domain, fileName: $classVar$.java,override: true,dir: \src\main\java\$packageVar$\domain}
           - {refTemplate: mapper, fileName: $classVar$Mapper.java,override: false,dir: \src\main\java\$packageVar$\mapper}
@@ -51,11 +51,11 @@ codeGenFileConfig:
           - {refTemplate: doordetailjs, fileName: detail.js,override: true,dir: \web\resources$jsDir$}
 #表配置信息
 table:
-    tableCode: t_door_product_catalog
-    tableName: 产品分类
-    classVar: ProductCatalog
-    packageVar: com.willow.door.admin.productcatalog
-    simplePackageVar: productcatalog
+    tableCode: t_door_article
+    tableName: 公司信息
+    classVar: DoorArticle
+    packageVar: com.willow.door.admin.doorarticle
+    simplePackageVar: doorarticle
 
 
 
