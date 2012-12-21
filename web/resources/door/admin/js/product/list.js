@@ -80,5 +80,14 @@ $(document).ready(function () {
         }
         });
     });
+    $("#queryOk").click(function () {
+        var formdata = $("#queryProductForm").serializeJson();
+        productGrid.query({params:formdata});
+    });
+
+    $("#queryReset").click(function () {
+        $("#queryProductForm").reSetForm();
+    });
+
 
 })

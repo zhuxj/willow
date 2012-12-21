@@ -17,8 +17,8 @@ $(document).ready(function () {
         showTableIndex:false, //是否显示表格行索引
         keyColumn:'objId',
         columns:[
-            {column:'catalogName', label:'分类名称', width:'50px'},
-            {column:'catalogNameEn', label:'分类英文名称', width:'50px'},
+                {column:'catalogName', label:'分类名称', width:'50px'},
+                {column:'catalogNameEn', label:'分类英文名称', width:'50px'},
             {column:'func', label:'操作', align:'center', width:'50px', headerCls:"cmp_tanle_tdc", cellCss:"cmp_tanle_tdc", actions:[
             {label:'编辑', action:function (record, keyField, grid, colNo, rowNo, cell) {
                 top.jq.workgroundManager.openPage({url:"/admin/productcatalog/updatePage?objId=" + record.objId,
@@ -73,5 +73,14 @@ $(document).ready(function () {
         }
         });
     });
+    $("#queryOk").click(function () {
+        var formdata = $("#queryProductCatalogForm").serializeJson();
+        productCatalogGrid.query({params:formdata});
+    });
+
+    $("#queryReset").click(function () {
+        $("#queryProductCatalogForm").reSetForm();
+    });
+
 
 })
