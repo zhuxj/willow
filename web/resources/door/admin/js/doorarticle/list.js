@@ -1,12 +1,12 @@
 /**
-*版权声明：${codeGenConfig.developerConfig.company!} 版权所有 违者必究
-*日    期： ${date!}
-*作    者： ${codeGenConfig.developerConfig.developer!}
+*版权声明：贤俊工作室 版权所有 违者必究
+*日    期： 2012-12-21
+*作    者： 朱贤俊
 */
 $(document).ready(function () {
-    var ${codeGenConfig.table.classVariable!}Grid = $.egrid({
-        container:'list${codeGenConfig.table.classVar!}Div', //放置表格的DIV
-        url:'/admin/${codeGenConfig.table.simplePackageVar!}/query', //表格数据获取的URL
+    var doorArticleGrid = $.egrid({
+        container:'listDoorArticleDiv', //放置表格的DIV
+        url:'/admin/doorarticle/query', //表格数据获取的URL
         params:{}, //数据查询条件
         sorts:{
         sortFieldName:'create_time',
@@ -17,26 +17,23 @@ $(document).ready(function () {
         showTableIndex:false, //是否显示表格行索引
         keyColumn:'objId',
         columns:[
-            <#list tableClass.fieldColumns as fieldColumn>
-            <#if  !fieldColumn.isIncludeField>
-                <#if fieldColumn.columnType!="TEXT">
-                {column:'${fieldColumn.javaProperty!}', label:'${fieldColumn.propName!}', width:'${fieldColumn.columnLength!}px'},
-                </#if>
-            </#if>
-            </#list>
+                {column:'articleCode', label:'文章编码', width:'50px'},
+                {column:'articleTitle', label:'文章中文标题', width:'50px'},
+                {column:'articleTitleSn', label:'文章英文标题', width:'50px'},
+                {column:'orderNo', label:'序号', width:'10px'},
             {column:'func', label:'操作', align:'center', width:'50px', headerCls:"cmp_tanle_tdc", cellCss:"cmp_tanle_tdc", actions:[
             {label:'编辑', action:function (record, keyField, grid, colNo, rowNo, cell) {
-                top.jq.workgroundManager.openPage({url:"/admin/${codeGenConfig.table.simplePackageVar!}/updatePage?objId=" + record.objId,
+                top.jq.workgroundManager.openPage({url:"/admin/doorarticle/updatePage?objId=" + record.objId,
                 onChanged:function () {
-                ${codeGenConfig.table.classVariable!}Grid.refresh();
+                doorArticleGrid.refresh();
                 }
                 });
             }
             },
             {label:'查看', action:function (record, keyField, grid, colNo, rowNo, cell) {
-                top.jq.workgroundManager.openPage({url:"/admin/${codeGenConfig.table.simplePackageVar!}/detailPage?objId=" + record.objId,
+                top.jq.workgroundManager.openPage({url:"/admin/doorarticle/detailPage?objId=" + record.objId,
                 onChanged:function () {
-                ${codeGenConfig.table.classVariable!}Grid.refresh();
+                doorArticleGrid.refresh();
                 }
                 });
             }
@@ -45,7 +42,7 @@ $(document).ready(function () {
         ],
         toolbars:[
         {label:'删除', action:function () {
-            var values = ${codeGenConfig.table.classVariable!}Grid.getCheckBoxValues();
+            var values = doorArticleGrid.getCheckBoxValues();
             if (values.length == 0) {
             alert("请先选择记录!");
             return false;
@@ -56,13 +53,13 @@ $(document).ready(function () {
             })
             if (confirm("确定要删除？")) {
                 $.localAjax({
-                    url:"/admin/${codeGenConfig.table.simplePackageVar!}/batchDel",
+                    url:"/admin/doorarticle/batchDel",
                     data:{objIds:objIdArr.join(",")},
                     dataType:"json",
                     type:"post",
                     success:function (result) {
                         if (result.success == "1") {
-                        ${codeGenConfig.table.classVariable!}Grid.refresh();
+                        doorArticleGrid.refresh();
                     }
                 }
                 })
@@ -71,10 +68,10 @@ $(document).ready(function () {
        }
         ]
     });
-    $("#add${codeGenConfig.table.classVar!}").click(function () {
-        top.jq.workgroundManager.openPage({url:"/admin/${codeGenConfig.table.simplePackageVar!}/addPage",
+    $("#addDoorArticle").click(function () {
+        top.jq.workgroundManager.openPage({url:"/admin/doorarticle/addPage",
         onChanged:function () {
-              ${codeGenConfig.table.classVariable!}Grid.refresh();
+              doorArticleGrid.refresh();
         }
         });
     });

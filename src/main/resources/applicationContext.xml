@@ -35,11 +35,6 @@
     <bean id="webSiteContext" class="com.willow.platform.core.context.WebSiteContext"
           p:version="${version}"></bean>
 
-    <!--消息资源文件-->
-    <bean id="messageSource"
-          class="org.springframework.context.support.ResourceBundleMessageSource"
-          p:basename="conf/messages"/>
-
     <bean id="dataSource"
           class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close"

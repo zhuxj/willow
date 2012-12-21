@@ -1,10 +1,14 @@
 delete from  sys_menu;
 INSERT INTO sys_menu(obj_id,create_time,update_time,user_id,menu_name,menu_code,parent_menu_id,order_no,menu_type,node_type,url,icon)
-VALUES ('68B001FA-F675-4470-888B-89F7FAFF15D7','20121216202800', '20121216202800', '1','门户管理','DOORMANAGER', 'ROOT', '1', '1','1','/admin/notice/showNoticeList', null);
+VALUES ('68B001FA-F675-4470-888B-89F7FAFF15D7','20121216202800', '20121216202800', '1','门户管理','DOORMANAGER', 'ROOT', '1', '1','1','/admin/doorarticle/listPage', null);
 INSERT INTO sys_menu(obj_id,create_time,update_time,user_id,menu_name,menu_code,parent_menu_id,order_no,menu_type,node_type,url,icon)
 VALUES ('68B001FA-F675-4470-888B-89F7FAFF15E7','20121216202800', '20121216202800', '1','门户管理','DOORMANAGER1', '68B001FA-F675-4470-888B-89F7FAFF15D7', '1', '1','1',null, null);
 INSERT INTO sys_menu(obj_id,create_time,update_time,user_id,menu_name,menu_code,parent_menu_id,order_no,menu_type,node_type,url,icon)
-VALUES ('68B001FA-F675-4470-888B-89F7FAFF15A7','20121216202800', '20121216202800', '1','公司信息','ARTICLE', '68B001FA-F675-4470-888B-89F7FAFF15E7', '1', '1','1','/admin/doorArticle/showDoorArticles', null);
+VALUES ('68B001FA-F675-4470-888B-89F7FAFF15A7','20121216202800', '20121216202800', '1','公司信息','ARTICLE', '68B001FA-F675-4470-888B-89F7FAFF15E7', '1', '1','1','/admin/doorarticle/listPage', null);
+INSERT INTO sys_menu(obj_id,create_time,update_time,user_id,menu_name,menu_code,parent_menu_id,order_no,menu_type,node_type,url,icon)
+VALUES ('68B001FA-F675-4470-888B-89F7FAFF15B7','20121216202800', '20121216202800', '1','商品分类','PRODUCT_CAT', '68B001FA-F675-4470-888B-89F7FAFF15E7', '1', '1','1','/admin/productcatalog/listPage', null);
+INSERT INTO sys_menu(obj_id,create_time,update_time,user_id,menu_name,menu_code,parent_menu_id,order_no,menu_type,node_type,url,icon)
+VALUES ('68B001FA-F675-4470-888B-89F7FAFF15C7','20121216202800', '20121216202800', '1','商品管理','PRODUCT_MANAGER', '68B001FA-F675-4470-888B-89F7FAFF15E7', '1', '1','1','/admin/product/listPage', null);
 
 
 
