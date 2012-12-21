@@ -8,8 +8,4 @@
     <packaging>pom</packaging>
     <description>willow</description>
     <version>1.0</version>
-    <modules>
-        <module>willow-core</module>
-        <module>willow-codegen</module>
-    </modules>
 </project>
