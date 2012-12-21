@@ -22,8 +22,31 @@ $(document).ready(function () {
         })
     }
 
+    var config={
+    reportMode:"alert",
+    formDiv:"productCatalogForm",
+    props:[
+        {
+            name:"catalogName",
+            label:"分类名称",
+            trim:true,
+            required:true
+        },
+        {
+            name:"catalogNameEn",
+            label:"分类英文名称",
+            trim:true,
+            required:true
+        }
+    ]
+    }
+    var checkValid = $.checkValid(config);//构建验证对象
+
+
     $("#updateProductCatalog").click(function () {
-         updateProductCatalog();
+    if(checkValid.checkAll()){
+        updateProductCatalog();
+    }
     });
 
     $("#_back").click(function () {
