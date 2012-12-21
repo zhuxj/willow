@@ -75,5 +75,14 @@ $(document).ready(function () {
         }
         });
     });
+    $("#queryOk").click(function () {
+        var formdata = $("#queryDoorArticleForm").serializeJson();
+        doorArticleGrid.query({params:formdata});
+    });
+
+    $("#queryReset").click(function () {
+        $("#queryDoorArticleForm").reSetForm();
+    });
+
 
 })

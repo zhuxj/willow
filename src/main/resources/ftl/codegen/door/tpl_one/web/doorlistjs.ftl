@@ -78,5 +78,14 @@ $(document).ready(function () {
         }
         });
     });
+    $("#queryOk").click(function () {
+        var formdata = $("#query${codeGenConfig.table.classVar!}Form").serializeJson();
+        ${codeGenConfig.table.classVariable!}Grid.query({params:formdata});
+    });
+
+    $("#queryReset").click(function () {
+        $("#query${codeGenConfig.table.classVar!}Form").reSetForm();
+    });
+
 
 })

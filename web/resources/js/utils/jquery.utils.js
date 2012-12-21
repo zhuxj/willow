@@ -1753,6 +1753,18 @@ jQuery.extend({
         });
         return param;
     }
+
+    /**
+     * 将表单元素变成json对象
+     */
+    $.fn.reSetForm = function () {
+        var fields = this.serializeArray();
+        var param = {};
+        $.each(fields, function (i, field) {
+            $("[name="+field.name+"]").val("");
+        });
+        return param;
+    }
     $.fn.extend({
         /**
          *title:按钮显示名称
