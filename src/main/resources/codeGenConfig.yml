@@ -41,14 +41,14 @@ codeGenFileConfig:
           - {refTemplate: dao, fileName: $classVar$Dao.java,override: false,dir: \src\main\java\$packageVar$\dao}
           - {refTemplate: service, fileName: $classVar$Service.java,override: false,dir: \src\main\java\$packageVar$\service}
           - {refTemplate: controller, fileName: $classVar$Controller.java,override: false,dir: \src\main\java\$packageVar$\web}
-          - {refTemplate: doorlistjsp, fileName: list.jsp,override: true,dir: \web\WEB-INF\views$jspDir$}
-          - {refTemplate: doorlistjs, fileName: list.js,override: true,dir: \web\resources$jsDir$}
-          - {refTemplate: dooraddjsp, fileName: add.jsp,override: true,dir: \web\WEB-INF\views$jspDir$}
-          - {refTemplate: dooraddjs, fileName: add.js,override: true,dir: \web\resources$jsDir$}
-          - {refTemplate: doorupdatejsp, fileName: update.jsp,override: true,dir: \web\WEB-INF\views$jspDir$}
-          - {refTemplate: doorupdatejs, fileName: update.js,override: true,dir: \web\resources$jsDir$}
-          - {refTemplate: doordetailjsp, fileName: detail.jsp,override: true,dir: \web\WEB-INF\views$jspDir$}
-          - {refTemplate: doordetailjs, fileName: detail.js,override: true,dir: \web\resources$jsDir$}
+          - {refTemplate: doorlistjsp, fileName: list.jsp,override: false,dir: \web\WEB-INF\views$jspDir$}
+          - {refTemplate: doorlistjs, fileName: list.js,override: false,dir: \web\resources$jsDir$}
+          - {refTemplate: dooraddjsp, fileName: add.jsp,override: false,dir: \web\WEB-INF\views$jspDir$}
+          - {refTemplate: dooraddjs, fileName: add.js,override: false,dir: \web\resources$jsDir$}
+          - {refTemplate: doorupdatejsp, fileName: update.jsp,override: false,dir: \web\WEB-INF\views$jspDir$}
+          - {refTemplate: doorupdatejs, fileName: update.js,override: false,dir: \web\resources$jsDir$}
+          - {refTemplate: doordetailjsp, fileName: detail.jsp,override: false,dir: \web\WEB-INF\views$jspDir$}
+          - {refTemplate: doordetailjs, fileName: detail.js,override: false,dir: \web\resources$jsDir$}
 #表配置信息
 table:
     tableCode: t_door_article
