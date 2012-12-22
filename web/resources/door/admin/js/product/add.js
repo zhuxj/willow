@@ -4,7 +4,23 @@
 *作    者： 朱贤俊
 */
 $(document).ready(function () {
+    /**
+     * 初始化编辑器
+     */
+    var editor = $.texteditor({
+        textArea:'#productDesc',
+        mode:'goods'
+    });
+
+    var editorEn = $.texteditor({
+        textArea:'#productDescEn',
+        mode:'goods'
+    });
+
+
     function saveProduct() {
+        editor.sync();
+        editorEn.sync();
         var obj = $("#productForm").serializeJson();
         $.localAjax({
             url:"/admin/product/save",

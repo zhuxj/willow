@@ -1,9 +1,11 @@
 /**
-* 版权声明：贤俊工作室 版权所有 违者必究
-* 日    期：2012-12-21
-*/
+ * 版权声明：贤俊工作室 版权所有 违者必究
+ * 日    期：2012-12-21
+ */
 package com.willow.door.admin.product.web;
 
+import com.willow.door.admin.productcatalog.domain.ProductCatalog;
+import com.willow.door.admin.productcatalog.service.ProductCatalogService;
 import com.willow.platform.core.Page;
 import com.willow.platform.core.PageParam;
 import com.willow.platform.core.base.web.BaseController;
@@ -21,19 +23,21 @@ import java.util.List;
 import java.util.Map;
 
 /**
-*
-<pre>
+ * <pre>
  * 产品信息控制层
  * </pre>
-*
-* @author 朱贤俊
-* @version 1.0
-*/
+ *
+ * @author 朱贤俊
+ * @version 1.0
+ */
 @Controller
 @RequestMapping(WebSiteContext.MANAGER + "admin/product")
 public class ProductController extends BaseController {
-@Autowired
-private ProductService productService;
+    @Autowired
+    private ProductService productService;
+    @Autowired
+    private ProductCatalogService productCatalogService;
+
 
     /**
      * 显示新增页面
@@ -44,6 +48,9 @@ private ProductService productService;
     @RequestMapping("/addPage")
     public ModelAndView addPage(Product product) {
         ModelAndView view = new ModelAndView("/door/admin/product/add");
+        ProductCatalog productCatalog = new ProductCatalog();
+        List<ProductCatalog> productCatalogs = productCatalogService.queryList(productCatalog);
+        view.addObject("productCatalogs", productCatalogs);
         return view;
     }
 
@@ -106,6 +113,9 @@ private ProductService productService;
         ModelAndView view = new ModelAndView("/door/admin/product/update");
         Product domain = productService.selectByObjId(product.getObjId());
         view.addObject("product", domain);
+        ProductCatalog productCatalog = new ProductCatalog();
+        List<ProductCatalog> productCatalogs = productCatalogService.queryList(productCatalog);
+        view.addObject("productCatalogs", productCatalogs);
         return view;
     }
 
@@ -157,7 +167,7 @@ private ProductService productService;
     /**
      * 查询记录
      *
-     * @param  product
+     * @param product
      * @param pageParam
      * @return
      */
@@ -168,11 +178,11 @@ private ProductService productService;
     }
 
     /**
-    * 显示详情页面
-    *
-    * @param objId
-    * @return
-    */
+     * 显示详情页面
+     *
+     * @param objId
+     * @return
+     */
     @RequestMapping("/detailPage")
     public ModelAndView detailPage(String objId) {
         ModelAndView view = new ModelAndView("/door/admin/product/detail");

@@ -6,6 +6,7 @@
 */
 %>
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -46,15 +47,31 @@
                 </tr>
                 <tr>
                     <th width="150"> 产品分类：</th>
-                    <td><input class="ipt_250" name="catalogId" id="catalogId" value="${product.catalogId}"></td>
+                    <td>
+                        <select class="ipt_250"  name="catalogId" id="catalogId">
+                            <option value="">请选择</option>
+                            <c:forEach items="${productCatalogs}" var="productCatalog">
+                                <option <c:if test="${productCatalog.objId==product.catalogId}"> selected="true"</c:if> value="${productCatalog.objId}">${productCatalog.catalogName}</option>
+                            </c:forEach>
+                        </select>
+
+                    </td>
                 </tr>
                 <tr>
                     <th width="150"> 产品中文详情：</th>
-                    <td><input class="ipt_250" name="productDesc" id="productDesc" value="${product.productDesc}"></td>
+                    <td>
+                        <textarea style="width: 100%; height: 300px;" name="productDesc" id="productDesc" class="textarea">
+                            ${product.productDesc}
+                        </textarea>
+                    </td>
                 </tr>
                 <tr>
                     <th width="150"> 产品英文详情：</th>
-                    <td><input class="ipt_250" name="productDescEn" id="productDescEn" value="${product.productDescEn}"></td>
+                    <td>
+                        <textarea style="width: 100%; height: 300px;" name="productDescEn" id="productDescEn" class="textarea">
+                            ${product.productDescEn}
+                        </textarea>
+                    </td>
                 </tr>
                 <tr>
                     <th width="150"> 产品图片：</th>

@@ -23,8 +23,8 @@ $(document).ready(function () {
                 {column:'productNorms', label:'产品中文规格', width:'50px'},
                 {column:'productNormsEn', label:'产品英文规格', width:'50px'},
                 {column:'productVersion', label:'产品型号', width:'50px'},
-                {column:'catalogId', label:'产品分类', width:'36px'},
-                {column:'productImage', label:'产品图片', width:'36px'},
+//                {column:'catalogId', label:'产品分类', width:'36px'},
+//                {column:'productImage', label:'产品图片', width:'36px'},
                 {column:'browseTime', label:'浏览次数', width:'10px'},
             {column:'func', label:'操作', align:'center', width:'50px', headerCls:"cmp_tanle_tdc", cellCss:"cmp_tanle_tdc", actions:[
             {label:'编辑', action:function (record, keyField, grid, colNo, rowNo, cell) {
