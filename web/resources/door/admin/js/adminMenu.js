@@ -13,7 +13,7 @@
             workground:"workground",
             loadMask:"loadMask",
             basePath:"",
-            defultUrl:"/index.jsp",
+            defultUrl:"/admin/website/showWebSiteEdit",
             url:"",
             historyManager:{},
             menuCode:"ROOT",

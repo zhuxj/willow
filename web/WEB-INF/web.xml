@@ -5,13 +5,13 @@
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
     <!--<error-page>-->
-        <!--<error-code>404</error-code>-->
-        <!--<location>/404.htm</location>-->
+    <!--<error-code>404</error-code>-->
+    <!--<location>/404.htm</location>-->
     <!--</error-page>-->
 
     <!--<error-page>-->
-        <!--<error-code>500</error-code>-->
-        <!--<location>/500.htm</location>-->
+    <!--<error-code>500</error-code>-->
+    <!--<location>/500.htm</location>-->
     <!--</error-page>-->
 
     <context-param>
@@ -50,4 +50,14 @@
         <filter-name>characterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <filter>
+        <filter-name>doorHttpFilter</filter-name>
+        <filter-class>com.willow.door.admin.DoorHttpFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>doorHttpFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 </web-app>

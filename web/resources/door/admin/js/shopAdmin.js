@@ -126,20 +126,15 @@ $(document).ready(function () {
      */
     function logout() {
         $.localAjax({
-            url:"/shopadmin/logout",
+            url:"/admin/logout",
             data:{},
             dataType:'json',
             type:'post',
             success:function () {
-                location.href = "/shopadmin/index.html";
+                location.href = "/admin/index";
             }
         });
     }
 
-    $("#manageIndexA").click(function () {
-        top.menuUtils.loadUrl({
-            url:"/shopadmin/showManageIndex"
-        })
-    })
 });
 

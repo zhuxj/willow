@@ -10,7 +10,7 @@ $(document).ready(function () {
         $("#userName").focus();
         $(".inputbox").live("keyup", function (event) {
             if (event.keyCode == 13) {
-                if ($(this).attr("id") == 'verifyCode') {
+                if ($(this).attr("id") == 'password') {
                     $('#logon').click();
                 } else {
                     $(this).parent().next().find(".inputbox").focus();
@@ -30,12 +30,6 @@ $(document).ready(function () {
                 label:"密码",
                 trim:true,
                 required:true
-            },
-            {
-                name:"verifyCode",
-                label:"验证码",
-                trim:true,
-                required:true
             }
         ]};
         var checkValid = $.checkValid(config);
@@ -45,14 +39,12 @@ $(document).ready(function () {
                 var userName = $("#userName").val();
                 var password = hex_sha1($("#password").val());
                 var logonId = $("#logonId").val();
-                var verifyCode = $("#verifyCode").val();
                 var data = {};
                 data.userName = userName;
                 data.pwd = password;
-                data.verifyCode = verifyCode;
                 data.logonId = logonId;
                 $.localAjax({
-                    url:"/shopadmin/onLogon",
+                    url:"/admin/onLogon",
                     data:data,
                     dataType:'json',
                     type:'post',
@@ -60,48 +52,18 @@ $(document).ready(function () {
                         logonend();
 
                         if (result && result.resultCode == "1") {
-                            location.href = "/shopadmin/index.html";
+                            location.href = "/admin/index";
                         }
-
-                        /*验证码错误*/
-                        if (typeof(result.resultCode) != "undefined") {
-                            if (result.resultCode =='2') {
-                                alert("验证码错误！");
-                                //获取图片验证码
-                                getCodeImage();
-                                //清空验证码
-                                $("#verifyCode").val("");
-                                return;
-                            }
-                        }
-
-                        /*密码不正确*/
-                        /*if (typeof(result.resultCode) != "undefined") {
-                            if (result.resultCode =='3') {
-                                alert("密码错误！");
-                                //获取图片验证码
-                                getCodeImage();
-
-                                //清空密码
-                                $("#password").val("");
-                                //清空验证码
-                                $("#verifyCode").val("");
-
-                                return;
-                            }
-                        }*/
 
                         /*用户名不正确*/
                         if (typeof(result.resultCode) != "undefined") {
-                            if (result.resultCode =='9'||result.resultCode =='3') {
+                            if (result.resultCode == '9' || result.resultCode == '3') {
                                 alert("用户名或者密码错误！");
                                 //获取图片验证码
                                 getCodeImage();
 
                                 //清空密码
                                 $("#password").val("");
-                                //清空验证码
-                                $("#verifyCode").val("");
 
                                 return;
                             }
@@ -116,19 +78,13 @@ $(document).ready(function () {
         $("#userName").val(userName);
     }
 
-    $("#imgRepeat").click(function(){
-        getCodeImage();
-        return false;
-    });
-    //获取图片验证码
-//    getCodeImage();
 });
 
 
 //正在登录
-function logoning(){
+function logoning() {
 
-    if($("#logon").hasClass("disabled")){
+    if ($("#logon").hasClass("disabled")) {
         return;
     }
     $("#logonLoading").show();
@@ -137,7 +93,7 @@ function logoning(){
 }
 
 //登录结束（不管是登录成功或者失败）
-function logonend(){
+function logonend() {
     $("#logon").removeClass("disabled");
     $("#logonLoading").hide();
 }
@@ -146,8 +102,8 @@ function logonend(){
  * 调用ajax去获取图片验证码
  * @param logonId
  */
-function getCodeImage(){
+function getCodeImage() {
     var logonId = $("#logonId").val();
-    $("#imgCode").attr("src","/shopadmin/getImageCode?logonId="+logonId+"&randomNum="+Math.random());
+    $("#imgCode").attr("src", "/shopadmin/getImageCode?logonId=" + logonId + "&randomNum=" + Math.random());
 }
 
