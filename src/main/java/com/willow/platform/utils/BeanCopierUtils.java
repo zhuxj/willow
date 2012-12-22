@@ -1,8 +1,8 @@
 /**
- * @(#)com.book.util.BeanCopierUtils
+ * @(#)com.willow.util.BeanCopierUtils
  * 2010-3-8
  * Copyright 2010 
- * Book软件公司, 版权所有 违者必究
+ * 软件公司, 版权所有 违者必究
  */
 package com.willow.platform.utils;
 

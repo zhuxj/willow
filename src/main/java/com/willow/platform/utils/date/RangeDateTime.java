@@ -1,8 +1,8 @@
 /**
- * @(#)com.book.util.date.RangeDate
+ * @(#)com.willow.util.date.RangeDate
  * 2009-7-21
  * Copyright 2009 
- * Book软件公司, 版权所有 违者必究
+ * 软件公司, 版权所有 违者必究
  */
 package com.willow.platform.utils.date;
 

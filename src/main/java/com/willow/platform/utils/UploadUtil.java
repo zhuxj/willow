@@ -1,8 +1,8 @@
 /**
- * @(#)com.book.util.UploadUtil
+ * @(#)com.willow.util.UploadUtil
  * 2009-5-3
  * Copyright 2009
- * Book软件公司, 版权所有 违者必究
+ * 软件公司, 版权所有 违者必究
  */
 package com.willow.platform.utils;
 

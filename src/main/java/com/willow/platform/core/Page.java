@@ -1,5 +1,5 @@
 /**
- * @(#)com.book.base.dao.Page
+ * @(#)com.willow.base.dao.Page
  * 2009-6-15
  * Copyright 2009 
  * Book软件公司, 版权所有 违者必究

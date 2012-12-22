@@ -1,8 +1,8 @@
 /**
- * @(#)com.book.util.IsbnCheckUtil
+ * @(#)com.willow.util.IsbnCheckUtil
  * 2009-8-28
  *Copyright 2009 
- *Book软件公司, 版权所有 违者必究
+ *软件公司, 版权所有 违者必究
  */
 package com.willow.platform.utils;
 

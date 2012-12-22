@@ -1,8 +1,8 @@
 /**
- * @(#)com.book.util.Arithmetic4Double
+ * @(#)com.willow.util.Arithmetic4Double
  * 2009-9-15
  * Copyright 2009 
- * Book软件公司, 版权所有 违者必究
+ * 软件公司, 版权所有 违者必究
  */
 package com.willow.platform.utils;
 
