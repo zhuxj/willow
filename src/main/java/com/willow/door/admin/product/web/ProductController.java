@@ -161,6 +161,9 @@ public class ProductController extends BaseController {
     @RequestMapping("/listPage")
     public ModelAndView listPage(Product product) {
         ModelAndView view = new ModelAndView("/door/admin/product/list");
+        ProductCatalog productCatalog = new ProductCatalog();
+        List<ProductCatalog> productCatalogs = productCatalogService.queryList(productCatalog);
+        view.addObject("productCatalogs", productCatalogs);
         return view;
     }
 

@@ -20,7 +20,7 @@
             <form name="query${codeGenConfig.table.classVar!}Form" id="query${codeGenConfig.table.classVar!}Form">
             <#list tableClass.fieldColumns as fieldColumn>
                 <#if  !fieldColumn.isIncludeField>
-                ${fieldColumn.propName!}：<input class="ipt_100" style="width: 90px;padding: 2px;"name="${fieldColumn.javaProperty!}"/>
+                ${fieldColumn.propName!}：<input class="ipt_100 mart_5" style="width: 90px;padding: 2px;"name="${fieldColumn.javaProperty!}"/>
                 </#if>
             </#list>
             </form>

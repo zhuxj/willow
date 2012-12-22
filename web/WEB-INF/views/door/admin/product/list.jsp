@@ -6,6 +6,7 @@
 */
 %>
 <%@ page language="java" pageEncoding="UTF-8" contentType="text/html; UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -18,17 +19,18 @@
     <div>
         <div>
             <form name="queryProductForm" id="queryProductForm">
-                产品编号：<input class="ipt_100" style="width: 90px;padding: 2px;"name="productSn"/>
-                产品中文名称：<input class="ipt_100" style="width: 90px;padding: 2px;"name="productName"/>
-                产品英文名称：<input class="ipt_100" style="width: 90px;padding: 2px;"name="productNameEn"/>
-                产品中文规格：<input class="ipt_100" style="width: 90px;padding: 2px;"name="productNorms"/>
+                产品编号：<input class="ipt_100 mart_5" style="width: 90px;padding: 2px;"name="productSn"/>
+                产品中文名称：<input class="ipt_100 mart_5" style="width: 90px;padding: 2px;"name="productName"/>
+                产品英文名称：<input class="ipt_100 mart_5" style="width: 90px;padding: 2px;"name="productNameEn"/>
+                产品中文规格：<input class="ipt_100 mart_5" style="width: 90px;padding: 2px;"name="productNorms"/>
                 产品英文规格：<input class="ipt_100" style="width: 90px;padding: 2px;"name="productNormsEn"/>
                 产品型号：<input class="ipt_100" style="width: 90px;padding: 2px;"name="productVersion"/>
-                产品分类：<input class="ipt_100" style="width: 90px;padding: 2px;"name="catalogId"/>
-                产品中文详情：<input class="ipt_100" style="width: 90px;padding: 2px;"name="productDesc"/>
-                产品英文详情：<input class="ipt_100" style="width: 90px;padding: 2px;"name="productDescEn"/>
-                产品图片：<input class="ipt_100" style="width: 90px;padding: 2px;"name="productImage"/>
-                浏览次数：<input class="ipt_100" style="width: 90px;padding: 2px;"name="browseTime"/>
+                产品分类：<select class="ipt_100 mart_5" style="width: 90px;padding: 2px;"  name="catalogId">
+                <option value="">请选择</option>
+                <c:forEach items="${productCatalogs}" var="productCatalog">
+                    <option value="${productCatalog.objId}">${productCatalog.catalogName}</option>
+                </c:forEach>
+                </select>
             </form>
         </div>
         <div style="text-align: center" class="mart_5">
