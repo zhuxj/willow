@@ -7,7 +7,7 @@
 package com.willow.platform.utils.date;
 
 /**
- * @author 陈少春
+ * @author 朱贤俊
  * @version 1.0
  */
 public class RangeDateTime {

@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author 陈少春
+ * @author 朱贤俊
  * @version 1.0
  */
  public abstract class BeanCopierUtils {

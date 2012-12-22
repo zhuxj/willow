@@ -9,7 +9,7 @@ package com.willow.platform.utils.date;
 import com.willow.platform.utils.DateUtils;
 
 /**
- * @author 陈少春
+ * @author 朱贤俊
  * @version 1.0
  */
 public class RangeDateUtils {

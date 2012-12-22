@@ -13,7 +13,7 @@ import java.io.File;
 /**
  * <per>文件上传工具类</per>
  *
- * @author 文建国
+ * @author 朱贤俊
  * @version 1.0
  */
 public class UploadUtil {

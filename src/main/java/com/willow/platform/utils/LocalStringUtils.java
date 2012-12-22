@@ -1015,7 +1015,7 @@ public class LocalStringUtils extends org.apache.commons.lang.StringUtils {
      * 将utf8编码的文本转换成GBK
      *
      * @param str
-     * @since 陈少春
+     * @since 朱贤俊
      */
     public static String utf8ToGBK(String str) {
         StringBuffer sb = new StringBuffer();

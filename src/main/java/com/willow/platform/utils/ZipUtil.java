@@ -6,15 +6,7 @@ import java.io.IOException;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-/**
- * @(#)$CurrentFile <br> Copyright:  Copyright (c) 2009
- * <br> @author 吴剑光
- * <br> 2009-10-23
- * <br> @version 1.0
- * ????????????????????????????????
- * package com.book.util;/**
- * <pre>实现字符串的压缩和解压缩</pre>
- */
+
 public class ZipUtil {
 
     /**

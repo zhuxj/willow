@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author 刘诗慧 * @version 1.0
+ * @author 朱贤俊 * @version 1.0
  *         功能说明：
  */
 public class JdbcUtils {

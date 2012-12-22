@@ -9,7 +9,7 @@ package com.willow.platform.utils;
 import org.apache.log4j.Logger;
 
 /**
- * @author <a href="mailto:javawen@gmail.com">文建国 </a>
+ * @author <a href="mailto:javawen@gmail.com">朱贤俊 </a>
  * @version 1.0
  */
 public class IsbnVailidateUtil {

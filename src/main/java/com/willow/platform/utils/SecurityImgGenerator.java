@@ -14,7 +14,7 @@ import java.awt.image.BufferedImage;
 import java.util.Random;
 
 /**
- * @author 陈少春
+ * @author 朱贤俊
  * @version 1.0
  */
 public class SecurityImgGenerator {
