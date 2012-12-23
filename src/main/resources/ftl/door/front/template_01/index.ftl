@@ -3,9 +3,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>${webSite.websiteTitle}</title>
-    <meta name="keywords" content="${webSite.websiteKeyword}">
-    <meta name="description" content="${webSite.websiteDesc}">
+    <title><#if customDirectives.isEnglish>${webSite.websiteTitleEn}<#else>${webSite.websiteTitle}</#if></title>
+    <meta name="keywords" content="<#if customDirectives.isEnglish>${webSite.websiteKeywordEn}<#else>${webSite.websiteKeyword}</#if>">
+    <meta name="description" content="<#if customDirectives.isEnglish>${webSite.websiteDescEn}<#else>${webSite.websiteDesc}</#if>">
 <#include "*/common.ftl">
 </head>
 <body>

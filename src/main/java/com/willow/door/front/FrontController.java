@@ -40,11 +40,21 @@ public class FrontController extends BaseController {
     @RequestMapping("/index")
     public ResponseEntity<String> index(HttpServletRequest request) {
         Map<String, Object> map = new HashMap<String, Object>();
+        String template = "template_01";
+        setCommon(request, map);
+        return makeResponseEntity(formatContent("/door/front/" + template + "/index", map));
+    }
+
+    /**
+     * 设置公共信息
+     *
+     * @param request
+     * @param map
+     */
+    private void setCommon(HttpServletRequest request, Map<String, Object> map) {
         map.put("webSite", getWebSite());
         map.put("request", request);
-        String template = "template_01";
         map.put("extMap", map);
-        return makeResponseEntity(formatContent("/door/front/" + template + "/index", map));
     }
 
     private WebSite getWebSite() {

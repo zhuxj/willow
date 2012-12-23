@@ -37,8 +37,7 @@
         <#--CurrentLi-->
         <#list channels as channel>
             <li>
-                <a href="${channel.channelUrl!}"><#if customDirectives.isEnglish>${channel.channelNameEn!}<#else>${channel.channelName!}<p>${channel.channelNameEn!}</p>
-                </#if>
+                <a href="${channel.channelUrl!}"><#if customDirectives.isEnglish>${channel.channelNameEn!}<#else>${channel.channelName!}<p>${channel.channelNameEn!}</p></#if>
             </a></li>
         </#list>
         </ul>
