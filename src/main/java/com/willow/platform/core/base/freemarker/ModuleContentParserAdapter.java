@@ -23,7 +23,7 @@ public abstract class ModuleContentParserAdapter implements ModuleContentParser 
     @Autowired
     private FtlParser ftlParser;
 
-    public String loadModule(String companyId, String moduleCode, Map<String, Object> extParamMap) {
+    public String loadModule(String moduleCode, Map<String, Object> extParamMap) {
         Map<String, Object> map = loadModuleData(moduleCode, extParamMap);
         if (map == null) {
             map = new HashMap<String, Object>();

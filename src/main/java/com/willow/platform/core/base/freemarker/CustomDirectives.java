@@ -49,7 +49,7 @@ public class CustomDirectives implements ApplicationContextAware {
      * @param moduleCode
      * @return
      */
-    public String LoadModule(String moduleCode, Map<String, Object> extParamMap) {
+    public String loadModule(String moduleCode, Map<String, Object> extParamMap) {
         ModuleContentParser moduleContentParser = null;
         String errorInfo = null;
         if (moduleParserMap.containsKey(moduleCode)) {
