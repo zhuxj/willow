@@ -6,6 +6,8 @@ package com.willow.platform.codegen.ant;
 
 import com.willow.platform.codegen.CodegenManager;
 import org.apache.tools.ant.Project;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * <pre>
@@ -16,12 +18,25 @@ import org.apache.tools.ant.Project;
  * @version 1.00
  */
 public class CodegenTask {
+    /**
+     * 日志记录
+     */
+    private final static Logger logger = LoggerFactory.getLogger(CodegenTask.class);
+    /**
+     * 代码生成器配置文件，相对于工程目录
+     */
     private String codeGenConfig;
+    /**
+     * ant工程对象
+     */
     private Project project;
 
+    /**
+     * ant任务的执行方法
+     */
     public void execute() {
         String baseDir = project.getBaseDir().getPath();
-        System.out.println(baseDir);
+        logger.info(baseDir);
         CodegenManager codegenManager = new CodegenManager();
         String codegenConfigPath = baseDir + codeGenConfig;
         try {

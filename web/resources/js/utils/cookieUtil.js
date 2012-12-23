@@ -255,6 +255,14 @@ function getCurrentMenu() {
     return current;
 }
 
+/**
+ * 设置语言
+ * @param locale
+ */
+function setLocale(locale) {
+    $.cookie("clientLanguage", locale, {expires:30, path:'/'});
+}
+
 
 
 

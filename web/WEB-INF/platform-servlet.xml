@@ -12,11 +12,6 @@
       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-    <!--消息资源文件-->
-    <bean id="messageSource"
-          class="org.springframework.context.support.ResourceBundleMessageSource"
-          p:basename="i18n/messages"/>
-
     <!--扫描Web类包-->
     <context:component-scan base-package="com.willow.platform">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>

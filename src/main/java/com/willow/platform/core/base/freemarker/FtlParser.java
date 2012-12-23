@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.ui.freemarker.FreeMarkerTemplateUtils;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Map;
 
@@ -37,6 +38,9 @@ public class FtlParser {
      */
     @Autowired
     private FreeMarkerConfigurer freeMarkerConfigurer;
+    @Autowired
+    private CustomDirectives customDirectives;
+
 
     /**
      * 根据FreeMarker模板格式化数据模型
@@ -50,9 +54,9 @@ public class FtlParser {
         ftlBaseName += ".ftl";
         try {
             freeMarkerConfigurer.getConfiguration().setSharedVariable("resourceRoot", WebSiteContext.ctx().getResourceRoot());
-//            freeMarkerConfigurer.getConfiguration().setSharedVariable("customDirectives", customDirectives);
-//            freeMarkerConfigurer.getConfiguration().setSharedVariable("imageServer", WebSiteContext.ctx().getImageServerUrl());
-
+            HttpServletRequest request = (HttpServletRequest) map.get("request");
+            customDirectives.setRequest(request);
+            freeMarkerConfigurer.getConfiguration().setSharedVariable("customDirectives", customDirectives);
 
             Template tpl = freeMarkerConfigurer.getConfiguration().getTemplate(ftlBaseName);
             return FreeMarkerTemplateUtils.processTemplateIntoString(tpl, map);

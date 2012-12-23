@@ -130,6 +130,12 @@
         </property>
     </bean>
 
+    <!--消息资源文件-->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ResourceBundleMessageSource"
+          p:basename="i18n/messages"/>
+
+
     <!-- 异步任务执行器 -->
     <bean id="taskExecutor"
           class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor"
