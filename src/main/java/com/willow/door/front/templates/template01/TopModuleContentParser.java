@@ -4,10 +4,12 @@
  */
 package com.willow.door.front.templates.template01;
 
+import com.willow.door.front.templates.Channel;
 import com.willow.platform.core.base.freemarker.ModuleContentParserAdapter;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,8 +25,8 @@ public class TopModuleContentParser extends ModuleContentParserAdapter {
     @Override
     public Map<String, Object> loadModuleData(String moduleCod, Map<String, Object> extParamMap) {
         Map<String, Object> map = new HashMap<String, Object>();
-
-
+        List<Channel> channels = Channel.channels;
+        map.put("channels", channels);
         return map;
     }
 

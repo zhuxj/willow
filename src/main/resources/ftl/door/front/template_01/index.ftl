@@ -10,11 +10,6 @@
 </head>
 <body>
 <div id="wrapper">
-<#if customDirectives.isEnglish>
-    dd
-<#else>
-    订单
-</#if>
     <!--head start-->
     <div id="head">
     ${customDirectives.loadModule("top",extMap)}

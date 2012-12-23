@@ -34,13 +34,13 @@
     <div class="NavBG">
         <!--Head Menu Start-->
         <ul id="sddm">
-            <li class="CurrentLi"><a href="/">网站首页<p>home</p></a></li>
-            <li><a href="">关于公司<p>about</p></a></li>
-            <li><a href="">产品展示<p>product</p></a></li>
-            <li><a href="">质检中心<p>news</p></a></li>
-            <li><a href="">下载中心<p>news</p></a></li>
-            <li><a href="">OEM/ODM合作<p>news</p></a></li>
-            <li><a href="">在线订购<p>news</p></a></li>
+        <#--CurrentLi-->
+        <#list channels as channel>
+            <li>
+                <a href="${channel.channelUrl!}"><#if customDirectives.isEnglish>${channel.channelNameEn!}<#else>${channel.channelName!}<p>${channel.channelNameEn!}</p>
+                </#if>
+            </a></li>
+        </#list>
         </ul>
         <!--Head Menu End-->
     </div>
