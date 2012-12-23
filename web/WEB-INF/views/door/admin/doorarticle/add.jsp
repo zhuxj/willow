@@ -39,13 +39,20 @@
                     <th width="150">
                     <em class="fstar">*</em>文章中文内容：
                     </th>
-                    <td><input class="ipt_250" name="articleContent" id="articleContent"></td>
+                    <td>
+                        <textarea style="width: 100%; height: 300px;" name="articleContent" id="articleContent" class="textarea">
+                        </textarea>
+
+                    </td>
                 </tr>
                 <tr>
                     <th width="150">
                     <em class="fstar">*</em>文章英文内容：
                     </th>
-                    <td><input class="ipt_250" name="articleContentEn" id="articleContentEn"></td>
+                    <td>
+                        <textarea style="width: 100%; height: 300px;" name="articleContentEn" id="articleContentEn" class="textarea">
+                        </textarea>
+                    </td>
                 </tr>
                 <tr>
                     <th width="150">
