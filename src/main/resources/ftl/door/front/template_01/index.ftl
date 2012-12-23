@@ -4,9 +4,18 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title><#if customDirectives.isEnglish>${webSite.websiteTitleEn}<#else>${webSite.websiteTitle}</#if></title>
-    <meta name="keywords" content="<#if customDirectives.isEnglish>${webSite.websiteKeywordEn}<#else>${webSite.websiteKeyword}</#if>">
-    <meta name="description" content="<#if customDirectives.isEnglish>${webSite.websiteDescEn}<#else>${webSite.websiteDesc}</#if>">
+    <meta name="keywords"
+          content="<#if customDirectives.isEnglish>${webSite.websiteKeywordEn}<#else>${webSite.websiteKeyword}</#if>">
+    <meta name="description"
+          content="<#if customDirectives.isEnglish>${webSite.websiteDescEn}<#else>${webSite.websiteDesc}</#if>">
 <#include "*/common.ftl">
+<#if customDirectives.isEnglish>
+    <script src="${resourceRoot}/door/front/js/template_01/en_functions.js" type="text/javascript"></script>
+    <script src="${resourceRoot}/door/front/js/template_01/en_ScrollPic.js" type="text/javascript"></script>
+<#else>
+    <script src="${resourceRoot}/door/front/js/template_01/functions.js" type="text/javascript"></script>
+    <script src="${resourceRoot}/door/front/js/template_01/ScrollPic.js" type="text/javascript"></script>
+</#if>
 </head>
 <body>
 <div id="wrapper">

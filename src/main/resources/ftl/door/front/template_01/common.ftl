@@ -10,4 +10,5 @@
 <script src="${resourceRoot}/js/utils/cookieUtil.js" type="text/javascript"></script>
 <script src="${resourceRoot}/js/utils/ajax.js" type="text/javascript"></script>
 <script src="${resourceRoot}/door/front/js/locale.js" type="text/javascript"></script>
+<script src="${resourceRoot}/door/front/js/template_01/iepngfix_tilebg.js" type="text/javascript"></script>
 

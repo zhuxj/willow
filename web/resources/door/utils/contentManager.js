@@ -135,16 +135,11 @@ ContentManager.prototype.onComplete = function (response, status, xhr) {
         if (result.noLogon == 'NOLOGON') {
             var uuid = result.uuid;
             var orignUrl = result.orignUrl;
-            if (result.type == "shopadmin") {
+            if (result.type == "admin") {
                 $.showLogonDialog(uuid, orignUrl, function () {
                     contentManagerObj.loadUrl(contentManagerObj.opt);
                 });
-            } else {
-                $.showFrontLogonDialog(uuid, orignUrl, function () {
-                    contentManagerObj.loadUrl(contentManagerObj.opt);
-                });
             }
-
         } else {
             var errorInfo = $('<div class="error">页面未找到...</div>');
             $('body').append(errorInfo);

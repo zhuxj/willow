@@ -31,16 +31,8 @@ jQuery.extend({
                     var result = $.evalJSON(jqXHR.responseText);
                     var uuid = result.uuid;
                     var orignUrl = result.orignUrl;
-                    if (result.type == "shopadmin") {
+                    if (result.type == "admin") {
                         $.showLogonDialog(uuid, orignUrl, function () {
-                            $.localAjax(a);
-                        });
-                    } else if(result.type == "member") {
-                        $.showFrontLogonDialog(uuid, orignUrl, function () {
-                            $.localAjax(a);
-                        });
-                    }else{
-                        $.showDistributorLogonDialog(uuid, orignUrl, function () {
                             $.localAjax(a);
                         });
                     }
