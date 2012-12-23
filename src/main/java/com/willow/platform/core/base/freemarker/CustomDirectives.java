@@ -44,6 +44,42 @@ public class CustomDirectives implements ApplicationContextAware {
     }
 
     /**
+     * 加载主页模块内容
+     *
+     * @param moduleCode
+     * @return
+     */
+    public String LoadModule(String moduleCode, Map<String, Object> extParamMap) {
+        ModuleContentParser moduleContentParser = null;
+        String errorInfo = null;
+        if (moduleParserMap.containsKey(moduleCode)) {
+            moduleContentParser = moduleParserMap.get(moduleCode);
+        } else {//缓存解析器
+            Object bean = null;
+            try {
+                bean = applicationContext.getBean(moduleCode);
+                moduleContentParser = (ModuleContentParser) bean;
+                moduleParserMap.put(moduleCode, moduleContentParser);
+            } catch (BeansException e) {
+                errorInfo = "没有" + moduleCode + "对应的模块解析类！";
+                logger.error(errorInfo);
+            }
+        }
+        if (errorInfo != null) {
+            return errorInfo;
+        }
+        try {
+            String content = null;
+            content = moduleContentParser.loadModule(moduleCode, extParamMap);
+            return content;
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(moduleCode + "模块解析异常:" + e.getStackTrace());
+            return "模块[" + moduleCode + "]解析异常!";
+        }
+    }
+
+    /**
      * 是否为英文
      *
      * @return

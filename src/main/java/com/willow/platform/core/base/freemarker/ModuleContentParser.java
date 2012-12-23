@@ -16,9 +16,9 @@ import java.util.Map;
  * @version 1.00
  */
 public interface ModuleContentParser {
-    public String loadModule(String companyId, String moduleCode, Map<String, Object> extParamMap);
+    public String loadModule(String moduleCode, Map<String, Object> extParamMap);
 
-    public Map<String, Object> loadModuleData(String companyId, String moduleCod, Map<String, Object> extParamMap);
+    public Map<String, Object> loadModuleData(String moduleCod, Map<String, Object> extParamMap);
 
     public String getModuleCode();
 

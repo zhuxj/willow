@@ -24,10 +24,11 @@ public abstract class ModuleContentParserAdapter implements ModuleContentParser 
     private FtlParser ftlParser;
 
     public String loadModule(String companyId, String moduleCode, Map<String, Object> extParamMap) {
-        Map<String, Object> map = loadModuleData(companyId, moduleCode, extParamMap);
+        Map<String, Object> map = loadModuleData(moduleCode, extParamMap);
         if (map == null) {
             map = new HashMap<String, Object>();
         }
+        map.putAll(extParamMap);
         return ftlParser.formatContent(getModuleFtlBaseName(), map);
     }
 

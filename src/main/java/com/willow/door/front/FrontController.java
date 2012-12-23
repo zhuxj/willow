@@ -43,6 +43,7 @@ public class FrontController extends BaseController {
         map.put("webSite", getWebSite());
         map.put("request", request);
         String template = "template_01";
+        map.put("extMap", map);
         return makeResponseEntity(formatContent("/door/front/" + template + "/index", map));
     }
 
