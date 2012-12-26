@@ -1,0 +1,63 @@
+!!com.willow.codegen.model.codegenconfig.CodeGenConfig
+#数据库配置
+databaseConfig:
+    url:    jdbc:mysql://localhost:3306/platform?useUnicode=true&characterEncoding=UTF-8
+    userName:   book
+    password:   book
+#开发者信息配置
+developerConfig:
+    developer: 朱贤俊
+    company: 贤俊工作室
+    version: 1.0
+#模板信息
+ftlConfig:
+    basePath: codegen/door/tpl_one/
+    templateConfigs:
+         - {id: domain,name: doordomain.ftl}
+         - {id: mapper,name: doormapper.ftl}
+         - {id: mapper.xml,name: doormapper.xml.ftl}
+         - {id: mapper.ext.xml,name: doormapper.ext.xml.ftl}
+         - {id: dao,name: doordao.ftl}
+         - {id: service,name: doorservice.ftl}
+         - {id: controller,name: doorcontroller.ftl}
+         - {id: doorlistjsp,name: web/doorlistjsp.ftl}
+         - {id: doorlistjs,name: web/doorlistjs.ftl}
+         - {id: dooraddjsp,name: web/dooraddjsp.ftl}
+         - {id: dooraddjs,name: web/dooraddjs.ftl}
+         - {id: doorupdatejsp,name: web/doorupdatejsp.ftl}
+         - {id: doorupdatejs,name: web/doorupdatejs.ftl}
+         - {id: doordetailjsp,name: web/doordetailjsp.ftl}
+         - {id: doordetailjs,name: web/doordetailjs.ftl}
+#生成文件路径
+codeGenFileConfig:
+    baseDir: E:\05projectDev\willow
+    jspDir: /door/admin/doorarticle
+    jsDir:  /door/admin/js/doorarticle
+    pageType: admin
+    outFileConfigs:
+          - {refTemplate: domain, fileName: $classVar$.java,override: true,dir: \src\main\java\$packageVar$\domain}
+          - {refTemplate: mapper, fileName: $classVar$Mapper.java,override: false,dir: \src\main\java\$packageVar$\mapper}
+          - {refTemplate: mapper.xml, fileName: $classVar$.mapper.xml,override: true,dir: \src\main\java\$packageVar$\mapper}
+#          - {refTemplate: mapper.ext.xml, fileName: $classVar$.mapper.ext.xml,override: false,dir: \src\main\java\$packageVar$\mapper}
+          - {refTemplate: dao, fileName: $classVar$Dao.java,override: false,dir: \src\main\java\$packageVar$\dao}
+          - {refTemplate: service, fileName: $classVar$Service.java,override: false,dir: \src\main\java\$packageVar$\service}
+          - {refTemplate: controller, fileName: $classVar$Controller.java,override: false,dir: \src\main\java\$packageVar$\web}
+          - {refTemplate: doorlistjsp, fileName: list.jsp,override: false,dir: \web\WEB-INF\views$jspDir$}
+          - {refTemplate: doorlistjs, fileName: list.js,override: false,dir: \web\resources$jsDir$}
+          - {refTemplate: dooraddjsp, fileName: add.jsp,override: false,dir: \web\WEB-INF\views$jspDir$}
+          - {refTemplate: dooraddjs, fileName: add.js,override: false,dir: \web\resources$jsDir$}
+          - {refTemplate: doorupdatejsp, fileName: update.jsp,override: false,dir: \web\WEB-INF\views$jspDir$}
+          - {refTemplate: doorupdatejs, fileName: update.js,override: false,dir: \web\resources$jsDir$}
+          - {refTemplate: doordetailjsp, fileName: detail.jsp,override: false,dir: \web\WEB-INF\views$jspDir$}
+          - {refTemplate: doordetailjs, fileName: detail.js,override: false,dir: \web\resources$jsDir$}
+#表配置信息
+table:
+    tableCode: t_door_article
+    tableName: 公司信息
+    classVar: DoorArticle
+    packageVar: com.willow.door.admin.doorarticle
+    simplePackageVar: doorarticle
+
+
+
+

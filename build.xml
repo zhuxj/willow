@@ -31,16 +31,6 @@
         <pathelement location="${src.build.dir}"/>
     </path>
 
-    <taskdef name="codeGenTask"
-             classname="com.willow.platform.codegen.ant.CodegenTask">
-        <classpath refid="compile.classpath"></classpath>
-    </taskdef>
-    <!--代码生成任务-->
-    <target name="codeGen" description="代码生成器" depends="compile">
-        <codeGenTask codegenconfig="/src/main/resources/codeGenConfig.yml">
-        </codeGenTask>
-    </target>
-
     <!-- 清空发布目录 -->
     <target name="clean" description="清空发布目录">
         <delete dir="${src.build.dir}"/>
