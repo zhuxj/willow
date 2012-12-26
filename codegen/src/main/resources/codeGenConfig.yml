@@ -28,6 +28,13 @@ ftlConfig:
          - {id: doorupdatejs,name: web/doorupdatejs.ftl}
          - {id: doordetailjsp,name: web/doordetailjsp.ftl}
          - {id: doordetailjs,name: web/doordetailjs.ftl}
+#表配置信息
+table:
+    tableCode: t_door_article
+    tableName: 公司信息
+    classVar: DoorArticle
+    packageVar: com.willow.door.admin.doorarticle
+    simplePackageVar: doorarticle
 #生成文件路径
 codeGenFileConfig:
     baseDir: E:\05projectDev\willow
@@ -50,13 +57,7 @@ codeGenFileConfig:
           - {refTemplate: doorupdatejs, fileName: update.js,override: false,dir: \web\resources$jsDir$}
           - {refTemplate: doordetailjsp, fileName: detail.jsp,override: false,dir: \web\WEB-INF\views$jspDir$}
           - {refTemplate: doordetailjs, fileName: detail.js,override: false,dir: \web\resources$jsDir$}
-#表配置信息
-table:
-    tableCode: t_door_article
-    tableName: 公司信息
-    classVar: DoorArticle
-    packageVar: com.willow.door.admin.doorarticle
-    simplePackageVar: doorarticle
+
 
 
 
